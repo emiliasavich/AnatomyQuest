@@ -1,0 +1,30 @@
+# Jekyll build folder
+_site/
+
+# Jekyll configuration
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby / Bundler
+.bundle/
+vendor/bundle/
+vendor
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor temporary files
+*~
+*.swp
+*.swo
+*.tmp
+
+# Logs
+*.log
+
+# Other temp files
+.sass-cache/
+.cache/
+
