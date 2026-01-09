@@ -1,0 +1,22 @@
+details summary {
+  cursor: pointer;
+  list-style: none; /* remove default triangle in some browsers */
+}
+
+/* Base style for the toggle */
+details summary::after {
+  content: "＋";
+  margin-right: 0.5em;
+  float: right;
+  transition: transform 0.3s ease; /* smooth rotation */
+  display: inline-block;  /* needed for transform */
+}
+
+/* Rotate the + when the details is open */
+details[open] summary::after {
+  transform: rotate(45deg); /* rotates the + */
+}
+
+.nav__grandchild {
+
+}

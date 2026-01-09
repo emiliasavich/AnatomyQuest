@@ -18,18 +18,49 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+locale: "en-US"
 title: Anatomy Study Sheets
+subtitle: Powered by CommuniQuest
 email: emiliasavich@gmail.com
+name: "Emilia Savich"
 description: >- # this means to ignore newlines until "baseurl:"
   Anatomy study sheets created in conjunction with CommuniQuest YouTube videos.
 url: "https://emiliasavich.github.io/Anatomy" # the base hostname & protocol for your site, e.g. http://example.com
+repository: "emiliasavich/Anatomy"
 # twitter_username: jekyllrb
 # github_username:  jekyll
 
+
+# author info
+author:
+  name: CommuniQuest
+  avatar: "/assets/images/WebsiteAvatar.png"
+  bio: >-
+    Refining the art of impactful speech.
+
 # Build settings
 theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "dirt"
 plugins:
   - jekyll-feed
+
+
+# Footer
+footer:
+  links:
+    - label: "YouTube"
+      icon: "fab fa-youtube"
+      url: "https://youtube.com/@yourchannel"
+copyright: "CC BY-SA 4.0 – CommuniQuest"
+copyright_url: "https://creativecommons.org/licenses/by-sa/4.0/"
+
+
+atom_feed:
+  hide: true
+
+
+sidebar:
+  nav_style: collapsible
 
 # Exclude from processing.
 # The following items will not be processed, by default.

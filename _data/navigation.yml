@@ -1,0 +1,39 @@
+# main links
+main:
+  - title: "About"
+    url: /about/
+      #- title: "Terms &amp; Privacy Policy"
+      #url: /terms/
+
+# documentation links
+pages:
+  - title: Getting Started
+    children:
+      - title: "Effective Learning Methods"
+        url: /pages/effective_learning_methods/
+        children:
+          - title: "Learning Bones"
+            url: /pages/effective_learning_methods/bones/
+  - title: Upper Limb
+    children:
+      - title: "Bones"
+        url: /pages/upper_limb/bones/
+        children:
+          - title: "Humerus"
+            url: /pages/upper_limb/bones/humerus/
+  - title: Lower Limb
+    children:
+      - title: "Bones"
+        url: /pages/lower_limb/bones/
+        children:
+          - title: "Femur"
+            url: /pages/lower_limb/bones/femur/
+  - title: Entire Body
+    children:
+      - title: "Bones"
+        url: /pages/all_pages/bones/
+        children:
+          - title: "Humerus"
+            url: /pages/upper_limb/bones/humerus/
+          - title: "Femur"
+            url: /pages/lower_limb/bones/femur/
