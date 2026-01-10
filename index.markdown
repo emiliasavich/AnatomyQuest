@@ -3,9 +3,11 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: directory
-slug: home
-#layout: single
-#layout: home
+directory_children_order:
+ - getting_started
+ - upper_limb
+ - lower_limb
+ - entire_body
 author_profile: true
 ---
 
