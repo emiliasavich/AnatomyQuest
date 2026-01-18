@@ -17,6 +17,9 @@
     {% assign crumbs = page.url | split: '/' %}
     {% assign i = 1 %}
     {% for crumb in crumbs offset: 1 %}
+      {% if crumb == "Anatomy" %}
+        {% continue %}
+      {% endif %}
       {% assign crumb_path = crumb_path | append: '/' | append: crumb %}  
       {% if forloop.first %}
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
