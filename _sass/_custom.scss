@@ -1,3 +1,21 @@
+/*******************************
+So that text isn't so big
+******************************/
+.page__content {
+  font-size: 0.8rem;
+}
+
+/*******************************
+Page styles
+*******************************/
+.step {
+  margin-bottom: 2em;
+}
+.mnemonic {
+  font-style: italic;
+  font-weight: bold;
+}
+
 /********************************
 Sidebar
 ********************************/

@@ -4,7 +4,41 @@ title: About
 permalink: /about/
 ---
 
-Test
+<div>
+
+  <p>
+    <strong>Comprehensive note sheets that help you see the big picture.</strong>
+  </p>
+
+  <p>
+    Each study sheet on this site is designed to promote understanding rather than rote memorization.
+    The goal is to focus on the <em>why</em> behind anatomical structures, not just the <em>what</em>, to make
+    knowledge more meaningful and easier to retain.
+  </p>
+
+  <p>
+    For example, instead of simply asking
+    <em>“What is the greater tubercle of the humerus?”</em>,
+    these sheets encourage you to ask
+    <em>“Why is the greater tubercle a named structure, and what role does it play?”</em>
+  </p>
+
+  <h2>About the Creator</h2>
+
+  <p>
+    CommuniQuest is created by a learner with an interest in understanding how
+    complex material can be clearly and effectively explained.
+  </p>
+
+  <h2>Feedback</h2>
+
+  <p>
+    If you have suggestions for improving this website or its study sheets, please share them at
+    <a href="mailto:communiquesting@gmail.com">communiquesting@gmail.com</a>.
+  </p>
+
+</div>
+
 
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
