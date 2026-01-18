@@ -15,12 +15,8 @@
 <nav class="breadcrumbs">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
     {% assign crumbs = page.url | split: '/' %}
-    <p>Crumbs: {{ crumbs | join: ', ' }}</p>
     {% assign i = 1 %}
     {% for crumb in crumbs offset: 1 %}
-      {% if crumb == "Anatomy" %}
-        {% continue %}
-      {% endif %}
       {% assign crumb_path = crumb_path | append: '/' | append: crumb %}  
       {% if forloop.first %}
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -51,7 +47,7 @@
             {% endif %}
         {% endfor %}
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="{{ crumb_path | absolute_url }}" itemprop="item"><span itemprop="name">{{ capitalized_words }}</span></a>
+          <a href="{{ crumb_path | prepend: site.url | relative_url }}" itemprop="item"><span itemprop="name">{{ capitalized_words }}</span></a>
           <meta itemprop="position" content="{{ i }}" />
         </li>
         <span class="sep">{{ site.data.ui-text[site.locale].breadcrumb_separator | default: "/" }}</span>
