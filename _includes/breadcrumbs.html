@@ -15,6 +15,7 @@
 <nav class="breadcrumbs">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
     {% assign crumbs = page.url | split: '/' %}
+    <p>Crumbs: {{ crumbs | join: ', ' }}</p>
     {% assign i = 1 %}
     {% for crumb in crumbs offset: 1 %}
       {% if crumb == "Anatomy" %}
