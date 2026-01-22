@@ -33,7 +33,7 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
       <li>
         <strong>Long:</strong> Functions as a lever that enables large movements.
         <figure>
-          <img src="/assets/images/bones/humerus/Humerus - anterior view.png" alt="Humerus">
+          <img src="{{ '/assets/images/bones/humerus/Humerus - anterior view.png' | relative_url}}" alt="Humerus">
           <figcaption>Humerus</figcaption>
         </figure>
       </li>
