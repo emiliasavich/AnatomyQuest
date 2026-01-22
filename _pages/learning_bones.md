@@ -30,38 +30,38 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
 
     <h3>Common Shapes:</h3>
     <ul class="shape-list">
-      <li>
-        <strong>Long:</strong> Functions as a lever that enables large movements.
-        <figure>
-          <img src="{{ '/assets/images/bones/humerus/Humerus - anterior view.png' | relative_url}}" alt="Humerus">
-          <figcaption>Humerus</figcaption>
-        </figure>
-      </li>
+    <li>
+      <strong>Long:</strong> Functions as a lever that enables large movements.
+      <figure>
+        <img src="{{ '/assets/images/bones/humerus/Humerus - anterior view.png' | relative_url }}" alt="Humerus">
+        <figcaption>Humerus</figcaption>
+      </figure>
+    </li>
 
-      <li>
-        <strong>Short:</strong> Provides strength, stability, and limited motion.
-        <figure>
-          <img src="/assets/images/bones/carpal/Capitate Bone - anterior view.png" alt="Carpal Bone">
-          <figcaption>Carpal (Wrist) Bone</figcaption>
-        </figure>
-      </li>
+    <li>
+      <strong>Short:</strong> Provides strength, stability, and limited motion.
+      <figure>
+        <img src="{{ '/assets/images/bones/carpal/Capitate Bone - anterior view.png' | relative_url }}" alt="Carpal Bone">
+        <figcaption>Carpal (Wrist) Bone</figcaption>
+      </figure>
+    </li>
 
-      <li>
-        <strong>Flat:</strong> Protects organs and offer muscle attachment sites.
-        <figure>
-          <img src="/assets/images/bones/skull/Frontal Bone - anterior view.png" alt="Frontal Bone">
-          <figcaption>Frontal Bone</figcaption>
-        </figure>
-      </li>
+    <li>
+      <strong>Flat:</strong> Protects organs and offer muscle attachment sites.
+      <figure>
+        <img src="{{ '/assets/images/bones/skull/Frontal Bone - anterior view.png' | relative_url }}" alt="Frontal Bone">
+        <figcaption>Frontal Bone</figcaption>
+      </figure>
+    </li>
 
-      <li>
-        <strong>Irregular:</strong> Complex shape with a specialized function.
-        <figure>
-          <img src="/assets/images/bones/vertebra/Vertebra L3 - superior view.png" alt="Vertebra">
-          <figcaption>Vertebra L3</figcaption>
-        </figure>
-      </li>
-    </ul>
+    <li>
+      <strong>Irregular:</strong> Complex shape with a specialized function.
+      <figure>
+        <img src="{{ '/assets/images/bones/vertebra/Vertebra L3 - superior view.png' | relative_url }}" alt="Vertebra">
+        <figcaption>Vertebra L3</figcaption>
+      </figure>
+    </li>
+  </ul>
   </div>
 
 
