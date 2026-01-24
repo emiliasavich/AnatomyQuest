@@ -4,6 +4,7 @@ function loadHotjar() {
     window.hjLoaded = true;
 
     // Hotjar Tracking Code from Chat and Stack Overflow
+    // stack website: https://stackoverflow.com/questions/77881531/how-to-disable-hotjar-recording-when-consent-changes
     (function (h, o, t, j, a, r) {
         h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
         h._hjSettings = { hjid: 1234567, hjsv: 6 };
@@ -56,7 +57,8 @@ function setConsent(value) {
         loadHotjar(); // Only load Hotjar after consent is given
     } else {
         // Reload the page to fully remove Hotjar
-        window.location.reload();
+        if (!window.hjInitial) window.location.reload();
+        window.hjInitial = false;
     }
 
     updateToggleUI();
@@ -86,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.hjConsent = false;
     } else {
         // No decision yet, show banner
+        window.hjInitial = true;
         const banner = document.getElementById('cookie-banner');
         if (banner) banner.hidden = false;
     }
