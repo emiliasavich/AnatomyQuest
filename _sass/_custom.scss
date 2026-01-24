@@ -1,3 +1,6 @@
+$website-orange: #ffb563;
+$website-brown: #2b2b2b;
+
 /*******************************
 So that text isn't so big
 ******************************/
@@ -438,8 +441,8 @@ For Directory Pages
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      background-color: #ffb563;
-      color: #2b2b2b !important;
+      background-color: $website-orange;
+      color: $website-brown !important;
     }
   }
 
@@ -512,7 +515,7 @@ Term Popups
 .popup-term {
   cursor: help;
   // color: #0056b3;
-  border-bottom: 1px dashed #ffb563;
+  border-bottom: 1px dashed $website-orange;
 }
 
 /* Pop-ups hidden by default */
@@ -629,3 +632,106 @@ Masthead
   content: none !important;
   display: none !important;
 }
+
+/*************************
+Cookie Consent Banner
+*************************/
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #3d4144;          /* main color matching your site */
+  color: white;               /* light text */
+  padding: 20px 16px;           /* taller padding for visibility */
+  z-index: 9999;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: slideUp 0.5s ease-out; /* smooth entrance */
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.cookie-banner__content {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 16px;             /* larger text for readability */
+  line-height: 1.4;
+}
+
+.cookie-banner a {
+  color: $website-orange !important;              /* accent color */
+  // text-decoration: underline;
+}
+
+.cookie-banner__actions button {
+  margin-left: 12px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 24px;         /* modern rounded buttons */
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.cookie-banner__actions button:hover {
+  transform: translateY(-2px);
+}
+
+.cookie-accept {
+  background: $website-orange;         /* bright green/teal */
+  color: #fff;
+}
+
+.cookie-decline {
+  background: gray;         /* darker gray-blue */
+  color: #fff;
+}
+
+
+.consent-toggle-container {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 200px; /* total width of the pill */
+  border: 1px solid #ccc;
+  font-family: sans-serif;
+  user-select: none;
+  cursor: pointer;
+}
+
+.toggle-option {
+  flex: 1;                  /* each button takes equal width */
+  text-align: center;
+  padding: 10px 0;
+  transition: background-color 0.2s ease;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;         /* controls spacing for multi-line */
+}
+
+.toggle-option.active {
+  background-color: $website-orange; /* active color */
+  color: white;
+  font-weight: bold;
+}
+
+.toggle-option.inactive {
+  background-color: #f1f1f1; /* inactive color */
+  color: #333;
+}
+

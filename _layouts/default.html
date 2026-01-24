@@ -32,5 +32,20 @@
     </div>
 
     {% include scripts.html %}
+
+    <div id="cookie-banner" class="cookie-banner" hidden>
+    <div class="cookie-banner__content">
+        <p>
+        With your consent, we use analytics tools to understand how you use this site and improve your experience.
+        Read our
+        <a href="{{ '/privacy_policy/' | relative_url }}">Privacy Policy</a>.
+        </p>
+        <div class="cookie-banner__actions">
+        <button class="cookie-accept" onclick="acceptCookies()">Consent</button>
+        <button class="cookie-decline" onclick="declineCookies()">Decline</button>
+        </div>
+    </div>
+    </div>
+    <script src="{{ '/assets/js/hotjar-default-off.js' | relative_url }}"></script>
   </body>
 </html>

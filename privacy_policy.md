@@ -27,7 +27,7 @@ permalink: /privacy_policy/
 
   <ul>
     <li>Online identifiers (e.g. device IP address, user ID)</li>
-    <li>Identification data (e.g. name, email address — only if explicitly collected)</li>
+    <li>Identification data (e.g. name, email address — only if explicitly collected through surveys or forms)</li>
     <li>Technical data (e.g. device type, screen size, browser information)</li>
     <li>Geographic location (country only)</li>
     <li>
@@ -35,7 +35,7 @@ permalink: /privacy_policy/
       taps, and scrolling)
     </li>
     <li>
-      Any additional personal data users explicitly submit through Hotjar
+      Any additional personal data users explicitly submit through Hotjar (e.g. surveys, feedback forms, or chat widgets)
     </li>
   </ul>
 
@@ -56,6 +56,12 @@ permalink: /privacy_policy/
       Privacy Policy
     </a>.
   </p>
+
+  <h2>Manage Your Consent</h2>
+  <div id="consent-toggle" class="consent-toggle-container">
+    <div class="toggle-option" id="toggle-consent" onclick="setConsent(true)">Consent</div>
+    <div class="toggle-option" id="toggle-no-consent" onclick="setConsent(false)">Do Not<br>Consent</div>
+  </div>
 
 </div>
 
