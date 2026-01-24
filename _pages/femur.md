@@ -1,5 +1,6 @@
 ---
-layout: single-no-right
+layout: work-in-progress
+# layout: single-no-right
 title: Femur
 slug: femur
 permalink: /lower_limb/bones/femur.html

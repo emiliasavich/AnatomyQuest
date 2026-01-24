@@ -57,11 +57,12 @@ permalink: /privacy_policy/
     </a>.
   </p>
 
-  <h2>Manage Your Consent</h2>
-  <div id="consent-toggle" class="consent-toggle-container">
-    <div class="toggle-option" id="toggle-consent" onclick="setConsent(true)">Consent</div>
-    <div class="toggle-option" id="toggle-no-consent" onclick="setConsent(false)">Do Not<br>Consent</div>
-  </div>
+    <h2>Manage Your Consent</h2>
+    <p>Clicking the <em>Do Not Consent</em> button will reload this page. This is necessary to disable the Hotjar tracking software.</p>
+    <div id="consent-toggle" class="consent-toggle-container">
+      <div class="toggle-option" id="toggle-consent" onclick="setConsent(true)">Consent</div>
+      <div class="toggle-option" id="toggle-no-consent" onclick="setConsent(false)">Do Not<br>Consent</div>
+    </div>
 
 </div>
 
