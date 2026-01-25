@@ -6,7 +6,7 @@ layout: directory
 directory_children_order:
  - getting_started
  - upper_limb
- - lower_limb
+#  - lower_limb
  - entire_body
 author_profile: true
 ---

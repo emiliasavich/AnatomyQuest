@@ -89,7 +89,7 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
   <p>Associated video</p>
 
   <h2>Interactive Exercise</h2>
-  <p>First, see the five steps applied to the <a href="{{ '/upper_limb/bones/humerus.html' | relative_url }}">humerus</a>. Then, apply them to the femur and check your work using the <a href="{{ '/lower_limb/bones/femur.html' | relative_url }}">femur study sheet</a>.</p>
+  <p>First, see the five steps applied to the <a href="{{ '/upper_limb/bones/humerus.html' | relative_url }}">humerus</a>. Then, apply them to the femur and check your work using the <!--<a href="{{ '/lower_limb/bones/femur.html' | relative_url }}">femur study sheet</a>--> <a>femur study sheet</a> (Coming soon!).</p>
 
 </div>
 

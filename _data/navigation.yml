@@ -25,14 +25,6 @@ pages:
         children:
           - title: "Humerus"
             url: /upper_limb/bones/humerus.html
-  - title: Lower Limb
-    url: /lower_limb/
-    children:
-      - title: "Bones"
-        url: /lower_limb/bones/
-        children:
-          - title: "Femur"
-            url: /lower_limb/bones/femur.html
   - title: Entire Body
     url: /entire_body/
     children:
@@ -41,5 +33,3 @@ pages:
         children:
           - title: "Humerus"
             url: /entire_body/bones/humerus.html
-          - title: "Femur"
-            url: /entire_body/bones/femur.html
