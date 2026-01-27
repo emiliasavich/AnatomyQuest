@@ -10,7 +10,10 @@ adduction:
 
 anterior: 
   text: |
-    <h1>UNFINISHED - anterior</h1>
+    <div>
+      <p><strong>Anterior</strong> means in front of. An anterior view shows the front of the structure.</p>
+      <p class='popup_example'>Ex: The <span class='popup-term' data-popup-id='sternum'>sternum</span> is anterior to the heart.</p>
+    </div>
   url: 
 
 anterior_circumflex_humeral_artery: 
@@ -70,6 +73,30 @@ brachioradialis:
     <div>Brachioradialis: <span class='popup-term' data-popup-id='flexion'>flexes</span> forearm</div>
   url: 
 
+
+cervical:
+  text: |
+    <div>
+      <p><strong>Cervical</strong> refers to the neck.</p>
+      <p class='popup_example'>Ex: The cervical <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> are in the neck.</p>
+    </div>
+  url:
+
+coccygeal:
+  text: |
+    <div>
+      <p><strong>Coccygeal</strong> refers to the <span class='popup-term' data-popup-id='coccyx'>coccyx</span>, also called the tailbone.</p>
+      <p class='popup_example'>Ex: The coccygeal <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> comprise the <span class='popup-term' data-popup-id='coccyx'>coccyx</span>.</p>
+    </div>
+  url:
+
+coccyx:
+  text: |
+    <div>
+      <p>The <strong>coccyx</strong>, also called the tailbone, is an irregular bone at the very bottom of the spine.</p>
+    </div>
+  url:
+
 coracobrachialis: 
   text: |
     <h1>UNFINISHED - coracobrachialis</h1>
@@ -127,6 +154,14 @@ humerus:
     </div>
   url: /upper_limb/bones/humerus.html
 
+inferior: 
+  text: |
+    <div>
+      <p><strong>Inferior</strong> means below. An inferior view shows the bottom of the structure.</p>
+      <p class='popup_example'>Ex: The chest is inferior to the head.</p>
+    </div>
+  url: 
+
 infraspinatus: 
   text: |
     <h1>UNFINISHED - infraspinatus</h1>
@@ -145,7 +180,10 @@ joint_capsule:
 
 lateral: 
   text: |
-    <h1>UNFINISHED - lateral</h1>
+    <div>
+      <p><strong>Lateral</strong> means away from the midline. A lateral view shows the outer side of the structure, farthest from the body's midline.</p>
+      <p class='popup_example'>Ex: The eyes are lateral to the nose.</p>
+    </div>
   url: 
 
 latissimus_dorsi: 
@@ -154,9 +192,20 @@ latissimus_dorsi:
     <div>Latissimus dorsi: <span class='popup-term' data-popup-id='adduction'>adducts</span>, <span class='popup-term' data-popup-id='medial'>medially</span> <span class='popup-term' data-popup-id='rotation'>rotates</span>, <span class='popup-term' data-popup-id='extension'>extends</span> arm</div>
   url: 
 
+lumbar:
+  text: |
+    <div>
+      <p><strong>Lumbar</strong> refers to the lower back, beneath the ribcage.</p>
+      <p class='popup_example'>Ex: The lumbar <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> are in your lower back.</p>
+    </div>
+  url:
+
 medial: 
   text: |
-    <h1>UNFINISHED - medial</h1>
+    <div>
+      <p><strong>Medial</strong> means toward the midline. A medial view shows the inner side of the structure, closest to the body's midline.</p>
+      <p class='popup_example'>Ex: The nose is medial to the eyes.</p>
+    </div>
   url: 
 
 origin:
@@ -174,14 +223,27 @@ pectoralis_major:
     <div>Pectoralis major: <span class='popup-term' data-popup-id='adduction'>adducts</span> and <span class='popup-term' data-popup-id='medial'>medially</span> <span class='popup-term' data-popup-id='rotation'>rotates</span> arm; <span class='popup-term' data-popup-id='flexion'>flexes</span> and <span class='popup-term' data-popup-id='extension'>extends</span> humerus</div>
   url: 
 
+pelvis:
+  text: |
+    <div>
+      <p>The <strong>pelvis</strong> is the bony structure in your hip region. It connects your spine to your legs and supports the weight of your upper body.</p>
+    </div>
+  url:
+
 pivot: 
   text: |
-    <h1>UNFINISHED - pivot</h1>
+    <div>
+      <p>A <strong>pivot</strong> joint is a <span class='popup-term' data-popup-id='synovial'>synovial</span> joint that allows for <span class='popup-term' data-popup-id='rotation'>rotation</span>.</p>
+      <p class='popup_example'>Ex: The pivot joint between the <span class='popup-term' data-popup-id='vertebrae'>C1 and C2 vertebrae</span> lets you shake your head "no."</p>
+    </div>
   url: 
 
 posterior: 
   text: |
-    <h1>UNFINISHED - posterior</h1>
+    <div>
+      <p><strong>Posterior</strong> means behind. A posterior view shows the back of the structure.</p>
+      <p class='popup_example'>Ex: The heart is posterior to the <span class='popup-term' data-popup-id='sternum'>sternum</span>.</p>
+    </div>
   url:
 
 posterior_circumflex_humeral_artery: 
@@ -231,10 +293,32 @@ rotation:
     </div>
   url: 
 
+sacral:
+  text: |
+    <div>
+      <p><strong>Sacral</strong> refers to the <span class='popup-term' data-popup-id='sacrum'>sacrum</span>, the irregular, triangular bone at the bottom of your spine.</p>
+      <p class='popup_example'>Ex: The sacral <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> comprise the <span class='popup-term' data-popup-id='sacrum'>sacrum</span>.</p>
+    </div>
+  url:
+
+sacrum:
+  text: |
+    <div>
+      <p>The <strong>sacrum</strong> is an irregular, triangular bone at the bottom of your spine that forms the back of the <span class='popup-term' data-popup-id='pelvis'>pelvis</span>.</p>
+    </div>
+  url:
+
 scapula: 
   text: |
     <div>
       <p>The <strong>scapula</strong>, also called the shoulder blade, is a flat, triangular-shaped bone in your upper back.</p>
+    </div>
+  url: 
+
+sternum: 
+  text: |
+    <div>
+      <p>The <strong>sternum</strong> is a flat bone in the center of your chest that connects the ribs. </p>
     </div>
   url: 
 
@@ -246,7 +330,10 @@ supraspinatus:
 
 superior: 
   text: |
-    <h1>UNFINISHED - superior</h1>
+    <div>
+      <p><strong>Superior</strong> means above. A superior view shows the top of the structure.</p>
+      <p class='popup_example'>Ex: The head is superior to the chest.</p>
+    </div>
   url: 
 
 supination: 
@@ -273,6 +360,14 @@ teres_minor:
     <div>Teres minor: <span class="popup-term" data-popup-id="lateral">lateral</span> <span class="popup-term" data-popup-id="rotation">rotation</span> and <span class="popup-term" data-popup-id="adduction">adduction</span> of arm</div>
   url: 
 
+thoracic:
+  text: |
+    <div>
+      <p><strong>Thoracic</strong> refers to upper part of your torso (your chest and upper/mid-back).</p>
+      <p class='popup_example'>Ex: The thoracic <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> are in your upper/mid-back.</p>
+    </div>
+  url:
+
 triceps_brachii: 
   text: |
     <h1>UNFINISHED - triceps_brachii</h1>
@@ -282,4 +377,12 @@ triceps_brachii:
 ulna: 
   text: |
     <h1>UNFINISHED - ulna</h1>
+  url: 
+
+vertebrae: 
+  text: |
+    <div>
+      <p>The <strong>vertebrae</strong> are the bones in your spine. They are grouped into <span class='popup-term' data-popup-id='cervical'>cervical</span>, <span class='popup-term' data-popup-id='thoracic'>thoracic</span>, <span class='popup-term' data-popup-id='lumbar'>lumbar</span>, <span class='popup-term' data-popup-id='sacral'>sacral</span>, and <span class='popup-term' data-popup-id='coccygeal'>coccygeal</span> sections and are identified by the first letter from their section (except for <em>co</em>ccygeal which is "<em>Co</em>") and their number from the top of the section.</p>
+      <p class='popup_example'>Ex: The T4 vertebra is the fourth vertebra from the top of the <span class='popup-term' data-popup-id='thoracic'>thoracic</span> section.</p>
+    </div>
   url: 
