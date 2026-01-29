@@ -35,17 +35,39 @@
             <p>{{ bone.description }}</p>
             
             <div class="image-gallery">
-                {% for img in bone.images %}
-                {% assign base_name = img.src | remove: ".png" %}
-                <figure class="toggle-container">
-                    <div class="image-container enlarge">
-                        <img class="img-default" src="{{ '/assets/images/bones/humerus/labeled joints/' | append: img.src | relative_url }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="alt-text img-default">{{ img.alt }}</div>
-                        <img class="img-hover" src="{{ '/assets/images/bones/humerus/labeled joints/' | append: base_name | append: ' - isolated.png' | relative_url }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="alt-text img-hover">Isolated {{ img.alt }}</div>
+                {% for view in bone.views %}
+
+                <div class="neighbor-box">
+                <div class="shared-neighbor-container enlarge">
+                    <div class="neighbor-hover-button-bar"></div>
+                    <div class="neighbor-image-container">
+                        {% assign view_list = view | split: '"' %}
+                        {% assign view_name = view_list[1] %}
+
+                        {% assign base_file = bone.base | append: " - " | append: view_name %}
+                            
+                        <div class="hoverable-image-container active to-sync" 
+                            data-view="{{ view_name }}"
+                            style="position: relative;">
+                            {% for hover_layer in view[view_name] %}
+                                <div class="{{hover_layer}} {% if forloop.first %}active{% endif %}">
+                                    {% assign src_url = '/assets/images/bones/humerus/labeled joints/' | append: base_file | append: ' - ' | append: {{hover_layer}} | append: '.png' %}
+                                    
+                                    <img
+                                        src="{{ src_url | relative_url }}"
+                                        class="{{hover_layer}}"
+                                        onerror="this.nextElementSibling.style.display='block'"
+                                        >
+                                    <div class="alt-text {{hover_layer}}" style="display:none;">
+                                        {{ bone.alt_base }} - {{ view_name | capitalize }} - {{ hover_layer | capitalize }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <figcaption>{{ img.subtitle }}</figcaption>
-                </figure>
+                    <div class="neighbor-figcaption figcaption">{{ view_name | capitalize }} View</div>
+                </div>
+                </div>
                 {% endfor %}
             </div>
             <p class="tutorial">Click image to show/hide labels. <span class="desktop-only">Right click to enlarge.</span></p>
@@ -85,44 +107,31 @@
             </ul>
             </div>
 
-            <div>
-            <div class="landmark-image-container enlarge">
+            <div class="shared-landmark-container enlarge">
+            <div class="landmark-hover-button-bar"></div>
+            <div class="landmark-image-container">
             {% for view in landmark.views %}
-                {% assign base_file = landmark.base %}
-                {% if view != "default" %}
-                {% assign base_file = base_file | append: " - " | append: view %}
-                {% endif %}
-                {% assign isolated_file = base_file | append: " - isolated.png" %}
-                {% assign base_file = base_file | append: ".png" %}
 
-                <!-- Default Image -->
-                <img class="img-{{ view }} img-default"
-                    src="{{ '/assets/images/bones/humerus/labeled landmarks/' | append: base_file | relative_url }}"
-                    {% if forloop.first == false %}
-                    style="display:none;"
-                    onerror="this.nextElementSibling.setAttribute('show', '');"
-                    {% else %}
-                    onerror="this.nextElementSibling.style.display='block'; this.nextElementSibling.setAttribute('show', '');"
-                    {% endif %}
-                    >
-                <div class="alt-text img-{{ view }} img-default"
-                    {% if forloop.first == false %}style="display:none;"{% endif %}>
-                {{ landmark.name }}{% if view != "default" %} - {{ view | capitalize }}{% endif %}
-                </div>
+                {% assign view_list = view | split: '"' %}
+                {% assign view_name = view_list[1] %}
 
-                <!-- Isolated Image -->
-                <img class="img-{{ view }} img-hover"
-                    src="{{ '/assets/images/bones/humerus/labeled landmarks/' | append: isolated_file | relative_url }}"
-                    {% if forloop.first == false %}
-                    style="display:none;"
-                    onerror="this.nextElementSibling.setAttribute('show', '');"
-                    {% else %}
-                    onerror="this.nextElementSibling.style.display='block'; this.nextElementSibling.setAttribute('show', '');"
-                    {% endif %}
-                    >
-                <div class="alt-text img-{{ view }} img-hover"
-                    {% if forloop.first == false %}style="display:none;"{% endif %}>
-                Isolated {{ landmark.name }}{% if view != "default" %} - {{ view | capitalize }}{% endif %}
+                {% assign base_file = landmark.base | append: " - " | append: view_name %}
+                    
+                <div class="hoverable-image-container {% if forloop.first %}active{% endif %} to-sync" data-view="{{ view_name }}">
+                    {% for hover_layer in view[view_name] %}
+                        <div class="{{hover_layer}} {% if forloop.first %}active{% endif %}">
+                            {% assign src_url = '/assets/images/bones/humerus/labeled landmarks/' | append: base_file | append: ' - ' | append: {{hover_layer}} | append: '.png' %}
+                            
+                            <img
+                                src="{{ src_url | relative_url }}"
+                                class="{{hover_layer}}"
+                                onerror="this.nextElementSibling.style.display='block'"
+                                >
+                            <div class="alt-text {{hover_layer}}" style="display:none;">
+                                {{ landmark.name }} - {{ view_name | capitalize }} - {{ hover_layer | capitalize }}
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             {% endfor %}
             </div>
@@ -130,9 +139,11 @@
             <!-- View Buttons -->
             <div class="view-buttons">
             {% for view in landmark.views %}
-            <button class="view-btn {% if forloop.first %}active{% endif %}" data-view="{{ view }}">
-                {{ view | capitalize }} View
-            </button>
+                {% assign view_list = view | split: '"' %}
+                {% assign view_name = view_list[1] %}
+                <button class="view-btn {% if forloop.first %}active{% endif %} to-sync" data-view="{{ view_name }}">
+                    {{ view_name | capitalize }} View
+                </button>
             {% endfor %}
             </div>
             </div>

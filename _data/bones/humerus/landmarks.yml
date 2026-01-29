@@ -5,8 +5,12 @@
         - "Articulates with glenoid fossa of <span class=\"popup-term\" data-popup-id=\"scapula\">scapula</span> to form shoulder (glenohumeral) joint"
       base: head
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Anatomical Neck
       description:
@@ -14,8 +18,12 @@
         - "Attachment site for shoulder <span class=\"popup-term\" data-popup-id=\"joint_capsule\">joint capsule</span>"
       base: anatomical neck
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Surgical Neck
       description:
@@ -25,8 +33,12 @@
         <span class=\"popup-term\" data-popup-id=\"anterior_circumflex_humeral_artery\">anterior circumflex humeral artery</span>, and <span class=\"popup-term\" data-popup-id=\"posterior_circumflex_humeral_artery\">posterior circumflex humeral artery</span>"
       base: surgical neck
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 - title: "Tubercles"
   landmarks:
     - name: Intertubercular Sulcus
@@ -37,7 +49,9 @@
         - text: "<span class=\"popup-term\" data-popup-id=\"insertion\">Insertion</span> site for <span class=\"popup-term\" data-popup-id=\"latissimus_dorsi\">latissimus dorsi</span> tendon"
       base: intertubercular sulcus
       views:
-        - anterior
+        - anterior:
+            - default
+            - isolated
 
     - name: Greater Tubercle
       description:
@@ -46,9 +60,15 @@
         - "Covered by <span class='popup-term' data-popup-id='deltoid'>deltoid</span> to form rounded shoulder"
       base: greater tubercle
       views:
-        - anterior
-        - lateral
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - lateral:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Crest of Greater Tubercle
       description:
@@ -56,7 +76,9 @@
         - text: "<span class='popup-term' data-popup-id='insertion'>Insertion</span> site for <span class='popup-term' data-popup-id='pectoralis_major'>pectoralis major</span> tendon"
       base: crest of greater tubercle
       views:
-        - anterior
+        - anterior:
+            - default
+            - isolated
 
     - name: Lesser Tubercle
       description:
@@ -64,7 +86,9 @@
         - text: "<span class='popup-term' data-popup-id='insertion'>Insertion</span> site for <span class='popup-term' data-popup-id='subscapularis'>subscapularis</span> (rotator cuff muscle)"
       base: lesser tubercle
       views:
-        - anterior
+        - anterior:
+            - default
+            - isolated
 
     - name: Crest of Lesser Tubercle
       description:
@@ -72,7 +96,9 @@
         - text: "<span class='popup-term' data-popup-id='insertion'>Insertion</span> site for <span class='popup-term' data-popup-id='teres_major'>teres major</span> tendon"
       base: crest of lesser tubercle
       views:
-        - anterior
+        - anterior:
+            - default
+            - isolated
 
 - title: "Body"
   landmarks:
@@ -82,17 +108,27 @@
         - text: "<span class='popup-term' data-popup-id='insertion'>Insertion</span> site for <span class='popup-term' data-popup-id='deltoid'>deltoid</span> muscle"
       base: deltoid tuberosity
       views:
-        - anterior
-        - lateral
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - lateral:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Body
       description:
         - "Shaft of humerus, long midsection of bone"
       base: body
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Radial Groove
       description:
@@ -101,7 +137,9 @@
         - "Fractures here risk nerve injury"
       base: radial groove
       views:
-        - posterior
+        - posterior:
+            - default
+            - isolated
 
 - title: "Borders"
   landmarks:
@@ -112,7 +150,9 @@
         - "Separates <span class='popup-term' data-popup-id='anterior'>antero</span><span class='popup-term' data-popup-id='medial'>medial</span> and <span class='popup-term' data-popup-id='anterior'>antero</span><span class='popup-term' data-popup-id='lateral'>lateral</span> surfaces"
       base: anterior border
       views:
-        - anterior
+        - anterior:
+            - default
+            - isolated
 
     - name: <span class='popup-term' data-popup-id='lateral'>Lateral</span> Border
       description:
@@ -122,9 +162,15 @@
         - "Separates <span class='popup-term' data-popup-id='anterior'>antero</span><span class='popup-term' data-popup-id='lateral'>lateral</span> from <span class='popup-term' data-popup-id='posterior'>posterior</span> surface"
       base: lateral border
       views:
-        - anterior
-        - lateral
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - lateral:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: <span class='popup-term' data-popup-id='medial'>Medial</span> Border
       description:
@@ -133,9 +179,15 @@
         - "Separates <span class='popup-term' data-popup-id='anterior'>antero</span><span class='popup-term' data-popup-id='medial'>medial</span> from <span class='popup-term' data-popup-id='posterior'>posterior</span> surface"
       base: medial border
       views:
-        - anterior
-        - posterior
-        - medial
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
+        - medial:
+            - default
+            - isolated
 
 - title: Surfaces
   landmarks:
@@ -147,8 +199,14 @@
         - text: <span class='popup-term' data-popup-id='insertion'>Insertion</span> site for <span class='popup-term' data-popup-id='coracobrachialis'>coracobrachialis</span>
       base: anteromedial surface
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - layer1
+            - isolated
+        - medial:
+            - default
+            - layer1
+            - isolated
 
     - name: <span class='popup-term' data-popup-id='anterior'>Antero</span><span class='popup-term' data-popup-id='lateral'>lateral</span> Surface
       description:
@@ -157,8 +215,12 @@
         - text: <span class='popup-term' data-popup-id='origin'>Origin</span> site for <span class='popup-term' data-popup-id='lateral'>lateral</span> <span class='popup-term' data-popup-id='brachialis'>brachialis</span>
       base: anterolateral surface
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: <span class='popup-term' data-popup-id='posterior'>Posterior</span> Surface
       description:
@@ -170,7 +232,9 @@
             - <span class='popup-term' data-popup-id='lateral'>Lateral</span> head: <span class='popup-term' data-popup-id='superior'>superior</span> to radial groove
       base: posterior surface
       views:
-        - posterior
+        - posterior:
+            - default
+            - isolated
 
 - title: Supracondylar Ridges
   landmarks:
@@ -180,8 +244,12 @@
         - text: <span class='popup-term' data-popup-id='origin'>Origin</span> site for <span class='popup-term' data-popup-id='brachioradialis'>brachioradialis</span> and <span class='popup-term' data-popup-id='extensor_carpi_radialis_longus'>extensor carpi radialis longus</span>
       base: lateral supracondylar ridge
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: <span class='popup-term' data-popup-id='medial'>Medial</span> Supracondylar Ridge
       description:
@@ -189,8 +257,12 @@
         - text: <span class='popup-term' data-popup-id='origin'>Origin</span> site for <span class='popup-term' data-popup-id='pronator_teres'>pronator teres</span>
       base: medial supracondylar ridge
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
 - title: Fossas
   landmarks:
@@ -200,8 +272,12 @@
         - text: Accommodates <span class='popup-term' data-popup-id='radius'>radial</span> head during elbow <span class='popup-term' data-popup-id='flexion'>flexion</span>
       base: radial fossa
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Coronoid Fossa
       description:
@@ -209,8 +285,12 @@
         - text: Accommodates coronoid process of <span class='popup-term' data-popup-id='ulna'>ulna</span> during deep elbow <span class='popup-term' data-popup-id='flexion'>flexion</span>
       base: coronoid fossa
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Olecranon Fossa
       description:
@@ -218,8 +298,12 @@
         - text: Accommodates olecranon process of <span class='popup-term' data-popup-id='ulna'>ulna</span> during elbow <span class='popup-term' data-popup-id='extension'>extension</span>
       base: olecranon fossa
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
 - title: Distal Structures
   landmarks:
@@ -229,8 +313,12 @@
         - text: Articulates with trochlear notch of <span class='popup-term' data-popup-id='ulna'>ulna</span> for hinge movement
       base: trochlea
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Capitulum
       description:
@@ -238,8 +326,12 @@
         - text: Articulates with head of <span class='popup-term' data-popup-id='radius'>radius</span> for forearm <span class='popup-term' data-popup-id='rotation'>rotation</span> and <span class='popup-term' data-popup-id='flexion'>flexion</span>
       base: capitulum
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Condyle
       description:
@@ -247,8 +339,12 @@
         - text: Forms elbow joint surface
       base: condyle
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
 
     - name: Groove for Ulnar Nerve (Cubital Groove)
       description:
@@ -256,5 +352,9 @@
         - text: “Funny bone” area
       base: cubital groove
       views:
-        - anterior
-        - posterior
+        - anterior:
+            - default
+            - isolated
+        - posterior:
+            - default
+            - isolated
