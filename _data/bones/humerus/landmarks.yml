@@ -2,7 +2,7 @@
   landmarks:
     - name: Head
       description:
-        - "Articulates with glenoid fossa of <span class=\"popup-term\" data-popup-id=\"scapula\">scapula</span> to form shoulder (glenohumeral) joint"
+        - "<span class='popup-term' data-popup-id='articulate'>Articulates</span> with glenoid fossa of <span class=\"popup-term\" data-popup-id=\"scapula\">scapula</span> to form shoulder (glenohumeral) joint"
       base: head
       views:
         - anterior:
@@ -44,9 +44,9 @@
     - name: Intertubercular Sulcus
       description:
         - "Groove between tubercles"
-        - "Also called bicipital groove due to relation with <span class=\"popup-term\" data-popup-id=\"biceps_brachii\">biceps brachii</span> tendon"
         - "Guides long tendon of <span class=\"popup-term\" data-popup-id=\"biceps_brachii\">biceps brachii</span>"
-        - text: "<span class=\"popup-term\" data-popup-id=\"insertion\">Insertion</span> site for <span class=\"popup-term\" data-popup-id=\"latissimus_dorsi\">latissimus dorsi</span> tendon"
+        - "Also called bicipital groove due to relation with <span class=\"popup-term\" data-popup-id=\"biceps_brachii\">biceps brachii</span> tendon"
+        - "<span class=\"popup-term\" data-popup-id=\"insertion\">Insertion</span> site for <span class=\"popup-term\" data-popup-id=\"latissimus_dorsi\">latissimus dorsi</span> tendon"
       base: intertubercular sulcus
       views:
         - anterior:
@@ -218,8 +218,10 @@
         - anterior:
             - default
             - isolated
-        - posterior:
+        - lateral:
             - default
+            - deltoid
+            - brachialis
             - isolated
 
     - name: <span class='popup-term' data-popup-id='posterior'>Posterior</span> Surface
@@ -246,21 +248,23 @@
       views:
         - anterior:
             - default
+            - extensor carpi radialis longus
             - isolated
-        - posterior:
+        - lateral:
             - default
+            - extensor carpi radialis longus
             - isolated
 
     - name: <span class='popup-term' data-popup-id='medial'>Medial</span> Supracondylar Ridge
       description:
         - text: Ridge above <span class='popup-term' data-popup-id='medial'>medial</span> epicondyle
-        - text: <span class='popup-term' data-popup-id='origin'>Origin</span> site for <span class='popup-term' data-popup-id='pronator_teres'>pronator teres</span>
+        - text: <span class='popup-term' data-popup-id='origin'>Origin</span> site for humeral head of <span class='popup-term' data-popup-id='pronator_teres'>pronator teres</span>
       base: medial supracondylar ridge
       views:
         - anterior:
             - default
             - isolated
-        - posterior:
+        - medial:
             - default
             - isolated
 
@@ -275,7 +279,7 @@
         - anterior:
             - default
             - isolated
-        - posterior:
+        - anterolateral:
             - default
             - isolated
 
@@ -288,7 +292,7 @@
         - anterior:
             - default
             - isolated
-        - posterior:
+        - anteromedial:
             - default
             - isolated
 
@@ -298,10 +302,10 @@
         - text: Accommodates olecranon process of <span class='popup-term' data-popup-id='ulna'>ulna</span> during elbow <span class='popup-term' data-popup-id='extension'>extension</span>
       base: olecranon fossa
       views:
-        - anterior:
+        - posterior:
             - default
             - isolated
-        - posterior:
+        - posteromedial:
             - default
             - isolated
 

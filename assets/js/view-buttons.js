@@ -10,8 +10,8 @@ function addViewButtonFunctionality(container) {
         const viewMap = createViewDict(buttons, hoverableContainers);
 
         // store active button
-        let activeButton = Array.from(buttons).find(btn => btn.classList.contains('active'));
-        let activeView = activeButton?.dataset.view;
+        // let activeButton = Array.from(buttons).find(btn => btn.classList.contains('active'));
+        // let activeView = activeButton?.dataset.view;
 
         buttons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -22,11 +22,12 @@ function addViewButtonFunctionality(container) {
                 const circles = shared_container.querySelectorAll('.hoverable-circle');
 
                 // Toggle active button
-                removeActiveContainer(viewMap, activeView);
-                addActiveContainer(viewMap, newActiveView);
+                // removeActiveContainer(viewMap, activeView);
+                // addActiveContainer(viewMap, newActiveView);
+                changeActiveContainer(viewMap, newActiveView);
                 changeHoverCircle(newActiveView, circles);
 
-                activeView = newActiveView;
+                // activeView = newActiveView;
             });
         });
     });
@@ -48,14 +49,27 @@ function createViewDict(buttons, hoverableContainers) {
     return viewMap;
 }
 
-function removeActiveContainer(viewMap, active) {
-    viewMap[active]['button'].classList.remove('active');
-    viewMap[active]['container'].classList.remove('active');
-}
+// function removeActiveContainer(viewMap, active) {
+//     viewMap[active]['button'].classList.remove('active');
+//     viewMap[active]['container'].classList.remove('active');
+// }
 
-function addActiveContainer(viewMap, active) {
-    viewMap[active]['button'].classList.add('active');
-    viewMap[active]['container'].classList.add('active');
+// function addActiveContainer(viewMap, active) {
+//     viewMap[active]['button'].classList.add('active');
+//     viewMap[active]['container'].classList.add('active');
+// }
+
+function changeActiveContainer(viewMap, new_active) {
+    // get prev active view
+    const prev_active = Object.entries(viewMap).find(([viewName, viewObj]) =>
+        viewObj.button.classList.contains("active")
+    )?.[0];
+
+    viewMap[prev_active]['button'].classList.remove('active');
+    viewMap[prev_active]['container'].classList.remove('active');
+
+    viewMap[new_active]['button'].classList.add('active');
+    viewMap[new_active]['container'].classList.add('active');
 }
 
 function changeHoverCircle(new_view, circles) {
