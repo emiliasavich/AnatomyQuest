@@ -55,29 +55,51 @@ function openEnlargedClone(originalContainer) {
   });
 
   // 3. FIX: Force the internal image container to fill the space
-  const cloneImgContainer = clone.querySelector('[class*="image-container"]');
+  const cloneImgContainer = clone.querySelector('[class*="image-container"]') || clone.querySelector("img");
   if (cloneImgContainer) {
     Object.assign(cloneImgContainer.style, {
-      width: "500px",
-      height: "500px", // dedicate most space to image
+      maxWidth: "500px",
+      maxHeight: "500px", // dedicate most space to image
+      width: "85vw",
+      height: "85vh",
       position: "relative",
       display: "block"
     });
   }
 
+  // Update size of button bar
+  const cloneButtonBar = clone.querySelector('[class*="button-bar"]');
+  if (cloneButtonBar) {
+    Object.assign(cloneButtonBar.style, {
+      maxWidth: "500px",
+      width: "85vw",
+    });
+  }
+
   // 4. update figure caption
   const cloneImages = clone.querySelectorAll("img");
-  const figcaption = clone.querySelector(".figcaption");
+  cloneImages.forEach(img =>
+    Object.assign(img.style, {
+      objectFit: "cover",
+      margin: "0 auto",
+    })
+  );
+
+  const figcaption = clone.querySelector(".figcaption") || clone.querySelector("figcaption");
   if (figcaption) {
     Object.assign(figcaption.style, {
       fontSize: "20px",
       color: "lightgray",
+      maxWidth: "500px",
+      width: "85vw",
+      margin: "0 auto",
     });
   }
 
   // 5. RE-BIND INTERACTIVITY to the Clone
-  // A. Hover Logic (for the stack effect) - delete hoverable divs and add them
+  // A. Hover Logic (for the stack effect) - delete hoverable divs and circles and add them
   cloneImgContainer.querySelectorAll('.hoverable-div').forEach(el => el.remove());
+  clone.querySelectorAll('.hoverable-circle').forEach(el => el.remove());
   addHoverableDivs(cloneImgContainer);
 
   // B. Click Logic (Toggle Labeled/Unlabeled on the clone)
@@ -127,6 +149,15 @@ function openEnlargedClone(originalContainer) {
             originalEl.classList.add('active');
         }
     });
+
+    // Sync view circles
+    if (activeInClone.length > 0 && activeInClone[0].dataset) {
+      const active_view = activeInClone[0].dataset.view;
+      const original_button_bar = originalContainer.querySelector('[class*="button-bar"]');
+      if (original_button_bar) {
+        changeHoverCircle(active_view, original_button_bar.children);
+      } 
+    }
 
     overlay.remove();
   };

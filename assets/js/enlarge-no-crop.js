@@ -140,3 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .forEach(EnlargeNoCrop.init);
 });
 
+function setSameToggle(images, big_images) {
+  overlayIsLabeled = big_images[0].src.includes("/labeled");
+  originalIsLabeled = images[0].src.includes("/labeled");
+
+  if (originalIsLabeled != overlayIsLabeled) toggleLabeled(images);
+}
