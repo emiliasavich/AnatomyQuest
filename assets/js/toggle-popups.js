@@ -91,8 +91,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     term.addEventListener("click", function(e) {
       if (isDrag(e)) return;
-      e.stopPropagation();
       e.preventDefault();
+      e.stopPropagation();
       showPopup(term, popup, overlay);
     });
   });
