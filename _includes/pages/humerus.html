@@ -3,7 +3,7 @@
   
   <p><strong>Purpose:</strong> To encourage deeper, longer-lasting learning by linking the bone to the skeletal, muscular, and cardiovascular systems rather than relying on rote memorization.</p>
 
-  <p><strong>How to use this guide:</strong> Follow the <a href="{{ '/getting_started/effective_learning_methods/learning_bones.html' | relative_url }}">five structured steps</a> below. They are designed to help you focus on meaningful connections rather than just memorizing facts.</p>
+  <p><strong>How to use this guide:</strong> Follow the <a href="{{ '/getting_started/effective_learning_methods/learning_bones.html' | relative_url }}">five structured steps</a> below. They are designed to help you focus on meaningful connections rather than on just memorizing facts.</p>
 
    <div class="content-toggle-box" style="font-size:0.8em; margin-bottom: 30px;">
         <div class="content-toggle-header">
@@ -12,7 +12,7 @@
                 <button class="content-toggle-icon" style="width: 20px; height: 20px;">
                     <span class="content-toggle-plus" style="font-size:2em">+</span>
                 </button>
-                <h2>Click to read about the five steps. Then click to close.</h2>
+                <p class="toggle-header-text">Click to read about the five steps. Then click to close.</p>
             </div>
         </div>
         <div class="content-toggle-content" style="padding: 10px 15px 10px; margin-bottom: 30px; font-size: 0.8rem;">
@@ -34,7 +34,7 @@
             <div class="step-neighbors step-overview">
                 <p class="neighbors-color">Neighbors</p>
                 <ul>
-                    <li><span class="neighbors-color">Question:</span> What bones <span class='popup-term' data-popup-id='articulate'>articulate</span> (form joints with) this bone?</li>
+                    <li><span class="neighbors-color">Question:</span> What bones <span class='popup-term' data-popup-id='popup-articulate'>articulate</span> (form joints with) this bone?</li>
                     <li><span class="neighbors-color">Purpose:</span> Lets you examine what joints the bone is part of and what movements those joints allow.</li>
                 </ul>
             </div>
@@ -79,7 +79,7 @@
 
   <div class="step step-neighbors">
     <h2>Step 3 – Neighbors</h2>
-    <p>The humerus has neighboring bones at its two ends: the <span class='popup-term' data-popup-id='proximal'>proximal</span> end at the shoulder, and the <span class='popup-term' data-popup-id='distal'>distal</span> end at the elbow.</p>
+    <p>The humerus has neighboring bones at its two ends: the <span class='popup-term' data-popup-id='popup-proximal'>proximal</span> end at the shoulder, and the <span class='popup-term' data-popup-id='popup-distal'>distal</span> end at the elbow.</p>
     {% for big_picture in site.data.bones.humerus.neighbors %}
     <div class="content-toggle-box" id="neighbors-{{big_picture.big_picture_name | slugify}}">
         <div class="content-toggle-header">
@@ -88,7 +88,7 @@
                 <button class="content-toggle-icon">
                     <span class="content-toggle-plus">+</span>
                 </button>
-                <h2><span class='popup-term' data-popup-id='{{big_picture.big_picture_name | downcase}}'>{{big_picture.big_picture_name | capitalize}}</span></h2>
+                <h3><span class='popup-term' data-popup-id='popup-{{big_picture.big_picture_name | downcase}}'>{{big_picture.big_picture_name | capitalize}}</span></h3>
             </div>
 
             <!-- Content area -->
@@ -119,7 +119,7 @@
                 </div>
                 <div class="content-text">
                     <div>
-                        The <span class='popup-term' data-popup-id='{{big_picture.big_picture_name | downcase}}'>{{big_picture.big_picture_name | downcase}}</span> end of the humerus <span class='popup-term' data-popup-id='articulate'>articulates</span> with the following bones: 
+                        The <span class='popup-term' data-popup-id='popup-{{big_picture.big_picture_name | downcase}}'>{{big_picture.big_picture_name | downcase}}</span> end of the humerus <span class='popup-term' data-popup-id='popup-articulate'>articulates</span> with the following bones: 
                         <ul>
                         {% for child in big_picture.elements %}
                             <li><a href="#" class="child-jump" data-child="neighbors-{{child.name | slugify}}">{{child.name}}</a></li>
@@ -139,7 +139,7 @@
                     <div class="content-toggle-child-text">
                         <!-- Make flexbox to put tutorial at the bottom of the box -->
                         <div>
-                            <h3>{{ child.name }}</h3>
+                            <h4>{{ child.name }}</h4>
                             <p class="neighbor-subtitle">{{ child.subtitle }}</p>
                             <p>{{ child.description }}</p>
                         </div>
@@ -202,7 +202,7 @@
                 <button class="content-toggle-icon">
                     <span class="content-toggle-plus">+</span>
                 </button>
-                <h2>{{big_picture.big_picture_name}}</h2>
+                <h3>{{big_picture.big_picture_name}}</h3>
             </div>
 
             <!-- Content area -->
@@ -268,7 +268,7 @@
                     <div class="content-toggle-child-text">
                         <!-- Make flexbox to put tutorial at the bottom of the box -->
                         <div>
-                            <h3>{{ child.name }}</h3>
+                            <h4>{{ child.name }}</h4>
                             <ul>
                             {% for desc in child.description %}
                                 <li>
@@ -422,8 +422,8 @@
         </ul>
 
         subtext:
-            - <span class='popup-term' data-popup-id='medial'>Medial</span> head: <span class='popup-term' data-popup-id='inferior'>inferior</span> to radial groove
-            - <span class='popup-term' data-popup-id='lateral'>Lateral</span> head: <span class='popup-term' data-popup-id='superior'>superior</span> to radial groove
+            - <span class='popup-term' data-popup-id='popup-medial'>Medial</span> head: <span class='popup-term' data-popup-id='popup-inferior'>inferior</span> to radial groove
+            - <span class='popup-term' data-popup-id='popup-lateral'>Lateral</span> head: <span class='popup-term' data-popup-id='popup-superior'>superior</span> to radial groove
         </li>
     </ul>
 

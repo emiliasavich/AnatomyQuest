@@ -689,6 +689,21 @@ details[open] > .nav__grandchildren_plus::after {
   // font-size: 0.5rem;
 }
 
+/**********************************
+Hide default details
+**********************************/
+details summary {
+  list-style: none;      /* remove default triangle */
+}
+details summary::-webkit-details-marker {
+  display: none;         /* Chrome/Safari */
+}
+details summary::marker {
+  content: none;         /* Firefox */
+}
+
+
+
 
 /*************************************
 For Directory Pages
@@ -1081,6 +1096,11 @@ CHAT NEIGHBOR OUTPUT
   cursor: pointer;
 }
 
+.toggle-header-text {
+  font-weight: bold;
+  font-size: 0.8rem !important;
+}
+
 // .content-toggle-header h2 {
 //   margin: 0;
 //   display: flex;
@@ -1215,7 +1235,7 @@ CHAT NEIGHBOR OUTPUT
   transform: translate(-50%, -60%);
 }
 
-.content-toggle-header-line h2 {
+.content-toggle-header-line h3 {
   width: 100%;
   margin-bottom: 0px;
   margin-top: 0px;
@@ -1257,4 +1277,69 @@ CHAT NEIGHBOR OUTPUT
 
 .with-buttons {
   height: auto;
+}
+
+
+/*********************************
+Chat sidebar stuff
+*********************************/
+.sidebar-tabs {
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid #ccc;   /* <-- The horizontal line */
+  margin-bottom: 0;
+}
+
+/* Base tab */
+.sidebar-tabs .tab {
+  padding: 8px 14px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-bottom: none;             
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;          /* bold */
+  color: #888;               /* soft bold gray */
+
+  opacity: 0.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Active tab — covers the horizontal line under it */
+.sidebar-tabs .tab.active {
+  opacity: 1;
+  color: #555;               /* darker bold gray */
+  background: white;
+
+  z-index: 3;
+}
+
+/* Create the “gap” by covering the line under the active tab */
+.sidebar-tabs .tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: white;          /* same as sidebar background */
+  z-index: 5;
+}
+
+/* Sidebar panel */
+.sidebar-panel {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: white;
+  border-radius: 0 12px 12px 12px;
+  margin-top: -1px;
+}
+
+#sidebar-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }

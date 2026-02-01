@@ -19,7 +19,7 @@ anterior:
   text: |
     <div>
       <p><strong>Anterior</strong> means in front of. An anterior view shows the front of the structure.</p>
-      <p class='popup_example'>Ex: The <span class='popup-term' data-popup-id='sternum'>sternum</span> is anterior to the heart.</p>
+      <p class='popup_example'>Ex: The <span class='popup-term' data-popup-id='popup-sternum'>sternum</span> is anterior to the heart.</p>
     </div>
   url: 
 
@@ -28,7 +28,7 @@ anterior_circumflex_humeral_artery:
     <h1>UNFINISHED - anterior_circumflex_humeral_artery</h1>
     <div>
     <ul>
-        <li>Supplies <span class='popup-term' data-popup-id='deltoid'>deltoid</span>, <span class='popup-term' data-popup-id='teres_minor'>teres minor</span>, <span class='popup-term' data-popup-id='teres_major'>teres major</span>, <span class='popup-term' data-popup-id='coracobrachialis'>coracobrachialis</span>, shoulder joint, head of humerus
+        <li>Supplies <span class='popup-term' data-popup-id='popup-deltoid'>deltoid</span>, <span class='popup-term' data-popup-id='popup-teres_minor'>teres minor</span>, <span class='popup-term' data-popup-id='popup-teres_major'>teres major</span>, <span class='popup-term' data-popup-id='popup-coracobrachialis'>coracobrachialis</span>, shoulder joint, head of humerus
         </li>
     </ul>
     </div>
@@ -38,7 +38,7 @@ articulate:
   text: |
     <div>
       <p><strong>Articulate</strong> means to form a joint with another bone.</p>
-      <p class="popup_example">Ex: The <span class='popup-term' data-popup-id='humerus'>humerus</span> articulates (forms a joint with) the <span class='popup-term' data-popup-id='scapula'>scapula</span>.</p>
+      <p class="popup_example">Ex: The <span class='popup-term' data-popup-id='popup-humerus'>humerus</span> articulates (forms a joint with) the <span class='popup-term' data-popup-id='popup-scapula'>scapula</span>.</p>
     </div>
   url: 
 
@@ -47,10 +47,10 @@ axillary_nerve:
     <h1>UNFINISHED - axillary_nerv</h1>
     <div>
     <ul>
-        <li>Sends motor signals to <span class='popup-term' data-popup-id='deltoid'>deltoid</span> and <span class='popup-term' data-popup-id='teres_minor'>teres minor</span>
+        <li>Sends motor signals to <span class='popup-term' data-popup-id='popup-deltoid'>deltoid</span> and <span class='popup-term' data-popup-id='popup-teres_minor'>teres minor</span>
         </li>
-        <li>Brings sensory signals from skin over the <span class='popup-term' data-popup-id='lateral'>lateral</span> shoulder</li>
-        <li>Significance: damage can cause loss of motor control of <span class='popup-term' data-popup-id='deltoid'>deltoid</span> and <span class='popup-term' data-popup-id='lateral'>lateral</span> shoulder sensation</li>
+        <li>Brings sensory signals from skin over the <span class='popup-term' data-popup-id='popup-lateral'>lateral</span> shoulder</li>
+        <li>Significance: damage can cause loss of motor control of <span class='popup-term' data-popup-id='popup-deltoid'>deltoid</span> and <span class='popup-term' data-popup-id='popup-lateral'>lateral</span> shoulder sensation</li>
     </ul>
     </div>
   url: 
@@ -58,7 +58,7 @@ axillary_nerve:
 ball-and-socket: 
   text: |
     <div>
-      <p>A <strong><em>ball</em>-and-<em>socket</em></strong> joint is a <span class='popup-term' data-popup-id='synovial'>synovial</span> joint where the <em>ball</em>-like (spherical) head of one bone fits into a <em>socket</em> (cup-like structure) of another bone.</p>
+      <p>A <strong><em>ball</em>-and-<em>socket</em></strong> joint is a <span class='popup-term' data-popup-id='popup-synovial'>synovial</span> joint where the <em>ball</em>-like (spherical) head of one bone fits into a <em>socket</em> (cup-like structure) of another bone.</p>
       <p class="popup_example">Ex: Your shoulder is a ball-and-socket joint.</p>
     </div>
   url: 
@@ -71,13 +71,13 @@ biceps_brachii:
 brachialis: 
   text: |
     <h1>UNFINISHED - brachialis</h1>
-    <div>Brachialis: <span class='popup-term' data-popup-id='flexion'>flexes</span> forearm at elbow</div>
+    <div>Brachialis: <span class='popup-term' data-popup-id='popup-flexion'>flexes</span> forearm at elbow</div>
   url: 
 
 brachioradialis:
   text: |
     <h1>UNFINISHED - brachioradialis</h1>
-    <div>Brachioradialis: <span class='popup-term' data-popup-id='flexion'>flexes</span> forearm</div>
+    <div>Brachioradialis: <span class='popup-term' data-popup-id='popup-flexion'>flexes</span> forearm</div>
   url: 
 
 
@@ -85,15 +85,15 @@ cervical:
   text: |
     <div>
       <p><strong>Cervical</strong> refers to the neck.</p>
-      <p class='popup_example'>Ex: The cervical <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> are in the neck.</p>
+      <p class='popup_example'>Ex: The cervical <span class='popup-term' data-popup-id='popup-vertebrae'>vertebrae</span> are in the neck.</p>
     </div>
   url:
 
 coccygeal:
   text: |
     <div>
-      <p><strong>Coccygeal</strong> refers to the <span class='popup-term' data-popup-id='coccyx'>coccyx</span>, also called the tailbone.</p>
-      <p class='popup_example'>Ex: The coccygeal <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> comprise the <span class='popup-term' data-popup-id='coccyx'>coccyx</span>.</p>
+      <p><strong>Coccygeal</strong> refers to the <span class='popup-term' data-popup-id='popup-coccyx'>coccyx</span>, also called the tailbone.</p>
+      <p class='popup_example'>Ex: The coccygeal <span class='popup-term' data-popup-id='popup-vertebrae'>vertebrae</span> comprise the <span class='popup-term' data-popup-id='popup-coccyx'>coccyx</span>.</p>
     </div>
   url:
 
@@ -107,7 +107,7 @@ coccyx:
 coracobrachialis: 
   text: |
     <h1>UNFINISHED - coracobrachialis</h1>
-    <div>Coracobrachialis: <span class='popup-term' data-popup-id='flexion'>flexes</span> and <span class='popup-term' data-popup-id='adduction'>adducts</span> arm at shoulder</div>
+    <div>Coracobrachialis: <span class='popup-term' data-popup-id='popup-flexion'>flexes</span> and <span class='popup-term' data-popup-id='popup-adduction'>adducts</span> arm at shoulder</div>
   url: 
 
 circumduction:
@@ -126,22 +126,22 @@ deep_brachial_artery:
 deltoid: 
   text: |
     <h1>UNFINISHED - deltoid</h1>
-    <div>Deltoid: arm <span class='popup-term' data-popup-id='flexion'>flexion</span>/<span class='popup-term' data-popup-id='extension'>extension</span>, <span class='popup-term' data-popup-id='medial'>medial</span>/<span class='popup-term' data-popup-id='lateral'>lateral</span> <span class='popup-term' data-popup-id='rotation'>rotation</span>, <span class='popup-term' data-popup-id='abduction'>abduction</span></div>
+    <div>Deltoid: arm <span class='popup-term' data-popup-id='popup-flexion'>flexion</span>/<span class='popup-term' data-popup-id='popup-extension'>extension</span>, <span class='popup-term' data-popup-id='popup-medial'>medial</span>/<span class='popup-term' data-popup-id='popup-lateral'>lateral</span> <span class='popup-term' data-popup-id='popup-rotation'>rotation</span>, <span class='popup-term' data-popup-id='popup-abduction'>abduction</span></div>
   url: 
 
 distal:
   text: |
     <h1>UNFINISHED - distal</h1>
     <div>
-      <p>Distal means farther from a body part's <span class="popup-term" data-popup-id="origin">origin</span>.</p>
-      <p class="popup_example">Ex: Your finger is distal to your forearm because your finger is farther from the shoulder, the arm's <span class="popup-term" data-popup-id="origin">origin.</span></p>
+      <p>Distal means farther from a body part's <span class="popup-term" data-popup-id="popup-origin">origin</span>.</p>
+      <p class="popup_example">Ex: Your finger is distal to your forearm because your finger is farther from the shoulder, the arm's <span class="popup-term" data-popup-id="popup-origin">origin.</span></p>
     </div>
   url:
 
 extension: 
   text: |
     <div>
-      <p><strong>Extension</strong> is a movement that brings two body parts farther apart in the <span class='popup-term' data-popup-id='sagittal_plane'>sagittal plane</span> (aka looking at the body in the <span class='popup-term' data-popup-id='anatomical_position'>anatomical position</span> from the side).</p>
+      <p><strong>Extension</strong> is a movement that brings two body parts farther apart in the <span class='popup-term' data-popup-id='popup-sagittal_plane'>sagittal plane</span> (aka looking at the body in the <span class='popup-term' data-popup-id='popup-anatomical_position'>anatomical position</span> from the side).</p>
       <p class='popup_example'>Ex: Extension of the elbow brings the forearm farther from the upper arm.</p>
     </div>
   url: 
@@ -149,13 +149,13 @@ extension:
 extensor_carpi_radialis_longus: 
   text: |
     <h1>UNFINISHED - extensor_carpi_radialis_longus</h1>
-    <div>Extensor carpi radialis longus: <span class='popup-term' data-popup-id='extension'>extends</span> and <span class='popup-term' data-popup-id='abduction'>abducts</span> hand</div>
+    <div>Extensor carpi radialis longus: <span class='popup-term' data-popup-id='popup-extension'>extends</span> and <span class='popup-term' data-popup-id='popup-abduction'>abducts</span> hand</div>
   url: 
   
 flexion: 
   text: |
     <div>
-      <p><strong>Flexion</strong> is a movement that brings two body parts closer together in the <span class='popup-term' data-popup-id='sagittal_plane'>sagittal plane</span> (aka when looking at a body in the <span class='popup-term' data-popup-id='anatomical_position'>anatomical position</span> from the side).</p>
+      <p><strong>Flexion</strong> is a movement that brings two body parts closer together in the <span class='popup-term' data-popup-id='popup-sagittal_plane'>sagittal plane</span> (aka when looking at a body in the <span class='popup-term' data-popup-id='popup-anatomical_position'>anatomical position</span> from the side).</p>
       <p class='popup_example'>Ex: Flexion of the elbow brings the forearm closer to the upper arm.</p>
     </div>
   url: 
@@ -163,8 +163,8 @@ flexion:
 hinge: 
   text: |
     <div>
-      <p>A <strong>hinge</strong> joint is a <span class='popup-term' data-popup-id='synovial'>synovial</span> joint that allows for movement in one plane (typically <span class='popup-term' data-popup-id='flexion'>flexion</span> and <span class='popup-term' data-popup-id='extension'>extension</span> in the <span class='popup-term' data-popup-id='sagittal_plane'>sagittal plane</span>).</p>
-      <p class='popup_example'>Ex: The elbow is a hinge joint that allows <span class='popup-term' data-popup-id='flexion'>flexion</span> and <span class='popup-term' data-popup-id='extension'>extension</span> of your forearm.</p>
+      <p>A <strong>hinge</strong> joint is a <span class='popup-term' data-popup-id='popup-synovial'>synovial</span> joint that allows for movement in one plane (typically <span class='popup-term' data-popup-id='popup-flexion'>flexion</span> and <span class='popup-term' data-popup-id='popup-extension'>extension</span> in the <span class='popup-term' data-popup-id='popup-sagittal_plane'>sagittal plane</span>).</p>
+      <p class='popup_example'>Ex: The elbow is a hinge joint that allows <span class='popup-term' data-popup-id='popup-flexion'>flexion</span> and <span class='popup-term' data-popup-id='popup-extension'>extension</span> of your forearm.</p>
     </div>
   url:
 
@@ -186,7 +186,7 @@ inferior:
 infraspinatus: 
   text: |
     <h1>UNFINISHED - infraspinatus</h1>
-    <div>Infraspinatus: <span class="popup-term" data-popup-id="lateral">lateral</span> <span class="popup-term" data-popup-id="rotation">rotation</span> of arm</div>
+    <div>Infraspinatus: <span class="popup-term" data-popup-id="popup-lateral">lateral</span> <span class="popup-term" data-popup-id="popup-rotation">rotation</span> of arm</div>
   url: 
 
 insertion: 
@@ -210,14 +210,14 @@ lateral:
 latissimus_dorsi: 
   text: |
     <h1>UNFINISHED - latissimus_dorsi</h1>
-    <div>Latissimus dorsi: <span class='popup-term' data-popup-id='adduction'>adducts</span>, <span class='popup-term' data-popup-id='medial'>medially</span> <span class='popup-term' data-popup-id='rotation'>rotates</span>, <span class='popup-term' data-popup-id='extension'>extends</span> arm</div>
+    <div>Latissimus dorsi: <span class='popup-term' data-popup-id='popup-adduction'>adducts</span>, <span class='popup-term' data-popup-id='popup-medial'>medially</span> <span class='popup-term' data-popup-id='popup-rotation'>rotates</span>, <span class='popup-term' data-popup-id='popup-extension'>extends</span> arm</div>
   url: 
 
 lumbar:
   text: |
     <div>
       <p><strong>Lumbar</strong> refers to the lower back, beneath the ribcage.</p>
-      <p class='popup_example'>Ex: The lumbar <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> are in your lower back.</p>
+      <p class='popup_example'>Ex: The lumbar <span class='popup-term' data-popup-id='popup-vertebrae'>vertebrae</span> are in your lower back.</p>
     </div>
   url:
 
@@ -241,7 +241,7 @@ origin:
 pectoralis_major: 
   text: |
     <h1>UNFINISHED - pectoralis_major</h1>
-    <div>Pectoralis major: <span class='popup-term' data-popup-id='adduction'>adducts</span> and <span class='popup-term' data-popup-id='medial'>medially</span> <span class='popup-term' data-popup-id='rotation'>rotates</span> arm; <span class='popup-term' data-popup-id='flexion'>flexes</span> and <span class='popup-term' data-popup-id='extension'>extends</span> humerus</div>
+    <div>Pectoralis major: <span class='popup-term' data-popup-id='popup-adduction'>adducts</span> and <span class='popup-term' data-popup-id='popup-medial'>medially</span> <span class='popup-term' data-popup-id='popup-rotation'>rotates</span> arm; <span class='popup-term' data-popup-id='popup-flexion'>flexes</span> and <span class='popup-term' data-popup-id='popup-extension'>extends</span> humerus</div>
   url: 
 
 pelvis:
@@ -254,8 +254,8 @@ pelvis:
 pivot: 
   text: |
     <div>
-      <p>A <strong>pivot</strong> joint is a <span class='popup-term' data-popup-id='synovial'>synovial</span> joint that allows for <span class='popup-term' data-popup-id='rotation'>rotation</span>.</p>
-      <p class='popup_example'>Ex: The pivot joint between the <span class='popup-term' data-popup-id='vertebrae'>C1 and C2 vertebrae</span> lets you shake your head "no."</p>
+      <p>A <strong>pivot</strong> joint is a <span class='popup-term' data-popup-id='popup-synovial'>synovial</span> joint that allows for <span class='popup-term' data-popup-id='popup-rotation'>rotation</span>.</p>
+      <p class='popup_example'>Ex: The pivot joint between the <span class='popup-term' data-popup-id='popup-vertebrae'>C1 and C2 vertebrae</span> lets you shake your head "no."</p>
     </div>
   url: 
 
@@ -263,7 +263,7 @@ posterior:
   text: |
     <div>
       <p><strong>Posterior</strong> means behind. A posterior view shows the back of the structure.</p>
-      <p class='popup_example'>Ex: The heart is posterior to the <span class='popup-term' data-popup-id='sternum'>sternum</span>.</p>
+      <p class='popup_example'>Ex: The heart is posterior to the <span class='popup-term' data-popup-id='popup-sternum'>sternum</span>.</p>
     </div>
   url:
 
@@ -272,7 +272,7 @@ posterior_circumflex_humeral_artery:
     <h1>UNFINISHED - posterior_circumflex_humeral_artery</h1>
     <div>
     <ul>
-        <li>Supplies <span class='popup-term' data-popup-id='deltoid'>deltoid</span>, <span class='popup-term' data-popup-id='teres_minor'>teres minor</span>, <span class='popup-term' data-popup-id='teres_major'>teres major</span>, long/<span class='popup-term' data-popup-id='lateral'>lateral</span> heads of <span class='popup-term' data-popup-id='triceps_brachii'>triceps brachii</span>, shoulder joint, surrounding tissues
+        <li>Supplies <span class='popup-term' data-popup-id='popup-deltoid'>deltoid</span>, <span class='popup-term' data-popup-id='popup-teres_minor'>teres minor</span>, <span class='popup-term' data-popup-id='popup-teres_major'>teres major</span>, long/<span class='popup-term' data-popup-id='popup-lateral'>lateral</span> heads of <span class='popup-term' data-popup-id='popup-triceps_brachii'>triceps brachii</span>, shoulder joint, surrounding tissues
         </li>
     </ul>
     </div>
@@ -281,7 +281,7 @@ posterior_circumflex_humeral_artery:
 pronation: 
   text: |
     <div>
-      <p><strong>Pronation</strong> of the hand and forearm is a <span class='popup-term' data-popup-id='rotation'>rotation</span> that makes the palm face downward. Pronation of the foot is the inward rolling of the foot during walking.</p>
+      <p><strong>Pronation</strong> of the hand and forearm is a <span class='popup-term' data-popup-id='popup-rotation'>rotation</span> that makes the palm face downward. Pronation of the foot is the inward rolling of the foot during walking.</p>
       <p class='popup_example'>Ex: Your hand is pronated when it lays palm-down on a table.</p>
     </div>
   url: 
@@ -289,7 +289,7 @@ pronation:
 pronator_teres: 
   text: |
     <h1>UNFINISHED - pronator_teres</h1>
-    <div>Pronator teres: <span class='popup-term' data-popup-id='pronation'>pronates</span> forearm; assists in elbow <span class='popup-term' data-popup-id='flexion'>flexion</span></div>
+    <div>Pronator teres: <span class='popup-term' data-popup-id='popup-pronation'>pronates</span> forearm; assists in elbow <span class='popup-term' data-popup-id='popup-flexion'>flexion</span></div>
   url: 
 
 proximal: 
@@ -305,7 +305,7 @@ radial_nerve:
 radius: 
   text: |
     <div>
-      <p>The <strong>radius</strong> is the <span class='popup-term' data-popup-id='lateral'>lateral</span> bone of the forearm in <span class='popup-term' data-popup-id='anatomical_position'>anatomical position</span>. It lies on the same side of the forearm as the thumb does.</p>
+      <p>The <strong>radius</strong> is the <span class='popup-term' data-popup-id='popup-lateral'>lateral</span> bone of the forearm in <span class='popup-term' data-popup-id='popup-anatomical_position'>anatomical position</span>. It lies on the same side of the forearm as the thumb does.</p>
     </div>
   url:
 
@@ -320,22 +320,22 @@ rotation:
 sacral:
   text: |
     <div>
-      <p><strong>Sacral</strong> refers to the <span class='popup-term' data-popup-id='sacrum'>sacrum</span>, the irregular, triangular bone at the bottom of your spine.</p>
-      <p class='popup_example'>Ex: The sacral <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> comprise the <span class='popup-term' data-popup-id='sacrum'>sacrum</span>.</p>
+      <p><strong>Sacral</strong> refers to the <span class='popup-term' data-popup-id='popup-sacrum'>sacrum</span>, the irregular, triangular bone at the bottom of your spine.</p>
+      <p class='popup_example'>Ex: The sacral <span class='popup-term' data-popup-id='popup-vertebrae'>vertebrae</span> comprise the <span class='popup-term' data-popup-id='popup-sacrum'>sacrum</span>.</p>
     </div>
   url:
 
 sacrum:
   text: |
     <div>
-      <p>The <strong>sacrum</strong> is an irregular, triangular bone at the bottom of your spine that forms the back of the <span class='popup-term' data-popup-id='pelvis'>pelvis</span>.</p>
+      <p>The <strong>sacrum</strong> is an irregular, triangular bone at the bottom of your spine that forms the back of the <span class='popup-term' data-popup-id='popup-pelvis'>pelvis</span>.</p>
     </div>
   url:
 
 sagittal_plane: 
   text: |
     <div>
-      <p>The <strong>sagittal plane</strong> divides the body into left and right halves. This plane is commonly used to show movements that go forward and backward, like <span class='popup-term' data-popup-id='flexion'>flexion</span> and <span class='popup-term' data-popup-id='extension'>extension</span>.</p>
+      <p>The <strong>sagittal plane</strong> divides the body into left and right halves. This plane is commonly used to show movements that go forward and backward, like <span class='popup-term' data-popup-id='popup-flexion'>flexion</span> and <span class='popup-term' data-popup-id='popup-extension'>extension</span>.</p>
     </div>
   url:
 
@@ -356,7 +356,7 @@ sternum:
 supraspinatus: 
   text: |
     <h1>UNFINISHED - supraspinatus</h1>
-    <div>Supraspinatus: <span class="popup-term" data-popup-id="abduction">abduction</span> of arm</div>
+    <div>Supraspinatus: <span class="popup-term" data-popup-id="popup-abduction">abduction</span> of arm</div>
   url: 
 
 superior: 
@@ -370,7 +370,7 @@ superior:
 supination: 
   text: |
     <div>
-      <p><strong>Supination</strong> of the hand and forearm is a <span class='popup-term' data-popup-id='rotation'>rotation</span> that makes the palm face upwards. Supination of the foot is an outward rolling caused by placing weight on the outer edge of the foot during walking.</p>
+      <p><strong>Supination</strong> of the hand and forearm is a <span class='popup-term' data-popup-id='popup-rotation'>rotation</span> that makes the palm face upwards. Supination of the foot is an outward rolling caused by placing weight on the outer edge of the foot during walking.</p>
       <p class='popup_example'>Ex: Your hand is supinated when it lays palm-up on a table.</p>
     </div>
   url: 
@@ -385,40 +385,40 @@ synovial:
 teres_major: 
   text: |
     <h1>UNFINISHED - teres_major</h1>
-    <div>Teres major: <span class='popup-term' data-popup-id='adduction'>adducts</span>, <span class='popup-term' data-popup-id='medial'>medially</span> <span class='popup-term' data-popup-id='rotation'>rotates</span> arm; <span class='popup-term' data-popup-id='extention'>extends</span> <span class='popup-term' data-popup-id='flexion'>flexed</span> arm</div>
+    <div>Teres major: <span class='popup-term' data-popup-id='popup-adduction'>adducts</span>, <span class='popup-term' data-popup-id='popup-medial'>medially</span> <span class='popup-term' data-popup-id='popup-rotation'>rotates</span> arm; <span class='popup-term' data-popup-id='popup-extention'>extends</span> <span class='popup-term' data-popup-id='popup-flexion'>flexed</span> arm</div>
   url: 
 
 teres_minor: 
   text: |
     <h1>UNFINISHED - teres_minor</h1>
-    <div>Teres minor: <span class="popup-term" data-popup-id="lateral">lateral</span> <span class="popup-term" data-popup-id="rotation">rotation</span> and <span class="popup-term" data-popup-id="adduction">adduction</span> of arm</div>
+    <div>Teres minor: <span class="popup-term" data-popup-id="popup-lateral">lateral</span> <span class="popup-term" data-popup-id="popup-rotation">rotation</span> and <span class="popup-term" data-popup-id="popup-adduction">adduction</span> of arm</div>
   url: 
 
 thoracic:
   text: |
     <div>
       <p><strong>Thoracic</strong> refers to upper part of your torso (your chest and upper/mid-back).</p>
-      <p class='popup_example'>Ex: The thoracic <span class='popup-term' data-popup-id='vertebrae'>vertebrae</span> are in your upper/mid-back.</p>
+      <p class='popup_example'>Ex: The thoracic <span class='popup-term' data-popup-id='popup-vertebrae'>vertebrae</span> are in your upper/mid-back.</p>
     </div>
   url:
 
 triceps_brachii: 
   text: |
     <h1>UNFINISHED - triceps_brachii</h1>
-    <div>Triceps brachii: <span class='popup-term' data-popup-id='extension'>extends</span> forearm at elbow</div>
+    <div>Triceps brachii: <span class='popup-term' data-popup-id='popup-extension'>extends</span> forearm at elbow</div>
   url: 
 
 ulna: 
   text: |
     <div>
-      <p>The <strong>ulna</strong> is the <span class='popup-term' data-popup-id='medial'>medial</span> bone of the forearm in <span class='popup-term' data-popup-id='anatomical_position'>anatomical position</span>. It lies on the same side of the forearm as the pinky does.</p>
+      <p>The <strong>ulna</strong> is the <span class='popup-term' data-popup-id='popup-medial'>medial</span> bone of the forearm in <span class='popup-term' data-popup-id='popup-anatomical_position'>anatomical position</span>. It lies on the same side of the forearm as the pinky does.</p>
     </div>
   url: 
 
 vertebrae: 
   text: |
     <div>
-      <p>The <strong>vertebrae</strong> are the bones in your spine. They are grouped into <span class='popup-term' data-popup-id='cervical'>cervical</span>, <span class='popup-term' data-popup-id='thoracic'>thoracic</span>, <span class='popup-term' data-popup-id='lumbar'>lumbar</span>, <span class='popup-term' data-popup-id='sacral'>sacral</span>, and <span class='popup-term' data-popup-id='coccygeal'>coccygeal</span> sections and are identified by the first letter from their section (except for <em>co</em>ccygeal which is "<em>Co</em>") and their number from the top of the section.</p>
-      <p class='popup_example'>Ex: The T4 vertebra is the fourth vertebra from the top of the <span class='popup-term' data-popup-id='thoracic'>thoracic</span> section.</p>
+      <p>The <strong>vertebrae</strong> are the bones in your spine. They are grouped into <span class='popup-term' data-popup-id='popup-cervical'>cervical</span>, <span class='popup-term' data-popup-id='popup-thoracic'>thoracic</span>, <span class='popup-term' data-popup-id='popup-lumbar'>lumbar</span>, <span class='popup-term' data-popup-id='popup-sacral'>sacral</span>, and <span class='popup-term' data-popup-id='popup-coccygeal'>coccygeal</span> sections and are identified by the first letter from their section (except for <em>co</em>ccygeal which is "<em>Co</em>") and their number from the top of the section.</p>
+      <p class='popup_example'>Ex: The T4 vertebra is the fourth vertebra from the top of the <span class='popup-term' data-popup-id='popup-thoracic'>thoracic</span> section.</p>
     </div>
   url: 
