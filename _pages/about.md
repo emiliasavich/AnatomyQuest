@@ -32,7 +32,7 @@ permalink: /about/
 
   <p>
     If you have suggestions for improving this website or its study sheets, please share them at
-    <a href="mailto:communiquesting@gmail.com">communiquesting@gmail.com</a>.
+    <a href="mailto:anatomyquesting@gmail.com">anatomyquesting@gmail.com</a>.
   </p>
 
 </div>
