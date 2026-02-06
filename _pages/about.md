@@ -26,7 +26,7 @@ permalink: /about/
 
   <p>
     If you have suggestions for improving this website or its study sheets, please share them at
-    <a href="">&lt;Email Coming Soon&gt;</a>.
+    <a href="mailto:emiliasavich@gmail.com">emiliasavich@gmail.com</a> (our official email is coming soon).
   </p>
 
 </div>
