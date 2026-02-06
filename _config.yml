@@ -20,12 +20,12 @@
 
 locale: "en-US"
 title: Anatomy Study Sheets
-subtitle: Powered by CommuniQuest
+subtitle: ""
 email: emiliasavich@gmail.com
 name: "Emilia Savich"
 description: >- # this means to ignore newlines until "baseurl:"
-  Anatomy study sheets created in conjunction with CommuniQuest YouTube videos.
-url: "https://communiquest.org/" # the base hostname & protocol for your site, e.g. http://example.com
+  Anatomy study sheets created in conjunction with AnatomyQuest YouTube videos.
+url: "https://anatomyquest.org/" # the base hostname & protocol for your site, e.g. http://example.com
 repository: "emiliasavich/Anatomy"
 # twitter_username: jekyllrb
 # github_username:  jekyll
@@ -33,7 +33,7 @@ repository: "emiliasavich/Anatomy"
 
 # author info
 author:
-  name: CommuniQuest
+  name: AnatomyQuest
   avatar: "/assets/images/WebsiteAvatar.png"
   bio: >-
     Refining the art of impactful speech.
@@ -57,8 +57,8 @@ footer:
   links:
     - label: "YouTube"
       icon: "fab fa-youtube"
-      url: "https://youtube.com/@communiquesting"
-copyright: "CC BY-SA 4.0 – CommuniQuest"
+      url: "https://youtube.com/@anatomyquesting"
+copyright: "CC BY-SA 4.0 – AnatomyQuest"
 copyright_url: "https://creativecommons.org/licenses/by-sa/4.0/"
 
 
