@@ -151,6 +151,12 @@ Bone Five Steps Overview
   padding-left: 20px;
 }
 
+.step-overview h3 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 .step-overview p {
   margin: 0;
   font-weight: bold;
@@ -245,7 +251,7 @@ Neighbors for
 }
 
 .neighbor-subtitle {
-  color: gray;
+  color: #666; /* WCAG AA compliant - contrast ratio 5.74:1 */
 }
 
 /* Image Gallery */
@@ -498,7 +504,7 @@ Neighbors for
 Anatomical Landmarks
 *********************************/
 .landmarks-item {
-  color: gray;
+  color: #666; /* WCAG AA compliant - contrast ratio 5.74:1 */
   text-align: center;
 }
 
@@ -1067,7 +1073,7 @@ tutorial
 Bullet Styles
 ********************************/
 .bullet-head {
-  color: gray;
+  color: #666; /* WCAG AA compliant - contrast ratio 5.74:1 */
 }
 
 
@@ -1216,7 +1222,7 @@ CHAT NEIGHBOR OUTPUT
   overflow: hidden;
   position: relative;
   background-color: white;
-  color: gray;
+  color: #666; /* WCAG AA compliant - contrast ratio 5.74:1 */
   border: 1px solid gray;
   border-radius: 4px;
 }
