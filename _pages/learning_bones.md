@@ -6,7 +6,6 @@ directory_title: Bones
 permalink: /getting_started/effective_learning_methods/learning_bones.html
 ---
 
-
 <div>
 
   <p><strong>Goal:</strong> Understand how each bone relates to the body as a whole.</p>
@@ -33,7 +32,7 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
     <li>
       <p><strong>Long:</strong> Functions as a lever that enables large movements.</p>
       <figure>
-        <img src="{{ '/assets/images/bones/humerus/Humerus - anterior view.png' | relative_url }}" alt="Humerus">
+        <img src="{{ '/assets/images/bones/humerus/Humerus - anterior view.webp' | relative_url }}" alt="Humerus">
         <figcaption>Humerus</figcaption>
       </figure>
     </li>
@@ -41,7 +40,7 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
     <li>
       <p><strong>Short:</strong> Provides strength, stability, and limited motion.</p>
       <figure>
-        <img src="{{ '/assets/images/bones/carpal/Capitate Bone - anterior view.png' | relative_url }}" alt="Carpal Bone">
+        <img src="{{ '/assets/images/bones/carpal/Capitate Bone - anterior view.webp' | relative_url }}" alt="Carpal Bone">
         <figcaption>Carpal (Wrist) Bone</figcaption>
       </figure>
     </li>
@@ -49,7 +48,7 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
     <li>
       <p><strong>Flat:</strong> Protects organs and offer muscle attachment sites.</p>
       <figure>
-        <img src="{{ '/assets/images/bones/skull/Frontal Bone - anterior view.png' | relative_url }}" alt="Frontal Bone">
+        <img src="{{ '/assets/images/bones/skull/Frontal Bone - anterior view.webp' | relative_url }}" alt="Frontal Bone">
         <figcaption>Frontal Bone</figcaption>
       </figure>
     </li>
@@ -57,13 +56,13 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
     <li>
       <p><strong>Irregular:</strong> Complex shape with a specialized function.</p>
       <figure>
-        <img src="{{ '/assets/images/bones/vertebra/Vertebra L3 - superior view.png' | relative_url }}" alt="Vertebra">
+        <img src="{{ '/assets/images/bones/vertebra/Vertebra L3 - superior view.webp' | relative_url }}" alt="Vertebra">
         <figcaption>Vertebra L3</figcaption>
       </figure>
     </li>
+
   </ul>
   </div>
-
 
   <div class="step step-neighbors">
     <h2>Step 3 – Neighbors</h2>
@@ -83,7 +82,6 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
     <p><strong>Purpose:</strong> Studying blood supply helps you see how bones interact with the cardiovascular system, providing a bigger-picture understanding of their role in the body.</p>
   </div>
 
-
   <p>Information based on <a href="https://teachmeanatomy.info/the-basics/learning-anatomy/bones/" target="_blank">Teach Me Anatomy</a>.</p>
   <p>Images from <a href="https://www.z-anatomy.com/" target="_blank">Z-Anatomy</a>.</p>
   <p>Associated video</p>
@@ -92,4 +90,3 @@ permalink: /getting_started/effective_learning_methods/learning_bones.html
   <p>First, see the five steps applied to the <a href="{{ '/upper_limb/bones/humerus.html' | relative_url }}">humerus</a>. Then, apply them to the femur and check your work using the <!--<a href="{{ '/lower_limb/bones/femur.html' | relative_url }}">femur study sheet</a>--> <a>femur study sheet</a> (Coming soon!).</p>
 
 </div>
-
