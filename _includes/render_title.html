@@ -1,8 +1,0 @@
-{% assign title = include.title %}
-{% if title.url %}
-<a href="{{ title.url | relative_url }}"{% if title.url == page.url %} class="active"{% endif %}>
-	{{ title.title }}
-</a>
-{% else %}
-<span>{{ title.title }}</span>
-{% endif %}

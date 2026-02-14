@@ -30,8 +30,7 @@
       description:
         - "Narrow region <span class=\"popup-term\" data-popup-id=\"popup-distal\">distal</span> to tubercles"
         - "Common fracture site"
-        - "Close to <span class=\"popup-term\" data-popup-id=\"popup-axillary_nerve\">axillary nerve</span>, 
-        <span class=\"popup-term\" data-popup-id=\"popup-anterior_circumflex_humeral_artery\">anterior circumflex humeral artery</span>, and <span class=\"popup-term\" data-popup-id=\"popup-posterior_circumflex_humeral_artery\">posterior circumflex humeral artery</span>"
+        - "Close to <span class=\"popup-term\" data-popup-id=\"popup-axillary_nerve\">axillary nerve</span>, <span class=\"popup-term\" data-popup-id=\"popup-anterior_circumflex_humeral_artery\">anterior circumflex humeral artery</span>, and <span class=\"popup-term\" data-popup-id=\"popup-posterior_circumflex_humeral_artery\">posterior circumflex humeral artery</span>"
       base: surgical neck
       views:
         - anterior:
