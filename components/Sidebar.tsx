@@ -52,14 +52,17 @@ function NavItem({ item, basePath = "" }: { item: NavLink; basePath?: string }) 
 
 export function Sidebar({ nav }: SidebarProps) {
   return (
-    <aside className="w-56 shrink-0 hidden lg:block xl:w-64 border-r border-aq-primary/10 bg-aq-sage/40">
-      <nav className="sticky top-14 py-5 pl-5 pr-4">
-        <ul className="space-y-0.5 text-sm">
-          {nav.map((item, i) => (
-            <NavItem key={i} item={item} />
-          ))}
-        </ul>
-      </nav>
-    </aside>
+    <>
+      <aside className="fixed left-0 top-16 bottom-0 z-10 hidden w-56 border-r border-aq-primary/10 bg-aq-sage/40 lg:block xl:w-64">
+        <nav className="py-5 pl-5 pr-4 overflow-y-auto h-full">
+          <ul className="space-y-0.5 text-sm">
+            {nav.map((item, i) => (
+              <NavItem key={i} item={item} />
+            ))}
+          </ul>
+        </nav>
+      </aside>
+      <div className="hidden w-56 shrink-0 lg:block xl:w-64" aria-hidden />
+    </>
   );
 }

@@ -3,7 +3,6 @@ import { ContentLayout } from "@/components/ContentLayout";
 
 const BONES = [
   { path: "/entire_body/bones/humerus", title: "Humerus" },
-  { path: "/entire_body/bones/femur", title: "Femur" },
 ];
 
 export default function EntireBodyBonesPage() {

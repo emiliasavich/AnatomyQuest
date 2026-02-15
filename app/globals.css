@@ -40,3 +40,22 @@ a {
 .landmarks-color { color: #dc2626; }
 .step-blood .blood-supply-color,
 .blood-supply-color { color: #ea580c; }
+
+/* Interactive anatomy terms (popup on hover) */
+.popup-term {
+  @apply cursor-help border-b border-dotted border-stone-400 text-aq-primary;
+}
+.popup-term:hover {
+  @apply border-aq-primary;
+}
+
+/* Inside tooltip content: terms are plain text, no nested tooltips */
+.popup-layer-content .popup-term {
+  @apply cursor-text border-none text-inherit;
+  pointer-events: none;
+}
+
+/* "Information Page Coming Soon" in popups */
+.popup_coming {
+  @apply mt-2 text-xs text-stone-500 italic;
+}

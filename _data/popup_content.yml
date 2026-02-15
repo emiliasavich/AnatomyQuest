@@ -49,6 +49,7 @@ articulate:
     <div>
       <p><strong>Articulate</strong> means to form a joint with another bone.</p>
       <p class="popup_example">Ex: The <span class='popup-term' data-popup-id='popup-humerus'>humerus</span> articulates (forms a joint with) the <span class='popup-term' data-popup-id='popup-scapula'>scapula</span>.</p>
+      <p class="popup_coming">Information Page Coming Soon</p>
     </div>
   url: 
 
@@ -173,6 +174,14 @@ flexion:
       <p class='popup_example'>Ex: Flexion of the elbow brings the forearm closer to the upper arm.</p>
     </div>
   url: 
+
+fossas:
+  text: |
+    <div>
+      <p>A <strong>fossa</strong> is a shallow depression on a bone that accommodates another structure (e.g. a neighboring bone) during movement.</p>
+      <p class="popup_coming">Information Page Coming Soon</p>
+    </div>
+  url:
 
 forearm_extensors:
   text:
@@ -341,6 +350,7 @@ proximal:
       <p><strong>Proximal</strong> means closer to a reference point. The trunk of the body is assumed to be the reference point if none is given.</p>
       <p>Proximal is the opposite of <span class='popup-term' data-popup-id='popup-distal'>distal</span>.</p>
       <p class='popup_example'>Ex: The <span class='popup-term' data-popup-id='popup-humerus'>humerus</span> is proximal to the <span class='popup-term' data-popup-id='popup-radius'>radius</span>.</p>
+      <p class="popup_coming">Information Page Coming Soon</p>
     </div>
   url: 
 
@@ -400,6 +410,7 @@ scapula:
   text: |
     <div>
       <p>The <strong>scapula</strong>, also called the shoulder blade, is a flat, triangular-shaped bone in your upper back.</p>
+      <p class="popup_coming">Information Page Coming Soon</p>
     </div>
   url: 
 

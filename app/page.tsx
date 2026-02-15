@@ -1,16 +1,27 @@
 import Link from "next/link";
 
-const QUICK_ACCESS = [
-  { label: "Learning Bones", href: "/getting_started/effective_learning_methods/learning_bones", description: "How to study anatomy effectively" },
-  { label: "Humerus (Upper Limb)", href: "/upper_limb/bones/humerus", description: "Upper limb bone" },
-  { label: "Humerus (Entire Body)", href: "/entire_body/bones/humerus", description: "Full body context" },
-  { label: "Femur", href: "/entire_body/bones/femur", description: "Thigh bone" },
+const MAIN_SECTIONS = [
+  {
+    label: "Getting Started",
+    href: "/getting_started",
+    description: "Learn how to study anatomy effectively and follow structured steps for each bone.",
+  },
+  {
+    label: "Upper Limb",
+    href: "/upper_limb",
+    description: "Explore bones of the arm and shoulder—location, landmarks, and clinical context.",
+  },
+  {
+    label: "Entire Body",
+    href: "/entire_body",
+    description: "Bones in full-body context: upper limb, lower limb, and more.",
+  },
 ] as const;
 
 export default function HomePage() {
   return (
-    <div className="space-y-10">
-      {/* Mission — hero block with subtle anatomy feel */}
+    <div className="space-y-12">
+      {/* Our Mission */}
       <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/60 px-6 py-8 sm:px-8 sm:py-10">
         <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
         <div className="pl-2">
@@ -25,32 +36,30 @@ export default function HomePage() {
             <Link href="/contribute" className="font-medium text-aq-primary hover:underline">
               contribute
             </Link>{" "}
-            via GitHub or Canva. Use the <strong className="text-stone-800">left sidebar</strong> to navigate, or jump to a topic below.
+            via GitHub or Canva. Use the <strong className="text-stone-800">left sidebar</strong> to navigate, or choose a section below.
           </p>
         </div>
       </section>
 
-      {/* Quick access — clean cards, subtle hover */}
+      {/* Getting Started, Upper Limb, Entire Body — main cards */}
       <section>
-        <h2 className="font-serif text-xl font-semibold text-stone-800 sm:text-2xl">
-          Quick access
-        </h2>
-        <p className="mt-1 text-sm text-stone-500">
-          Go straight to a page, or use the sidebar for the full menu.
-        </p>
-        <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-          {QUICK_ACCESS.map((item, i) => (
-            <li key={item.href}>
+        <h2 className="sr-only">Main sections</h2>
+        <ul className="grid gap-5 sm:grid-cols-3 sm:items-stretch">
+          {MAIN_SECTIONS.map((item) => (
+            <li key={item.href} className="flex min-h-0">
               <Link
                 href={item.href}
-                className="group relative flex flex-col gap-0.5 rounded-xl border border-stone-200/80 bg-white py-4 pl-6 pr-5 transition-all duration-200 hover:border-aq-primary/30 hover:bg-aq-sage/40 hover:shadow-sm sm:flex-row sm:items-center sm:gap-4"
+                className="group relative flex h-full min-h-[180px] flex-col rounded-b-2xl border border-t-0 border-stone-200/90 bg-white p-6 pt-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-200 hover:border-aq-primary/30 hover:bg-aq-sage/30 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-aq-primary/40 focus:ring-offset-2"
               >
-                <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-aq-primary/50 group-hover:bg-aq-primary" aria-hidden />
-                <span className="font-medium text-stone-800 group-hover:text-aq-primary">
+                <span className="absolute inset-x-0 top-0 h-1 bg-aq-primary/40 transition-colors group-hover:bg-aq-primary" aria-hidden />
+                <span className="font-serif text-xl font-semibold tracking-tight text-stone-900 group-hover:text-aq-primary">
                   {item.label}
                 </span>
-                <span className="text-sm text-stone-500">
+                <span className="mt-2 flex-1 text-sm leading-relaxed text-stone-600">
                   {item.description}
+                </span>
+                <span className="mt-4 inline-flex items-center text-sm font-medium text-aq-primary group-hover:underline">
+                  Explore →
                 </span>
               </Link>
             </li>

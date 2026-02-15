@@ -7,6 +7,7 @@ import {
   getHumerusNeighborsBigPicture,
   getHumerusBlood,
   getFourViews,
+  getPopupContent,
 } from "@/lib/data";
 
 export default function HumerusPage() {
@@ -15,6 +16,7 @@ export default function HumerusPage() {
   const neighborsBigPicture = getHumerusNeighborsBigPicture();
   const blood = getHumerusBlood();
   const fourViews = getFourViews();
+  const popupContent = getPopupContent();
 
   return (
     <ContentLayout
@@ -32,6 +34,7 @@ export default function HumerusPage() {
         neighborsBigPicture={neighborsBigPicture}
         blood={blood}
         fourViews={fourViews}
+        popupContent={popupContent}
       />
     </ContentLayout>
   );

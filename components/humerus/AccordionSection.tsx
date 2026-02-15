@@ -7,6 +7,9 @@ interface AccordionSectionProps {
   title: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
+  /** Controlled: when provided, open state is controlled by parent */
+  open?: boolean;
+  onToggle?: () => void;
 }
 
 export function AccordionSection({
@@ -14,14 +17,18 @@ export function AccordionSection({
   title,
   children,
   defaultOpen = false,
+  open: controlledOpen,
+  onToggle,
 }: AccordionSectionProps) {
-  const [open, setOpen] = useState(defaultOpen);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
 
   return (
     <div className="mb-4 overflow-hidden rounded-2xl border border-aq-primary/15">
       <button
         type="button"
-        onClick={() => setOpen(!open)}
+        onClick={() => (isControlled ? onToggle?.() : setInternalOpen((o) => !o))}
         className="flex w-full items-center justify-between bg-aq-sage/60 px-5 py-4 text-left font-medium text-stone-800 transition-colors hover:bg-aq-sage"
         aria-expanded={open}
         aria-controls={id}

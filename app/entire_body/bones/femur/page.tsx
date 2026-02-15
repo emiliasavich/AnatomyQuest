@@ -1,4 +1,5 @@
 import { ContentLayout } from "@/components/ContentLayout";
+import { DevelopmentPageWrapper } from "@/components/DevelopmentPageWrapper";
 
 export default function FemurPage() {
   return (
@@ -11,11 +12,9 @@ export default function FemurPage() {
         { label: "Femur" },
       ]}
     >
-      <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 mb-6">
-        <p className="font-medium text-amber-800">This page is being worked on.</p>
-        <p className="text-sm text-amber-700 mt-1">Content may be incomplete or coming soon.</p>
-      </div>
-      <p>The femur is the thigh bone — the longest and strongest bone in the human body.</p>
+      <DevelopmentPageWrapper scope="page">
+        <p className="text-stone-700">The femur is the thigh bone — the longest and strongest bone in the human body.</p>
+      </DevelopmentPageWrapper>
     </ContentLayout>
   );
 }

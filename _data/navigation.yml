@@ -35,6 +35,4 @@ pages:
         children:
           - title: "Humerus"
             url: /entire_body/bones/humerus.html
-          - title: "Femur"
-            url: /entire_body/bones/femur.html
-          # Scaffold 1: Lower limb, axial skeleton, etc. — see lib/scaffolds.ts
+          # Scaffold 1: Femur, lower limb, axial skeleton, etc. — see lib/scaffolds.ts
