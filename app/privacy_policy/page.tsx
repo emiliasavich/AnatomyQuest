@@ -17,28 +17,21 @@ export default function PrivacyPolicyPage() {
       <p>
         Vercel Analytics provides aggregated statistics such as page views, referring sources,
         browser and device types, and overall traffic trends. This helps us understand which
-        content is most useful to visitors and optimize navigation and performance. :contentReference[oaicite:5]{index=5}
+        content is most useful to visitors and optimize navigation and performance.
       </p>
 
       <h2 className="text-lg font-semibold mt-6">Data collection</h2>
       <p>
         Vercel Analytics is built with privacy in mind and collects only minimal, anonymous data.
         It does not store personal identifiers that could identify you or track you across
-        websites, and does not set cookies for analytics purposes. :contentReference[oaicite:6]{index=6}
+        websites, and does not set cookies for analytics purposes.
       </p>
-      <ul className="list-disc pl-6 my-2 space-y-1">
-        <li>Event timestamp</li>
-        <li>Page path and referrer</li>
-        <li>Browser and OS type</li>
-        <li>Device type (mobile/desktop)</li>
-        <li>Visitor’s country (aggregated)</li>
-      </ul>
 
       <h2 className="text-lg font-semibold mt-6">Use of collected data</h2>
       <p>
         All collected data is used in aggregated form to analyze website usage patterns
         and improve user experience. No individual user behavior is stored in a way that
-        can identify or track you across different sites or sessions. :contentReference[oaicite:7]{index=7}
+        can identify or track you across different sites or sessions.
       </p>
 
       <h2 className="text-lg font-semibold mt-6">More information</h2>
