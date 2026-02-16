@@ -9,43 +9,50 @@ export default function PrivacyPolicyPage() {
     >
       <h2 className="text-lg font-semibold mt-4">Purpose of use</h2>
       <p>
-        We use Hotjar on our website to better understand how our users interact with our services and to optimize our services and user experience.
+        We use Vercel Web Analytics on this website to collect anonymized insights about visitor
+        engagement and help improve the performance and usability of our content.
       </p>
 
-      <h2 className="text-lg font-semibold mt-6">How Hotjar helps us</h2>
+      <h2 className="text-lg font-semibold mt-6">How Vercel Analytics helps us</h2>
       <p>
-        Hotjar allows us to visualize user interactions, which helps us better understand our users&apos; experience and improve our services by identifying issues and friction points.
+        Vercel Analytics provides aggregated statistics such as page views, referring sources,
+        browser and device types, and overall traffic trends. This helps us understand which
+        content is most useful to visitors and optimize navigation and performance. :contentReference[oaicite:5]{index=5}
       </p>
 
       <h2 className="text-lg font-semibold mt-6">Data collection</h2>
       <p>
-        To provide these services, Hotjar uses first-party cookies and other technologies to collect personal data on our users&apos; behavior and their devices on our behalf. This may include:
+        Vercel Analytics is built with privacy in mind and collects only minimal, anonymous data.
+        It does not store personal identifiers that could identify you or track you across
+        websites, and does not set cookies for analytics purposes. :contentReference[oaicite:6]{index=6}
       </p>
       <ul className="list-disc pl-6 my-2 space-y-1">
-        <li>Online identifiers (e.g. device IP address, user ID)</li>
-        <li>Identification data (e.g. name, email address — only if explicitly collected through surveys or forms)</li>
-        <li>Technical data (e.g. device type, screen size, browser information)</li>
-        <li>Geographic location (country only)</li>
-        <li>Behavioral data (e.g. interactions with our website or app such as clicks, taps, and scrolling)</li>
-        <li>Any additional personal data users explicitly submit through Hotjar (e.g. surveys, feedback forms, or chat widgets)</li>
+        <li>Event timestamp</li>
+        <li>Page path and referrer</li>
+        <li>Browser and OS type</li>
+        <li>Device type (mobile/desktop)</li>
+        <li>Visitor’s country (aggregated)</li>
       </ul>
 
       <h2 className="text-lg font-semibold mt-6">Use of collected data</h2>
       <p>
-        Hotjar may reuse this personal data to develop and improve tools and services for us and our users.
+        All collected data is used in aggregated form to analyze website usage patterns
+        and improve user experience. No individual user behavior is stored in a way that
+        can identify or track you across different sites or sessions. :contentReference[oaicite:7]{index=7}
       </p>
 
       <h2 className="text-lg font-semibold mt-6">More information</h2>
       <p>
-        For further details, please visit Hotjar&apos;s{" "}
-        <a href="https://trust.contentsquare.com/?product=hotjar" target="_blank" rel="noopener noreferrer">Trust Portal</a>
-        {" "}and{" "}
-        <a href="https://www.hotjar.com/legal/policies/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+        For further details about Vercel’s approach to analytics and privacy, visit the{" "}
+        <a
+          href="https://vercel.com/docs/analytics/privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Vercel Analytics Privacy Documentation
+        </a>
+        .
       </p>
-
-      <h2 className="text-lg font-semibold mt-6">Manage Your Consent</h2>
-      <p className="mb-3">Choose whether you consent to analytics. Your choice is saved in this device and the cookie banner will not show again until you clear it.</p>
-      <ConsentSwitch />
     </ContentLayout>
   );
 }
