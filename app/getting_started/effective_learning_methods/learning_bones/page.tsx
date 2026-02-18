@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ContentLayout } from "@/components/ContentLayout";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { AccordionSection } from "@/components/humerus/AccordionSection";
 import { FeedbackSection } from "@/components/FeedbackSection";
 import { WorkInProgressNotice } from "@/components/WorkInProgressNotice";
@@ -103,16 +102,20 @@ function StepBlock({
 
 export default function LearningBonesPage() {
   return (
-    <ContentLayout
-      title="How to Effectively Study Bones"
-      breadcrumbs={[
-        { label: "Home", href: "/" },
-        { label: "Getting Started", href: "/getting_started" },
-        { label: "Effective Learning Methods", href: "/getting_started/effective_learning_methods" },
-        { label: "Learning Bones" },
-      ]}
-    >
-      <div className="space-y-8">
+    <div className="min-w-0 space-y-8 font-display">
+      <article className="rounded-2xl border-2 border-aq-blue/20 bg-white px-6 py-6 shadow-lg sm:px-8 sm:py-8">
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Getting Started", href: "/getting_started" },
+            { label: "Effective Learning Methods", href: "/getting_started/effective_learning_methods" },
+            { label: "Learning Bones" },
+          ]}
+        />
+        <h1 className="font-display text-2xl font-semibold tracking-tight text-stone-900 sm:text-3xl mb-6">
+          How to Effectively Study Bones
+        </h1>
+        <div className="space-y-8">
         <WorkInProgressNotice scope="page" />
 
         {/* Intro */}
@@ -243,27 +246,6 @@ export default function LearningBonesPage() {
           <p className="mt-1 text-sm text-stone-600">Associated video</p>
         </div>
 
-        {/* Interactive Exercise */}
-        <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/40 px-6 py-6 sm:px-8 sm:py-7">
-          <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
-          <div className="pl-2">
-            <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
-              Interactive Exercise
-            </h2>
-            <p className="mt-3 text-stone-700">
-              First, see the five steps applied to the{" "}
-              <Link href="/upper_limb/bones/humerus" className="font-medium text-aq-primary hover:underline">
-                humerus
-              </Link>
-              . Then, apply them to the{" "}
-              <Link href="/entire_body/bones/femur" className="font-medium text-aq-primary hover:underline">
-                femur
-              </Link>{" "}
-              and check your work using the femur study sheet (Coming soon!).
-            </p>
-          </div>
-        </section>
-
         <FeedbackSection />
 
         {/* Updated */}
@@ -273,7 +255,8 @@ export default function LearningBonesPage() {
           </svg>
           Updated: February 10, 2026
         </p>
-      </div>
-    </ContentLayout>
+        </div>
+      </article>
+    </div>
   );
 }

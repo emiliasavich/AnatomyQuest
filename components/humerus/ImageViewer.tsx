@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
 
 type ViewEntry = Record<string, string[]>;
@@ -31,8 +31,12 @@ interface ImageViewerProps {
   aspectRatio?: "square" | "auto";
   /** If set, only this view is used and view selector is hidden (e.g. "anterior" for overview) */
   singleView?: string;
-  /** If true, use "default" layer as main image and the other as hover (overview: labeled first, isolated on hover) */
+  /** If true, start with the "labeled" layer (e.g. "default" or second layer) so click removes labels */
   preferDefaultLayer?: boolean;
+}
+
+function formatLayerLabel(layer: string): string {
+  return layer.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 export function ImageViewer({ basePath, baseName, views, altBase, aspectRatio = "auto", singleView, preferDefaultLayer }: ImageViewerProps) {
@@ -41,63 +45,57 @@ export function ImageViewer({ basePath, baseName, views, altBase, aspectRatio = 
   const effectiveView = singleView && viewNames.includes(singleView) ? singleView : (viewNames[0] || "anterior");
   const [currentView, setCurrentView] = useState(effectiveView);
   const viewLayers = getLayersForView(views, effectiveView);
-  const [layerIndex, setLayerIndex] = useState(0);
-  const layer = viewLayers[layerIndex] || "default";
 
-  const hasHoverLayers = viewLayers.length === 2;
-  const defaultLayer = (() => {
-    if (!hasHoverLayers) return viewLayers[0];
-    if (preferDefaultLayer && viewLayers.includes("default")) return "default";
-    return viewLayers[0];
-  })();
-  const hoverLayer = hasHoverLayers
-    ? (preferDefaultLayer && viewLayers.includes("default") ? viewLayers.find((l) => l !== "default")! : viewLayers[1])
-    : null;
+  const getInitialLayerIndex = useCallback(() => {
+    if (viewLayers.length === 0) return 0;
+    if (preferDefaultLayer && viewLayers.includes("default"))
+      return viewLayers.indexOf("default");
+    if (preferDefaultLayer && viewLayers.length >= 2)
+      return 1;
+    return 0;
+  }, [viewLayers, preferDefaultLayer]);
+
+  const [layerIndex, setLayerIndex] = useState(getInitialLayerIndex);
+  const layer = viewLayers[layerIndex] || viewLayers[0] || "default";
 
   const viewForSrc = singleView ? effectiveView : currentView;
-  const defaultImageName = `${baseName} - ${viewForSrc} - ${defaultLayer}.webp`;
-  const defaultSrc = `/assets/images/bones/humerus/${basePath}/${defaultImageName}`;
-  const hoverSrc = hoverLayer
-    ? `/assets/images/bones/humerus/${basePath}/${baseName} - ${viewForSrc} - ${hoverLayer}.webp`
-    : null;
-
-  const defaultAlt = altBase
-    ? `${altBase} - ${viewForSrc} - ${defaultLayer}`
-    : `${baseName} - ${viewForSrc} - ${defaultLayer}`;
+  const imageName = `${baseName} - ${viewForSrc} - ${layer}.webp`;
+  const src = `/assets/images/bones/humerus/${basePath}/${imageName}`;
+  const alt = altBase
+    ? `${altBase} - ${viewForSrc} - ${layer}`
+    : `${baseName} - ${viewForSrc} - ${layer}`;
 
   const isSquare = aspectRatio === "square";
   const size = isSquare ? 260 : 260;
 
+  const handleImageClick = useCallback(() => {
+    if (viewLayers.length < 2) return;
+    setLayerIndex((i) => (i === 0 ? 1 : 0));
+  }, [viewLayers.length]);
+
+  const hasMultipleLayers = viewLayers.length > 1;
+
   return (
     <div className="space-y-2">
       <div
-        className={`group relative overflow-hidden rounded-xl border border-aq-primary/15 bg-aq-sage/30 ${isSquare ? "aspect-square w-[260px] max-w-[260px]" : "max-w-[260px]"}`}
-        title={hasHoverLayers ? "Hover for more detail" : undefined}
+        className={`relative overflow-hidden rounded-xl border border-aq-primary/15 bg-aq-sage/30 ${isSquare ? "aspect-square w-[260px] max-w-[260px]" : "max-w-[260px]"} ${hasMultipleLayers ? "cursor-pointer" : ""}`}
+        title={hasMultipleLayers ? "Click to toggle labels on/off" : undefined}
+        onClick={hasMultipleLayers ? handleImageClick : undefined}
+        role={hasMultipleLayers ? "button" : undefined}
+        tabIndex={hasMultipleLayers ? 0 : undefined}
+        onKeyDown={hasMultipleLayers ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleImageClick(); } } : undefined}
       >
         <Image
-          src={defaultSrc}
-          alt={defaultAlt}
+          src={src}
+          alt={alt}
           width={size}
           height={isSquare ? size : 208}
-          className={`w-full h-full transition-opacity duration-200 group-hover:opacity-0 ${isSquare ? "object-cover" : "object-contain"}`}
+          className={`w-full h-full select-none pointer-events-none ${isSquare ? "object-cover" : "object-contain"}`}
           unoptimized
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = "none";
           }}
         />
-        {hoverSrc && (
-          <Image
-            src={hoverSrc}
-            alt={`${defaultAlt} (detailed)`}
-            width={size}
-            height={isSquare ? size : 208}
-            className={`absolute inset-0 w-full h-full opacity-0 transition-opacity duration-200 group-hover:opacity-100 ${isSquare ? "object-cover" : "object-contain"}`}
-            unoptimized
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
-          />
-        )}
       </div>
       {!singleView && (
         <div className="flex flex-wrap gap-2">
@@ -113,7 +111,7 @@ export function ImageViewer({ basePath, baseName, views, altBase, aspectRatio = 
           ))}
         </div>
       )}
-      {viewLayers.length > 1 && !hasHoverLayers && (
+      {hasMultipleLayers && (
         <div className="flex flex-wrap gap-2">
           {viewLayers.map((l, i) => (
             <button
@@ -122,13 +120,13 @@ export function ImageViewer({ basePath, baseName, views, altBase, aspectRatio = 
               onClick={() => setLayerIndex(i)}
               className={`rounded-lg px-2 py-1 text-xs capitalize transition-colors ${layerIndex === i ? "bg-stone-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}`}
             >
-              {l}
+              {formatLayerLabel(l)}
             </button>
           ))}
         </div>
       )}
-      {hasHoverLayers && (
-        <p className="text-xs text-stone-500">Hover over image for more detail.</p>
+      {hasMultipleLayers && (
+        <p className="text-xs text-stone-500">Click image to toggle labels. Use buttons above for a specific view.</p>
       )}
     </div>
   );

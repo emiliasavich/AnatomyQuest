@@ -96,8 +96,14 @@ export function HumerusContent({
 }: HumerusContentProps) {
   const [openNeighbors, setOpenNeighbors] = useState<Record<string, boolean>>({});
   const [openLandmarkDetails, setOpenLandmarkDetails] = useState<Record<string, boolean>>({});
+  const [openSteps, setOpenSteps] = useState<Record<string, boolean>>({});
+
+  const setStepOpen = useCallback((stepId: string, open: boolean) => {
+    setOpenSteps((prev) => ({ ...prev, [stepId]: open }));
+  }, []);
 
   const openAndScrollTo = useCallback((accordionId: string, targetId: string) => {
+    setOpenSteps((prev) => ({ ...prev, "step-3-neighbors": true }));
     setOpenNeighbors((prev) => ({ ...prev, [accordionId]: true }));
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -107,6 +113,7 @@ export function HumerusContent({
   }, []);
 
   const openAndScrollToLandmark = useCallback((accordionId: string, targetId: string) => {
+    setOpenSteps((prev) => ({ ...prev, "step-4-landmarks": true }));
     setOpenLandmarkDetails((prev) => ({ ...prev, [accordionId]: true }));
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -169,50 +176,55 @@ export function HumerusContent({
       </div>
 
       {/* Step 1 – Location */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.location.bg} ${STEP_STYLES.location.border}`}>
-        <h2 className={`font-serif text-xl font-semibold tracking-tight sm:text-2xl ${STEP_STYLES.location.heading}`}>
-          Step 1 – Location
-        </h2>
-        <p className="mt-3 text-stone-700">The humerus is found in the <strong>upper arm</strong> between the shoulder and elbow.</p>
-        <figure className="mt-4 max-w-[260px]">
-          <Image
-            src="/assets/images/bones/humerus/Humerus - location.webp"
-            alt="Humerus Location"
-            width={260}
-            height={182}
-            className="w-full h-auto rounded-xl border border-stone-200 shadow-sm"
-            unoptimized
-          />
-          <figcaption className="text-sm text-stone-500 mt-1">Humerus</figcaption>
-        </figure>
-      </section>
+      <AccordionSection id="step-1-location" title="Step 1 – Location" open={openSteps["step-1-location"] ?? false} onToggle={() => setStepOpen("step-1-location", !(openSteps["step-1-location"] ?? false))}>
+        <section className={`rounded-xl border px-5 py-5 sm:px-6 sm:py-6 ${STEP_STYLES.location.bg} ${STEP_STYLES.location.border}`}>
+          <h2 className={`font-serif text-lg font-semibold tracking-tight ${STEP_STYLES.location.heading}`}>
+            Step 1 – Location
+          </h2>
+          <p className="mt-3 text-stone-700">The humerus is found in the <strong>upper arm</strong> between the shoulder and elbow.</p>
+          <figure className="mt-4 max-w-[260px]">
+            <Image
+              src="/assets/images/bones/humerus/Humerus - location.webp"
+              alt="Humerus Location"
+              width={260}
+              height={182}
+              className="w-full h-auto rounded-xl border border-stone-200 shadow-sm"
+              unoptimized
+            />
+            <figcaption className="text-sm text-stone-500 mt-1">Humerus</figcaption>
+          </figure>
+        </section>
+      </AccordionSection>
 
       {/* Step 2 – Shape */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.shape.bg} ${STEP_STYLES.shape.border}`}>
-        <h2 className={`font-serif text-xl font-semibold tracking-tight sm:text-2xl ${STEP_STYLES.shape.heading}`}>
-          Step 2 – Shape
-        </h2>
-        <p className="mt-3 text-stone-700">The humerus is a <strong>long bone</strong>, which means it functions as a lever to enable movement of the arm.</p>
-        <figure className="mt-4 max-w-[260px]">
-          <Image
-            src="/assets/images/bones/humerus/Humerus - shape.webp"
-            alt="Humerus Shape"
-            width={260}
-            height={182}
-            className="w-full h-auto rounded-xl border border-stone-200 shadow-sm"
-            unoptimized
-          />
-          <figcaption className="text-sm text-stone-500 mt-1">Humerus</figcaption>
-        </figure>
-      </section>
+      <AccordionSection id="step-2-shape" title="Step 2 – Shape" open={openSteps["step-2-shape"] ?? false} onToggle={() => setStepOpen("step-2-shape", !(openSteps["step-2-shape"] ?? false))}>
+        <section className={`rounded-xl border px-5 py-5 sm:px-6 sm:py-6 ${STEP_STYLES.shape.bg} ${STEP_STYLES.shape.border}`}>
+          <h2 className={`font-serif text-lg font-semibold tracking-tight ${STEP_STYLES.shape.heading}`}>
+            Step 2 – Shape
+          </h2>
+          <p className="mt-3 text-stone-700">The humerus is a <strong>long bone</strong>, which means it functions as a lever to enable movement of the arm.</p>
+          <figure className="mt-4 max-w-[260px]">
+            <Image
+              src="/assets/images/bones/humerus/Humerus - shape.webp"
+              alt="Humerus Shape"
+              width={260}
+              height={182}
+              className="w-full h-auto rounded-xl border border-stone-200 shadow-sm"
+              unoptimized
+            />
+            <figcaption className="text-sm text-stone-500 mt-1">Humerus</figcaption>
+          </figure>
+        </section>
+      </AccordionSection>
 
       {/* Step 3 – Neighbors */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.neighbors.bg} ${STEP_STYLES.neighbors.border}`}>
-        <h2 className={`font-serif text-xl font-semibold tracking-tight sm:text-2xl ${STEP_STYLES.neighbors.heading}`}>
-          Step 3 – Neighbors
-        </h2>
-        <p className="mt-3 text-stone-700">
-          The <span className="popup-term" data-popup-id="popup-humerus">humerus</span> has neighboring bones at its two ends: the <span className="popup-term" data-popup-id="popup-proximal">proximal</span> end at the shoulder, and the <span className="popup-term" data-popup-id="popup-distal">distal</span> end at the elbow.
+      <AccordionSection id="step-3-neighbors" title="Step 3 – Neighbors" open={openSteps["step-3-neighbors"] ?? false} onToggle={() => setStepOpen("step-3-neighbors", !(openSteps["step-3-neighbors"] ?? false))}>
+        <section className={`rounded-xl border px-5 py-5 sm:px-6 sm:py-6 ${STEP_STYLES.neighbors.bg} ${STEP_STYLES.neighbors.border}`}>
+          <h2 className={`font-serif text-lg font-semibold tracking-tight ${STEP_STYLES.neighbors.heading}`}>
+            Step 3 – Neighbors
+          </h2>
+          <p className="mt-3 text-stone-700">
+            The <span className="popup-term" data-popup-id="popup-humerus">humerus</span> has neighboring bones at its two ends: the <span className="popup-term" data-popup-id="popup-proximal">proximal</span> end at the shoulder, and the <span className="popup-term" data-popup-id="popup-distal">distal</span> end at the elbow.
         </p>
         {Array.isArray(neighbors) &&
           neighbors.map((bigPicture: Record<string, unknown>, idx: number) => {
@@ -232,6 +244,7 @@ export function HumerusContent({
                         altBase={String(bigPicture.big_picture_name)}
                         aspectRatio="square"
                         singleView="anterior"
+                        preferDefaultLayer
                       />
                     </div>
                   ) : null}
@@ -303,18 +316,20 @@ export function HumerusContent({
                     );
                   })}
                 </div>
-              </div>
-            );
-          })}
-      </section>
+                    </div>
+                    );
+                  })}
+        </section>
+      </AccordionSection>
 
-      {/* Step 4 – Anatomical Landmarks */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.landmarks.bg} ${STEP_STYLES.landmarks.border}`}>
-        <h2 className={`font-serif text-xl font-semibold tracking-tight sm:text-2xl ${STEP_STYLES.landmarks.heading}`}>
-          Step 4 – Anatomical Landmarks
-        </h2>
-        <p className="mt-3 text-stone-700">
-          Most of the named landmarks on the humerus are sites of muscle attachment. Some are grooves that guide tendons, nerves, and blood vessels. Others are indentations (<span className="popup-term" data-popup-id="popup-fossas">fossas</span>) that accommodate parts of neighboring bones during movement.
+      {/* Step 4 – Anatomical Landmarks. Content from _data/bones/humerus/landmarks.yml (groups: Head and Neck, Tubercles, Body, Borders, Surfaces, Supracondylar Ridges, Epicondyles, Fossas, Distal Structures). */}
+      <AccordionSection id="step-4-landmarks" title="Step 4 – Anatomical Landmarks" open={openSteps["step-4-landmarks"] ?? false} onToggle={() => setStepOpen("step-4-landmarks", !(openSteps["step-4-landmarks"] ?? false))}>
+        <section className={`rounded-xl border px-5 py-5 sm:px-6 sm:py-6 ${STEP_STYLES.landmarks.bg} ${STEP_STYLES.landmarks.border}`}>
+          <h2 className={`font-serif text-lg font-semibold tracking-tight ${STEP_STYLES.landmarks.heading}`}>
+            Step 4 – Anatomical Landmarks
+          </h2>
+          <p className="mt-3 text-stone-700">
+            Most of the named landmarks on the humerus are sites of muscle attachment. Some are grooves that guide tendons, nerves, and blood vessels. Others are indentations (<span className="popup-term" data-popup-id="popup-fossas">fossas</span>) that accommodate parts of neighboring bones during movement.
         </p>
         {Array.isArray(landmarks) &&
           landmarks.map((bigPicture: Record<string, unknown>, idx: number) => {
@@ -333,6 +348,7 @@ export function HumerusContent({
                         altBase={String(bigPicture.big_picture_name)}
                         aspectRatio="square"
                         singleView="anterior"
+                        preferDefaultLayer
                       />
                     </div>
                   ) : null}
@@ -375,7 +391,7 @@ export function HumerusContent({
                         >
                           <div className="rounded-xl border border-stone-200/80 bg-white p-4 sm:p-5">
                             <ul className="list-disc pl-6 my-2 space-y-1">
-                              {(child.description as unknown[])?.map((d: unknown, j: number) => (
+                              {(Array.isArray(child.description) ? child.description : child.description != null ? [child.description] : []).map((d: unknown, j: number) => (
                                 <li key={j}>{renderDescription(d)}</li>
                               ))}
                             </ul>
@@ -398,38 +414,41 @@ export function HumerusContent({
               </div>
             );
           })}
-      </section>
+        </section>
+      </AccordionSection>
 
       {/* Step 5 – Blood Supply */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.blood.bg} ${STEP_STYLES.blood.border}`}>
-        <h2 className={`font-serif text-xl font-semibold tracking-tight sm:text-2xl ${STEP_STYLES.blood.heading}`}>
-          Step 5 – Blood Supply
-        </h2>
-        <p className="mt-3 font-semibold text-stone-800">UNFINISHED</p>
-        <p className="mt-2 text-stone-700">
-          <span className="font-medium text-stone-800">Plan:</span> Write a description that gives an overview of the entire structure of blood vessels in the humerus. Then lead into breaking them up into proximal, shaft, and distal.
-        </p>
-        <p className="mt-2 text-stone-600 text-sm italic">
-          NOTE: I have not yet verified that the arteries I have listed for the proximal region, shaft, and distal regions are correct.
-        </p>
-        {Array.isArray(blood) &&
-          blood.map((bigPicture: Record<string, unknown>, idx: number) => (
-            <AccordionSection
-              key={idx}
-              id={`blood-${slugify(String(bigPicture.big_picture_name))}`}
-              title={String(bigPicture.big_picture_name)}
-            >
-              <p className="mb-4">The {String(bigPicture.big_picture_name).toLowerCase()} of the humerus is supplied by the following arteries:</p>
-              <ul className="list-disc pl-6">
-                {(bigPicture.elements as Record<string, unknown>[])?.map((el: Record<string, unknown>, i: number) => (
-                  <li key={i}>{String(el.name)}</li>
-                ))}
-              </ul>
-            </AccordionSection>
-          ))}
-      </section>
+      <AccordionSection id="step-5-blood" title="Step 5 – Blood Supply" open={openSteps["step-5-blood"] ?? false} onToggle={() => setStepOpen("step-5-blood", !(openSteps["step-5-blood"] ?? false))}>
+        <section className={`rounded-xl border px-5 py-5 sm:px-6 sm:py-6 ${STEP_STYLES.blood.bg} ${STEP_STYLES.blood.border}`}>
+          <h2 className={`font-serif text-lg font-semibold tracking-tight ${STEP_STYLES.blood.heading}`}>
+            Step 5 – Blood Supply
+          </h2>
+          <p className="mt-3 font-semibold text-stone-800">UNFINISHED</p>
+          <p className="mt-2 text-stone-700">
+            <span className="font-medium text-stone-800">Plan:</span> Write a description that gives an overview of the entire structure of blood vessels in the humerus. Then lead into breaking them up into proximal, shaft, and distal.
+          </p>
+          <p className="mt-2 text-stone-600 text-sm italic">
+            NOTE: I have not yet verified that the arteries I have listed for the proximal region, shaft, and distal regions are correct.
+          </p>
+          {Array.isArray(blood) &&
+            blood.map((bigPicture: Record<string, unknown>, idx: number) => (
+              <AccordionSection
+                key={idx}
+                id={`blood-${slugify(String(bigPicture.big_picture_name))}`}
+                title={String(bigPicture.big_picture_name)}
+              >
+                <p className="mb-4">The {String(bigPicture.big_picture_name).toLowerCase()} of the humerus is supplied by the following arteries:</p>
+                <ul className="list-disc pl-6">
+                  {(bigPicture.elements as Record<string, unknown>[])?.map((el: Record<string, unknown>, i: number) => (
+                    <li key={i}>{String(el.name)}</li>
+                  ))}
+                </ul>
+              </AccordionSection>
+            ))}
+        </section>
+      </AccordionSection>
 
-      {/* References */}
+      {/* References — always visible, not collapsed */}
       <div className="rounded-2xl border border-stone-200/90 bg-stone-50/80 px-6 py-6 sm:px-8 sm:py-7">
         <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900">References</h2>
         <h3 id="reference-humerus-overview" className="text-lg font-medium mt-4 text-stone-800">Landmarks and General Anatomy</h3>

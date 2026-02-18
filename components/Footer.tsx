@@ -7,13 +7,22 @@ const footerLinks = [
   { href: "/privacy_policy", label: "Privacy Policy" },
 ] as const;
 
-export function Footer() {
+interface FooterProps {
+  /** En home no se muestra el enlace Contribute (ya está en las cards) */
+  hideContribute?: boolean;
+}
+
+export function Footer({ hideContribute }: FooterProps) {
+  const links = hideContribute ? footerLinks.filter((l) => l.href !== "/contribute") : footerLinks;
   return (
     <footer className="mt-auto border-t border-stone-200/80 bg-aq-sage/40">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between sm:items-center">
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm" aria-label="Footer">
-            {footerLinks.map(({ href, label }) => (
+      <div className="box-border w-full px-4 py-6 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-8">
+          <nav
+            className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm sm:justify-start"
+            aria-label="Footer"
+          >
+            {links.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
@@ -36,7 +45,7 @@ export function Footer() {
             {" "}– {site.title}
           </p>
         </div>
-        <p className="mt-4 text-center text-xs text-stone-400 sm:text-left">
+        <p className="mt-4 border-t border-stone-200/60 pt-4 text-center text-xs text-stone-400 sm:text-left">
           Contributions may become property of the organization.{" "}
           <Link href="/contribute" className="hover:text-aq-primary">Learn more</Link>.
         </p>

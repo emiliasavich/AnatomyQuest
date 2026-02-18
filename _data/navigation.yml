@@ -8,7 +8,7 @@ main:
       #url: /terms/
 
 # documentation links
-# (Scaffold 1: 200+ bones/regions not yet covered — see lib/scaffolds.ts)
+# Entire Body removed from main nav: 200+ bones will be navigable via Search instead.
 pages:
   - title: Getting Started
     url: /getting_started/
@@ -18,21 +18,10 @@ pages:
         children:
           - title: "Learning Bones"
             url: /getting_started/effective_learning_methods/learning_bones.html
-  - title: Upper Limb
-    url: /upper_limb/
+  - title: Bones
+    url: /bones/
     children:
-      - title: "Bones"
-        url: /upper_limb/bones/
-        children:
-          - title: "Humerus"
-            url: /upper_limb/bones/humerus.html
-          # Scaffold 1: Radius, Ulna, Carpals, Metacarpals, Phalanges
-  - title: Entire Body
-    url: /entire_body/
-    children:
-      - title: "Bones"
-        url: /entire_body/bones/
-        children:
-          - title: "Humerus"
-            url: /entire_body/bones/humerus.html
-          # Scaffold 1: Femur, lower limb, axial skeleton, etc. — see lib/scaffolds.ts
+      - title: "Humerus"
+        url: /bones/humerus.html
+  - title: Search
+    url: /search/

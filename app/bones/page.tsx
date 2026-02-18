@@ -1,23 +1,21 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
-const ITEMS = [
-  { path: "/getting_started/effective_learning_methods", title: "Effective Learning Methods" },
-];
+const BONES = [{ path: "/bones/humerus", title: "Humerus" }];
 
-export default function GettingStartedPage() {
+export default function BonesPage() {
   return (
     <div className="min-w-0 space-y-8 font-display">
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Getting Started" }]} />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Bones" }]} />
       <section>
         <h1 className="font-display text-2xl font-semibold tracking-tight text-aq-blue sm:text-3xl">
-          Getting Started
+          Bones
         </h1>
         <p className="mt-2 leading-snug text-stone-600">
-          Learn how to study anatomy effectively and follow the five-step method we use for every bone.
+          Browse bone pages with location, shape, neighbors, landmarks, and blood supply. Each page follows the same five-step method.
         </p>
         <ul className="mt-6 grid gap-5 sm:grid-cols-2 sm:items-stretch">
-          {ITEMS.map((item) => (
+          {BONES.map((item) => (
             <li key={item.path} className="flex min-h-0">
               <Link
                 href={item.path}
