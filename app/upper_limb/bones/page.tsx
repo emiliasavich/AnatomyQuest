@@ -1,20 +1,20 @@
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
 
-const ITEMS = [{ path: "/getting_started/effective_learning_methods/learning_bones", title: "Learning Bones" }];
+const BONES = [{ path: "/upper_limb/bones/humerus", title: "Humerus" }];
 
-export default function EffectiveLearningMethodsPage() {
+export default function UpperLimbBonesPage() {
   return (
     <ContentLayout
-      title="Effective Learning Methods"
+      title="Bones"
       breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Getting Started", href: "/getting_started" },
-        { label: "Effective Learning Methods" },
+        { label: "Upper Limb", href: "/upper_limb" },
+        { label: "Bones" },
       ]}
     >
       <ul className="grid gap-3 sm:grid-cols-2">
-        {ITEMS.map((item) => (
+        {BONES.map((item) => (
           <li key={item.path}>
             <Link
               href={item.path}
