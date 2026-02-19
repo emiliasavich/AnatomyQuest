@@ -1,3 +1,21 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment
+.env
+.env*.local
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Debug / logs
+npm-debug.log*
+
 # OS generated files
 .DS_Store
 Thumbs.db
@@ -6,21 +24,6 @@ Thumbs.db
 *~
 *.swp
 *.swo
-*.tmp
-
-# Logs
-*.log
-
-# Other temp files
-.sass-cache/
-.cache/
-
-# Dependencies
-node_modules/
-
-# Next.js
-.next/
-out/
 
 # Files I don't want to push
 *hide*
