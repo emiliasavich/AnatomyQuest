@@ -14,7 +14,10 @@ const getViewNames = (views: ViewEntry[]): string[] => {
   return names;
 };
 
-function getLayersForView(views: ViewEntry[] | ViewEntry, viewName: string): string[] {
+function getLayersForView(
+  views: ViewEntry[] | ViewEntry,
+  viewName: string,
+): string[] {
   if (Array.isArray(views)) {
     const entry = views.find((v) => v[viewName]);
     return entry?.[viewName] || ["default"];
@@ -35,35 +38,63 @@ interface ImageViewerProps {
   preferDefaultLayer?: boolean;
 }
 
-export function ImageViewer({ basePath, baseName, views, altBase, aspectRatio = "auto", singleView, preferDefaultLayer }: ImageViewerProps) {
+export function ImageViewer({
+  basePath,
+  baseName,
+  views,
+  altBase,
+  aspectRatio = "auto",
+  singleView,
+  preferDefaultLayer,
+}: ImageViewerProps) {
   const viewsArray = Array.isArray(views) ? views : [views];
   const viewNames = getViewNames(viewsArray);
-  const effectiveView = singleView && viewNames.includes(singleView) ? singleView : (viewNames[0] || "anterior");
+  const effectiveView =
+    singleView && viewNames.includes(singleView)
+      ? singleView
+      : viewNames[0] || "anterior";
   const [currentView, setCurrentView] = useState(effectiveView);
   const viewLayers = getLayersForView(views, effectiveView);
   const [layerIndex, setLayerIndex] = useState(0);
   const layer = viewLayers[layerIndex] || "default";
 
   const hasHoverLayers = viewLayers.length === 2;
+  const [activeLayerIdx, setActiveLayerIdx] = useState(0);
+  const [showLabeled, setShowLabeled] = useState(false);
   const defaultLayer = (() => {
     if (!hasHoverLayers) return viewLayers[0];
     if (preferDefaultLayer && viewLayers.includes("default")) return "default";
     return viewLayers[0];
   })();
   const hoverLayer = hasHoverLayers
-    ? (preferDefaultLayer && viewLayers.includes("default") ? viewLayers.find((l) => l !== "default")! : viewLayers[1])
+    ? preferDefaultLayer && viewLayers.includes("default")
+      ? viewLayers.find((l) => l !== "default")!
+      : viewLayers[1]
     : null;
+  const layers = hasHoverLayers ? [defaultLayer, hoverLayer!] : [layer];
 
   const viewForSrc = singleView ? effectiveView : currentView;
-  const defaultImageName = `${baseName} - ${viewForSrc} - ${defaultLayer}.webp`;
-  const defaultSrc = `/assets/images/bones/humerus/${basePath}/${defaultImageName}`;
-  const hoverSrc = hoverLayer
-    ? `/assets/images/bones/humerus/${basePath}/${baseName} - ${viewForSrc} - ${hoverLayer}.webp`
-    : null;
+  const unlabeledBasePath = basePath.replace("labeled", "unlabeled");
+  const activeLayer = hasHoverLayers ? layers[activeLayerIdx] : layer;
+  const activeBasePath = hasHoverLayers && !showLabeled ? unlabeledBasePath : basePath;
+  const activeSrc = `/assets/images/bones/humerus/${activeBasePath}/${baseName} - ${viewForSrc} - ${activeLayer}.webp`;
+  const activeAlt = altBase
+    ? `${altBase} - ${viewForSrc} - ${activeLayer}`
+    : `${baseName} - ${viewForSrc} - ${activeLayer}`;
 
+  const handleImageClick = hasHoverLayers
+    ? () => setShowLabeled((prev) => !prev)
+    : undefined;
+
+  const handleLabelButton = (idx: number) => {
+    setActiveLayerIdx(idx);
+  };
+
+  // Keep for non-hasHoverLayers fallback
+  const defaultSrc = `/assets/images/bones/humerus/${basePath}/${baseName} - ${viewForSrc} - ${layer}.webp`;
   const defaultAlt = altBase
-    ? `${altBase} - ${viewForSrc} - ${defaultLayer}`
-    : `${baseName} - ${viewForSrc} - ${defaultLayer}`;
+    ? `${altBase} - ${viewForSrc} - ${layer}`
+    : `${baseName} - ${viewForSrc} - ${layer}`;
 
   const isSquare = aspectRatio === "square";
   const size = isSquare ? 260 : 260;
@@ -71,33 +102,22 @@ export function ImageViewer({ basePath, baseName, views, altBase, aspectRatio = 
   return (
     <div className="space-y-2">
       <div
-        className={`group relative overflow-hidden rounded-xl border border-aq-primary/15 bg-aq-sage/30 ${isSquare ? "aspect-square w-[260px] max-w-[260px]" : "max-w-[260px]"}`}
-        title={hasHoverLayers ? "Hover for more detail" : undefined}
+        className={`relative overflow-hidden rounded-xl border border-aq-primary/15 bg-aq-sage/30 ${hasHoverLayers ? "cursor-pointer" : ""} ${isSquare ? "aspect-square w-[260px] max-w-[260px]" : "max-w-[260px]"}`}
+        title={hasHoverLayers ? "Click to switch layers" : undefined}
+        onClick={handleImageClick}
       >
         <Image
-          src={defaultSrc}
-          alt={defaultAlt}
+          key={hasHoverLayers ? activeSrc : defaultSrc}
+          src={hasHoverLayers ? activeSrc : defaultSrc}
+          alt={hasHoverLayers ? activeAlt : defaultAlt}
           width={size}
           height={isSquare ? size : 208}
-          className={`w-full h-full transition-opacity duration-200 group-hover:opacity-0 ${isSquare ? "object-cover" : "object-contain"}`}
+          className={`w-full h-full ${isSquare ? "object-cover" : "object-contain"}`}
           unoptimized
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = "none";
           }}
         />
-        {hoverSrc && (
-          <Image
-            src={hoverSrc}
-            alt={`${defaultAlt} (detailed)`}
-            width={size}
-            height={isSquare ? size : 208}
-            className={`absolute inset-0 w-full h-full opacity-0 transition-opacity duration-200 group-hover:opacity-100 ${isSquare ? "object-cover" : "object-contain"}`}
-            unoptimized
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
-          />
-        )}
       </div>
       {!singleView && (
         <div className="flex flex-wrap gap-2">
@@ -128,7 +148,23 @@ export function ImageViewer({ basePath, baseName, views, altBase, aspectRatio = 
         </div>
       )}
       {hasHoverLayers && (
-        <p className="text-xs text-stone-500">Hover over image for more detail.</p>
+        <p className="text-xs text-stone-500">
+          Click image to {showLabeled ? "hide" : "reveal"} labels.
+        </p>
+      )}
+      {hasHoverLayers && (
+        <div className="flex flex-wrap gap-2">
+          {layers.map((l, i) => (
+            <button
+              key={l}
+              type="button"
+              onClick={() => handleLabelButton(i)}
+              className={`rounded-lg px-2 py-1 text-xs capitalize transition-colors ${showLabeled && activeLayerIdx === i ? "bg-stone-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}`}
+            >
+              {l === "isolated" ? "isolated" : "complete"}
+            </button>
+          ))}
+        </div>
       )}
     </div>
   );
