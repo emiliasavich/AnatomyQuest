@@ -59,3 +59,13 @@ a {
 .popup_coming {
   @apply mt-2 text-xs text-stone-500 italic;
 }
+
+/* Tooltip image preview fade-in */
+.preview-tooltip-enter {
+  animation: tooltipFadeIn 150ms ease-out;
+}
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
