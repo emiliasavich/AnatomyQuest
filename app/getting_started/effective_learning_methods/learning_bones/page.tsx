@@ -1,42 +1,17 @@
+"use client";
+
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
 import { AccordionSection } from "@/components/humerus/AccordionSection";
 import { FeedbackSection } from "@/components/FeedbackSection";
 import { WorkInProgressNotice } from "@/components/WorkInProgressNotice";
-
-const STEP_STYLES = {
-  location: {
-    bg: "bg-[#2563eb]/10",
-    border: "border-[#2563eb]/25",
-    heading: "text-[#2563eb]",
-    label: "text-[#2563eb]",
-  },
-  shape: {
-    bg: "bg-[#059669]/10",
-    border: "border-[#059669]/25",
-    heading: "text-[#059669]",
-    label: "text-[#059669]",
-  },
-  neighbors: {
-    bg: "bg-[#7c3aed]/10",
-    border: "border-[#7c3aed]/25",
-    heading: "text-[#7c3aed]",
-    label: "text-[#7c3aed]",
-  },
-  landmarks: {
-    bg: "bg-[#dc2626]/10",
-    border: "border-[#dc2626]/25",
-    heading: "text-[#dc2626]",
-    label: "text-[#dc2626]",
-  },
-  blood: {
-    bg: "bg-[#ea580c]/10",
-    border: "border-[#ea580c]/25",
-    heading: "text-[#ea580c]",
-    label: "text-[#ea580c]",
-  },
-} as const;
+import {
+  STEP_STYLES,
+  STEP_ACCORDION_THEMES,
+  type StepKey,
+} from "@/lib/step-themes";
 
 const SHAPE_CARDS = [
   {
@@ -69,46 +44,65 @@ const SHAPE_CARDS = [
   },
 ] as const;
 
+const STEP_HEADING_CLASS =
+  "font-serif text-xl font-semibold tracking-tight sm:text-2xl";
+
 function StepBlock({
   stepKey,
   title,
   question,
   purpose,
   children,
+  open,
+  onToggle,
 }: {
-  stepKey: keyof typeof STEP_STYLES;
+  stepKey: StepKey;
   title: string;
   question: string;
   purpose: string;
   children?: React.ReactNode;
+  open: boolean;
+  onToggle: () => void;
 }) {
   const s = STEP_STYLES[stepKey];
   return (
-    <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${s.bg} ${s.border}`}>
-      <h2 className={`font-serif text-xl font-semibold tracking-tight sm:text-2xl ${s.heading}`}>
-        {title}
-      </h2>
+    <AccordionSection
+      id={`step-${stepKey}`}
+      title={title}
+      open={open}
+      onToggle={onToggle}
+      colorTheme={STEP_ACCORDION_THEMES[stepKey]}
+      headingLevel="h2"
+      headingClassName={STEP_HEADING_CLASS}
+    >
       <p className="mt-3 text-stone-700">
-        <span className={`font-semibold ${s.label}`}>Question:</span>{" "}
-        {question}
+        <span className={`font-semibold ${s.label}`}>Question:</span> {question}
       </p>
       <p className="mt-2 text-stone-700">
-        <span className={`font-semibold ${s.label}`}>Purpose:</span>{" "}
-        {purpose}
+        <span className={`font-semibold ${s.label}`}>Purpose:</span> {purpose}
       </p>
       {children}
-    </section>
+    </AccordionSection>
   );
 }
 
 export default function LearningBonesPage() {
+  const [openStep, setOpenStep] = useState<StepKey | null>(null);
+
+  const toggleStep = useCallback((step: StepKey) => {
+    setOpenStep((prev) => (prev === step ? null : step));
+  }, []);
+
   return (
     <ContentLayout
       title="How to Effectively Study Bones"
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Getting Started", href: "/getting_started" },
-        { label: "Effective Learning Methods", href: "/getting_started/effective_learning_methods" },
+        {
+          label: "Effective Learning Methods",
+          href: "/getting_started/effective_learning_methods",
+        },
         { label: "Learning Bones" },
       ]}
     >
@@ -122,44 +116,93 @@ export default function LearningBonesPage() {
             Understand how each bone relates to the body as a whole.
           </p>
           <p className="mt-3 text-stone-700">
-            <span className="font-semibold text-stone-900">Purpose:</span>{" "}
-            To encourage deeper, longer-lasting learning by linking a bone to the skeletal, muscular, and cardiovascular systems rather than relying on rote memorization.
+            <span className="font-semibold text-stone-900">Purpose:</span> To
+            encourage deeper, longer-lasting learning by linking a bone to the
+            skeletal, muscular, and cardiovascular systems rather than relying
+            on rote memorization.
           </p>
           <p className="mt-3 text-stone-700">
-            <span className="font-semibold text-stone-900">How to use this guide:</span>{" "}
-            Follow the five structured steps below. They are designed to help you focus on meaningful connections rather than just memorizing facts.
+            <span className="font-semibold text-stone-900">
+              How to use this guide:
+            </span>{" "}
+            Follow the five structured steps below. They are designed to help
+            you focus on meaningful connections rather than just memorizing
+            facts.
           </p>
           <p className="mt-4 text-stone-600">
             <span className="font-semibold text-stone-800">Mnemonic:</span>{" "}
             <em>Learning Small Notes About Bones</em>
           </p>
-          <AccordionSection id="five-steps-overview" title="Click to read about the five steps. Then click to close." defaultOpen={false}>
-            <p className="mb-4 text-stone-700">Each step relates the bone to the bigger picture to help you understand the material and remember it for longer.</p>
+          <AccordionSection
+            id="five-steps-overview"
+            title="Click to read about the five steps. Then click to close."
+            defaultOpen={false}
+          >
+            <p className="mb-4 text-stone-700">
+              Each step relates the bone to the bigger picture to help you
+              understand the material and remember it for longer.
+            </p>
             <div className="space-y-4 text-sm text-stone-700">
               <div>
                 <p className="font-medium text-[#2563eb]">Location</p>
-                <p><span className="font-medium">Question:</span> Where is the bone?</p>
-                <p><span className="font-medium">Purpose:</span> Helps you build a mental map of the skeleton.</p>
+                <p>
+                  <span className="font-medium">Question:</span> Where is the
+                  bone?
+                </p>
+                <p>
+                  <span className="font-medium">Purpose:</span> Helps you build
+                  a mental map of the skeleton.
+                </p>
               </div>
               <div>
                 <p className="font-medium text-[#059669]">Shape</p>
-                <p><span className="font-medium">Question:</span> What is the bone&apos;s shape?</p>
-                <p><span className="font-medium">Purpose:</span> Gives insight into how the bone interacts with the body.</p>
+                <p>
+                  <span className="font-medium">Question:</span> What is the
+                  bone&apos;s shape?
+                </p>
+                <p>
+                  <span className="font-medium">Purpose:</span> Gives insight
+                  into how the bone interacts with the body.
+                </p>
               </div>
               <div>
                 <p className="font-medium text-[#7c3aed]">Neighbors</p>
-                <p><span className="font-medium">Question:</span> What bones articulate (form joints with) this bone? What is the type of each joint?</p>
-                <p><span className="font-medium">Purpose:</span> Lets you examine what joints the bone is part of and what movements those joints allow.</p>
+                <p>
+                  <span className="font-medium">Question:</span> What bones
+                  articulate (form joints with) this bone? What is the type of
+                  each joint?
+                </p>
+                <p>
+                  <span className="font-medium">Purpose:</span> Lets you examine
+                  what joints the bone is part of and what movements those
+                  joints allow.
+                </p>
               </div>
               <div>
-                <p className="font-medium text-[#dc2626]">Anatomical Landmarks</p>
-                <p><span className="font-medium">Question:</span> What are the named parts of the bone? What is the significance of each?</p>
-                <p><span className="font-medium">Purpose:</span> Connects each named location to the muscles, nerves, blood vessels, and other bones that interact with the location.</p>
+                <p className="font-medium text-[#dc2626]">
+                  Anatomical Landmarks
+                </p>
+                <p>
+                  <span className="font-medium">Question:</span> What are the
+                  named parts of the bone? What is the significance of each?
+                </p>
+                <p>
+                  <span className="font-medium">Purpose:</span> Connects each
+                  named location to the muscles, nerves, blood vessels, and
+                  other bones that interact with the location.
+                </p>
               </div>
               <div>
                 <p className="font-medium text-[#ea580c]">Blood Supply</p>
-                <p><span className="font-medium">Question:</span> What blood vessels nourish the bone?</p>
-                <p><span className="font-medium">Purpose:</span> Relates the bone to the cardiovascular system and builds your mental map of the body&apos;s blood vessels.</p>
+                <p>
+                  <span className="font-medium">Question:</span> What blood
+                  vessels nourish the bone?
+                </p>
+                <p>
+                  <span className="font-medium">Purpose:</span> Relates the bone
+                  to the cardiovascular system and builds your mental map of the
+                  body&apos;s blood vessels.
+                </p>
               </div>
             </div>
           </AccordionSection>
@@ -171,6 +214,8 @@ export default function LearningBonesPage() {
           title="Step 1 – Location"
           question="Which body region contains the bone (e.g., upper arm, lower leg)?"
           purpose="Identifying location helps you build a mental map of the skeleton and recall neighboring bones and muscles."
+          open={openStep === "location"}
+          onToggle={() => toggleStep("location")}
         />
 
         {/* Step 2 – Shape */}
@@ -179,8 +224,12 @@ export default function LearningBonesPage() {
           title="Step 2 – Shape"
           question="What is the bone's shape?"
           purpose="A bone's shape is closely linked to its function. Recognizing the shape gives insight into the bone's role in movement and support."
+          open={openStep === "shape"}
+          onToggle={() => toggleStep("shape")}
         >
-          <h3 className={`mt-6 font-serif text-lg font-semibold tracking-tight ${STEP_STYLES.shape.heading}`}>
+          <h3
+            className={`mt-6 font-serif text-lg font-semibold tracking-tight ${STEP_STYLES.shape.heading}`}
+          >
             Common Shapes
           </h3>
           <ul className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -189,7 +238,9 @@ export default function LearningBonesPage() {
                 <article className="flex h-full flex-col overflow-hidden rounded-xl border border-stone-200/90 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
                   <div className="p-4">
                     <p className="text-stone-800">
-                      <span className="font-semibold text-stone-900">{card.type}:</span>{" "}
+                      <span className="font-semibold text-stone-900">
+                        {card.type}:
+                      </span>{" "}
                       {card.description}
                     </p>
                   </div>
@@ -218,6 +269,8 @@ export default function LearningBonesPage() {
           title="Step 3 – Neighbors"
           question="What bones articulate (form joints with) this bone? What is the type of each joint?"
           purpose="Lets you examine what joints the bone is part of and what movements those joints allow."
+          open={openStep === "neighbors"}
+          onToggle={() => toggleStep("neighbors")}
         />
 
         {/* Step 4 – Anatomical Landmarks */}
@@ -226,6 +279,8 @@ export default function LearningBonesPage() {
           title="Step 4 – Anatomical Landmarks"
           question="What are the named parts of the bone? What is the significance of each?"
           purpose="Connects each named location to the muscles, nerves, blood vessels, and other bones that interact with the location."
+          open={openStep === "landmarks"}
+          onToggle={() => toggleStep("landmarks")}
         />
 
         {/* Step 5 – Blood Supply */}
@@ -234,29 +289,42 @@ export default function LearningBonesPage() {
           title="Step 5 – Blood Supply"
           question="What blood vessels nourish the bone?"
           purpose="Relates the bone to the cardiovascular system and builds your mental map of the body's blood vessels."
+          open={openStep === "blood"}
+          onToggle={() => toggleStep("blood")}
         />
 
         {/* References */}
         <div className="rounded-2xl border border-stone-200/90 bg-stone-50/80 px-6 py-4 sm:px-8">
-          <p className="text-sm text-stone-600">Information based on Teach Me Anatomy.</p>
+          <p className="text-sm text-stone-600">
+            Information based on Teach Me Anatomy.
+          </p>
           <p className="mt-1 text-sm text-stone-600">Images from Z-Anatomy.</p>
           <p className="mt-1 text-sm text-stone-600">Associated video</p>
         </div>
 
         {/* Interactive Exercise */}
         <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/40 px-6 py-6 sm:px-8 sm:py-7">
-          <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
+          <div
+            className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary"
+            aria-hidden
+          />
           <div className="pl-2">
             <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
               Interactive Exercise
             </h2>
             <p className="mt-3 text-stone-700">
               First, see the five steps applied to the{" "}
-              <Link href="/upper_limb/bones/humerus" className="font-medium text-aq-primary hover:underline">
+              <Link
+                href="/upper_limb/bones/humerus"
+                className="font-medium text-aq-primary hover:underline"
+              >
                 humerus
               </Link>
               . Then, apply them to the{" "}
-              <Link href="/entire_body/bones/femur" className="font-medium text-aq-primary hover:underline">
+              <Link
+                href="/entire_body/bones/femur"
+                className="font-medium text-aq-primary hover:underline"
+              >
                 femur
               </Link>{" "}
               and check your work using the femur study sheet (Coming soon!).
@@ -268,8 +336,19 @@ export default function LearningBonesPage() {
 
         {/* Updated */}
         <p className="flex items-center gap-2 text-sm text-stone-500">
-          <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <svg
+            className="h-4 w-4 shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
           </svg>
           Updated: February 10, 2026
         </p>

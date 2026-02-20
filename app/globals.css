@@ -7,6 +7,10 @@
   --aq-muted: #6b7280;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-aq-warm text-stone-900;
 }

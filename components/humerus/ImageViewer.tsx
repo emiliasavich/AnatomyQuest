@@ -76,7 +76,8 @@ export function ImageViewer({
   const viewForSrc = singleView ? effectiveView : currentView;
   const unlabeledBasePath = basePath.replace("labeled", "unlabeled");
   const activeLayer = hasHoverLayers ? layers[activeLayerIdx] : layer;
-  const activeBasePath = hasHoverLayers && !showLabeled ? unlabeledBasePath : basePath;
+  const activeBasePath =
+    hasHoverLayers && !showLabeled ? unlabeledBasePath : basePath;
   const activeSrc = `/assets/images/bones/humerus/${activeBasePath}/${baseName} - ${viewForSrc} - ${activeLayer}.webp`;
   const activeAlt = altBase
     ? `${altBase} - ${viewForSrc} - ${activeLayer}`
@@ -98,26 +99,47 @@ export function ImageViewer({
 
   const isSquare = aspectRatio === "square";
   const size = isSquare ? 260 : 260;
+  const [hasError, setHasError] = useState(false);
 
   return (
     <div className="space-y-2">
       <div
         className={`relative overflow-hidden rounded-xl border border-aq-primary/15 bg-aq-sage/30 ${hasHoverLayers ? "cursor-pointer" : ""} ${isSquare ? "aspect-square w-[260px] max-w-[260px]" : "max-w-[260px]"}`}
-        title={hasHoverLayers ? "Click to switch layers" : undefined}
+        title={
+          hasHoverLayers && !hasError ? "Click to switch layers" : undefined
+        }
         onClick={handleImageClick}
       >
-        <Image
-          key={hasHoverLayers ? activeSrc : defaultSrc}
-          src={hasHoverLayers ? activeSrc : defaultSrc}
-          alt={hasHoverLayers ? activeAlt : defaultAlt}
-          width={size}
-          height={isSquare ? size : 208}
-          className={`w-full h-full ${isSquare ? "object-cover" : "object-contain"}`}
-          unoptimized
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = "none";
-          }}
-        />
+        {hasError ? (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-4 text-center">
+            <svg
+              className="h-8 w-8 text-stone-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+              />
+            </svg>
+            <p className="text-xs text-stone-400">Image not available</p>
+          </div>
+        ) : (
+          <Image
+            key={hasHoverLayers ? activeSrc : defaultSrc}
+            src={hasHoverLayers ? activeSrc : defaultSrc}
+            alt={hasHoverLayers ? activeAlt : defaultAlt}
+            width={size}
+            height={isSquare ? size : 208}
+            className={`w-full h-full ${isSquare ? "object-cover" : "object-contain"}`}
+            unoptimized
+            onError={() => setHasError(true)}
+          />
+        )}
       </div>
       {!singleView && (
         <div className="flex flex-wrap gap-2">
