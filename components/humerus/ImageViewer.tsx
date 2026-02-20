@@ -59,6 +59,8 @@ export function ImageViewer({
   const layer = viewLayers[layerIndex] || "default";
 
   const hasHoverLayers = viewLayers.length === 2;
+  const [activeLayerIdx, setActiveLayerIdx] = useState(0);
+  const [showLabeled, setShowLabeled] = useState(false);
   const defaultLayer = (() => {
     if (!hasHoverLayers) return viewLayers[0];
     if (preferDefaultLayer && viewLayers.includes("default")) return "default";
@@ -69,17 +71,31 @@ export function ImageViewer({
       ? viewLayers.find((l) => l !== "default")!
       : viewLayers[1]
     : null;
+  const layers = hasHoverLayers ? [defaultLayer, hoverLayer!] : [layer];
 
   const viewForSrc = singleView ? effectiveView : currentView;
-  const defaultImageName = `${baseName} - ${viewForSrc} - ${defaultLayer}.webp`;
-  const defaultSrc = `/assets/images/bones/humerus/${basePath}/${defaultImageName}`;
-  const hoverSrc = hoverLayer
-    ? `/assets/images/bones/humerus/${basePath}/${baseName} - ${viewForSrc} - ${hoverLayer}.webp`
-    : null;
+  const unlabeledBasePath = basePath.replace("labeled", "unlabeled");
+  const activeLayer = hasHoverLayers ? layers[activeLayerIdx] : layer;
+  const activeBasePath =
+    hasHoverLayers && !showLabeled ? unlabeledBasePath : basePath;
+  const activeSrc = `/assets/images/bones/humerus/${activeBasePath}/${baseName} - ${viewForSrc} - ${activeLayer}.webp`;
+  const activeAlt = altBase
+    ? `${altBase} - ${viewForSrc} - ${activeLayer}`
+    : `${baseName} - ${viewForSrc} - ${activeLayer}`;
 
+  const handleImageClick = hasHoverLayers
+    ? () => setShowLabeled((prev) => !prev)
+    : undefined;
+
+  const handleLabelButton = (idx: number) => {
+    setActiveLayerIdx(idx);
+  };
+
+  // Keep for non-hasHoverLayers fallback
+  const defaultSrc = `/assets/images/bones/humerus/${basePath}/${baseName} - ${viewForSrc} - ${layer}.webp`;
   const defaultAlt = altBase
-    ? `${altBase} - ${viewForSrc} - ${defaultLayer}`
-    : `${baseName} - ${viewForSrc} - ${defaultLayer}`;
+    ? `${altBase} - ${viewForSrc} - ${layer}`
+    : `${baseName} - ${viewForSrc} - ${layer}`;
 
   const isSquare = aspectRatio === "square";
   const size = isSquare ? 260 : 260;
@@ -88,10 +104,11 @@ export function ImageViewer({
   return (
     <div className="space-y-2">
       <div
-        className={`group relative overflow-hidden rounded-xl border border-aq-primary/15 bg-aq-sage/30 ${isSquare ? "aspect-square w-[260px] max-w-[260px]" : "max-w-[260px]"}`}
+        className={`relative overflow-hidden rounded-xl border border-aq-primary/15 bg-aq-sage/30 ${hasHoverLayers ? "cursor-pointer" : ""} ${isSquare ? "aspect-square w-[260px] max-w-[260px]" : "max-w-[260px]"}`}
         title={
-          hasHoverLayers && !hasError ? "Hover for more detail" : undefined
+          hasHoverLayers && !hasError ? "Click to switch layers" : undefined
         }
+        onClick={handleImageClick}
       >
         {hasError ? (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-4 text-center">
@@ -112,30 +129,16 @@ export function ImageViewer({
             <p className="text-xs text-stone-400">Image not available</p>
           </div>
         ) : (
-          <>
-            <Image
-              src={defaultSrc}
-              alt={defaultAlt}
-              width={size}
-              height={isSquare ? size : 208}
-              className={`w-full h-full transition-opacity duration-200 group-hover:opacity-0 ${isSquare ? "object-cover" : "object-contain"}`}
-              unoptimized
-              onError={() => setHasError(true)}
-            />
-            {hoverSrc && (
-              <Image
-                src={hoverSrc}
-                alt={`${defaultAlt} (detailed)`}
-                width={size}
-                height={isSquare ? size : 208}
-                className={`absolute inset-0 w-full h-full opacity-0 transition-opacity duration-200 group-hover:opacity-100 ${isSquare ? "object-cover" : "object-contain"}`}
-                unoptimized
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = "none";
-                }}
-              />
-            )}
-          </>
+          <Image
+            key={hasHoverLayers ? activeSrc : defaultSrc}
+            src={hasHoverLayers ? activeSrc : defaultSrc}
+            alt={hasHoverLayers ? activeAlt : defaultAlt}
+            width={size}
+            height={isSquare ? size : 208}
+            className={`w-full h-full ${isSquare ? "object-cover" : "object-contain"}`}
+            unoptimized
+            onError={() => setHasError(true)}
+          />
         )}
       </div>
       {!singleView && (
@@ -168,8 +171,22 @@ export function ImageViewer({
       )}
       {hasHoverLayers && (
         <p className="text-xs text-stone-500">
-          Hover over image for more detail.
+          Click image to {showLabeled ? "hide" : "reveal"} labels.
         </p>
+      )}
+      {hasHoverLayers && (
+        <div className="flex flex-wrap gap-2">
+          {layers.map((l, i) => (
+            <button
+              key={l}
+              type="button"
+              onClick={() => handleLabelButton(i)}
+              className={`rounded-lg px-2 py-1 text-xs capitalize transition-colors ${showLabeled && activeLayerIdx === i ? "bg-stone-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}`}
+            >
+              {l === "isolated" ? "isolated" : "complete"}
+            </button>
+          ))}
+        </div>
       )}
     </div>
   );

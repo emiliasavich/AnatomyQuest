@@ -17,8 +17,40 @@ function slugify(s: string) {
     .replace(/[^a-z0-9-]/g, "");
 }
 
+function getPreviewImageSrc(
+  basePath: string,
+  baseName: string,
+  views: Record<string, string[]>[] | Record<string, string[]>
+): string | null {
+  const viewsArray = Array.isArray(views) ? views : [views];
+  if (viewsArray.length === 0) return null;
+  const firstViewEntry = viewsArray[0];
+  const firstViewName = Object.keys(firstViewEntry)[0];
+  if (!firstViewName) return null;
+  const layers = firstViewEntry[firstViewName];
+  const firstLayer = layers?.[0] || "default";
+  return `/assets/images/bones/humerus/${basePath}/${baseName} - ${firstViewName} - ${firstLayer}.webp`;
+}
+
 function stripHtml(s: string) {
   return s.replace(/<[^>]+>/g, "").trim();
+}
+
+function getPreviewDescription(description: unknown, maxLength = 110): string | undefined {
+  let raw = "";
+  if (typeof description === "string") {
+    raw = stripHtml(description);
+  } else if (Array.isArray(description) && description.length > 0) {
+    const first = description[0];
+    if (typeof first === "string") {
+      raw = stripHtml(first);
+    } else if (first && typeof first === "object" && "text" in first) {
+      raw = stripHtml(String((first as { text: string }).text));
+    }
+  }
+  raw = raw.replace(/\s+/g, " ").trim();
+  if (!raw) return undefined;
+  return raw.length > maxLength ? raw.slice(0, maxLength).trimEnd() + "…" : raw;
 }
 
 function isHtml(s: string) {
@@ -416,23 +448,23 @@ export function HumerusContent({
                   {elements.map((child: Record<string, unknown>, i: number) => {
                     const accordionId = `neighbors-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(String(child.name))}`;
                     return (
-                      <div
-                        key={i}
-                        id={`neighbors-${slugify(String(child.name))}`}
-                        className="scroll-mt-24"
+                    <div key={i} id={`neighbors-${slugify(String(child.name))}`} className="scroll-mt-24">
+                      <AccordionSection
+                        id={accordionId}
+                        title={String(child.name)}
+                        defaultOpen={false}
+                        open={openNeighbors[accordionId] ?? false}
+                        onToggle={() => setOpenNeighbors((prev) => ({ ...prev, [accordionId]: !(prev[accordionId] ?? false) }))}
+                        previewImage={
+                          child.views && child.base
+                            ? {
+                                src: getPreviewImageSrc("labeled joints", String(child.base), child.views as Record<string, string[]>[]) || "",
+                                alt: `${String(child.name)} preview`,
+                                description: getPreviewDescription(child.description),
+                              }
+                            : undefined
+                        }
                       >
-                        <AccordionSection
-                          id={accordionId}
-                          title={String(child.name)}
-                          defaultOpen={false}
-                          open={openNeighbors[accordionId] ?? false}
-                          onToggle={() =>
-                            setOpenNeighbors((prev) => ({
-                              ...prev,
-                              [accordionId]: !(prev[accordionId] ?? false),
-                            }))
-                          }
-                        >
                           <div className="rounded-xl border border-stone-200/80 bg-white p-4 sm:p-5">
                             <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-start">
                               <div className="min-w-0">
@@ -466,8 +498,8 @@ export function HumerusContent({
                               ) : null}
                             </div>
                           </div>
-                        </AccordionSection>
-                      </div>
+                      </AccordionSection>
+                    </div>
                     );
                   })}
                 </div>
@@ -565,35 +597,26 @@ export function HumerusContent({
                   </div>
                 </div>
                 <div className="mt-4 space-y-2">
-                  {landmarkElements.map(
-                    (child: Record<string, unknown>, i: number) => {
-                      const detailAccordionId = `landmark-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(stripHtml(String(child.name)))}`;
-                      return (
-                        <div
-                          key={i}
-                          id={`landmark-${slugify(stripHtml(String(child.name)))}`}
-                          className="scroll-mt-24"
+                  {landmarkElements.map((child: Record<string, unknown>, i: number) => {
+                    const detailAccordionId = `landmark-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(stripHtml(String(child.name)))}`;
+                    return (
+                      <div key={i} id={`landmark-${slugify(stripHtml(String(child.name)))}`} className="scroll-mt-24">
+                        <AccordionSection
+                          id={detailAccordionId}
+                          title={isHtml(String(child.name)) ? stripHtml(String(child.name)) : String(child.name)}
+                          defaultOpen={false}
+                          open={openLandmarkDetails[detailAccordionId] ?? false}
+                          onToggle={() => setOpenLandmarkDetails((prev) => ({ ...prev, [detailAccordionId]: !(prev[detailAccordionId] ?? false) }))}
+                          previewImage={
+                            child.views && child.base
+                              ? {
+                                  src: getPreviewImageSrc("labeled landmarks", String(child.base), child.views as Record<string, string[]>[]) || "",
+                                  alt: `${stripHtml(String(child.name))} preview`,
+                                  description: getPreviewDescription(child.description),
+                                }
+                              : undefined
+                          }
                         >
-                          <AccordionSection
-                            id={detailAccordionId}
-                            title={
-                              isHtml(String(child.name))
-                                ? stripHtml(String(child.name))
-                                : String(child.name)
-                            }
-                            defaultOpen={false}
-                            open={
-                              openLandmarkDetails[detailAccordionId] ?? false
-                            }
-                            onToggle={() =>
-                              setOpenLandmarkDetails((prev) => ({
-                                ...prev,
-                                [detailAccordionId]: !(
-                                  prev[detailAccordionId] ?? false
-                                ),
-                              }))
-                            }
-                          >
                             <div className="rounded-xl border border-stone-200/80 bg-white p-4 sm:p-5">
                               <ul className="list-disc pl-6 my-2 space-y-1">
                                 {(child.description as unknown[])?.map(
@@ -615,8 +638,8 @@ export function HumerusContent({
                                 </div>
                               ) : null}
                             </div>
-                          </AccordionSection>
-                        </div>
+                        </AccordionSection>
+                      </div>
                       );
                     },
                   )}
