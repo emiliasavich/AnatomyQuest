@@ -144,7 +144,7 @@ export default function LearningBonesPage() {
             </p>
             <div className="space-y-4 text-sm text-stone-700">
               <div>
-                <p className="font-medium text-[#2563eb]">Location</p>
+                <p className="font-medium text-[#2e7d8c]">Location</p>
                 <p>
                   <span className="font-medium">Question:</span> Where is the
                   bone?
@@ -155,7 +155,7 @@ export default function LearningBonesPage() {
                 </p>
               </div>
               <div>
-                <p className="font-medium text-[#059669]">Shape</p>
+                <p className="font-medium text-[#4a7a2e]">Shape</p>
                 <p>
                   <span className="font-medium">Question:</span> What is the
                   bone&apos;s shape?
@@ -166,7 +166,7 @@ export default function LearningBonesPage() {
                 </p>
               </div>
               <div>
-                <p className="font-medium text-[#7c3aed]">Neighbors</p>
+                <p className="font-medium text-[#6d5a8a]">Neighbors</p>
                 <p>
                   <span className="font-medium">Question:</span> What bones
                   articulate (form joints with) this bone? What is the type of
@@ -179,7 +179,7 @@ export default function LearningBonesPage() {
                 </p>
               </div>
               <div>
-                <p className="font-medium text-[#dc2626]">
+                <p className="font-medium text-[#a67c2e]">
                   Anatomical Landmarks
                 </p>
                 <p>
@@ -193,7 +193,7 @@ export default function LearningBonesPage() {
                 </p>
               </div>
               <div>
-                <p className="font-medium text-[#ea580c]">Blood Supply</p>
+                <p className="font-medium text-[#9e3a3a]">Blood Supply</p>
                 <p>
                   <span className="font-medium">Question:</span> What blood
                   vessels nourish the bone?
