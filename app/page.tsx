@@ -19,7 +19,11 @@ const SECTIONS = [
     icon: "🧭",
     description:
       "Learn how to study anatomy effectively and follow structured steps for each bone. Covers location, shape, neighbors, landmarks, and blood supply.",
-    highlights: ["Study methodology", "Bone structure framework", "How to use this site"],
+    highlights: [
+      "Study methodology",
+      "Bone structure framework",
+      "How to use this site",
+    ],
   },
   {
     label: "Upper Limb",
@@ -27,7 +31,11 @@ const SECTIONS = [
     icon: "💪",
     description:
       "Explore bones of the arm and shoulder — location, landmarks, and clinical context. Includes detailed image-based guides.",
-    highlights: ["Shoulder & clavicle", "Humerus, radius, ulna", "Hand & wrist bones"],
+    highlights: [
+      "Shoulder & clavicle",
+      "Humerus, radius, ulna",
+      "Hand & wrist bones",
+    ],
   },
   {
     label: "Search Anatomy",
@@ -35,7 +43,11 @@ const SECTIONS = [
     icon: "🔍",
     description:
       "Search across all bones and structures. Find exactly what you need without browsing — ideal for quick review sessions.",
-    highlights: ["Full-body bone search", "Filter by region", "Quick-access cards"],
+    highlights: [
+      "Full-body bone search",
+      "Filter by region",
+      "Quick-access cards",
+    ],
   },
 ];
 
@@ -76,7 +88,9 @@ function StatBar() {
           key={s.label}
           className="rounded-xl border border-aq-primary/20 bg-white px-4 py-4 text-center shadow-sm"
         >
-          <p className="font-serif text-2xl font-bold text-aq-primary">{s.value}</p>
+          <p className="font-serif text-2xl font-bold text-aq-primary">
+            {s.value}
+          </p>
           <p className="mt-0.5 text-xs font-medium uppercase tracking-widest text-stone-500">
             {s.label}
           </p>
@@ -92,17 +106,25 @@ function SectionCard({ section }: { section: (typeof SECTIONS)[number] }) {
       href={section.href}
       className="group relative overflow-hidden flex flex-col rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all duration-200 hover:border-aq-primary/40 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-aq-primary/40 focus:ring-offset-2"
     >
-      <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
+      <div
+        className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary"
+        aria-hidden
+      />
       <div className="flex items-center gap-3">
         <span className="text-2xl">{section.icon}</span>
         <span className="font-serif text-lg font-semibold text-stone-900 group-hover:text-aq-primary">
           {section.label}
         </span>
       </div>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-stone-600">{section.description}</p>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-stone-600">
+        {section.description}
+      </p>
       <ul className="mt-4 space-y-1">
         {section.highlights.map((h) => (
-          <li key={h} className="flex items-center gap-2 text-xs text-stone-500">
+          <li
+            key={h}
+            className="flex items-center gap-2 text-xs text-stone-500"
+          >
             <span className="h-1 w-1 rounded-full bg-aq-primary/60" />
             {h}
           </li>
@@ -157,9 +179,10 @@ function ContributionTutorial() {
       {open && (
         <div className="border-t border-stone-100 px-6 pb-6 pt-5">
           <p className="mb-6 max-w-2xl text-sm leading-relaxed text-stone-600">
-            AnatomyQuest is built by students and educators for students. Every improvement —
-            a corrected label, a missing landmark, a clearer description — directly helps
-            someone who can't afford expensive textbooks. Here's how to contribute via GitHub:
+            AnatomyQuest is built by students and educators for students. Every
+            improvement — a corrected label, a missing landmark, a clearer
+            description — directly helps someone who can't afford expensive
+            textbooks. Here's how to contribute via GitHub:
           </p>
 
           <ol className="space-y-5">
@@ -170,7 +193,9 @@ function ContributionTutorial() {
                 </span>
                 <div className="flex-1">
                   <p className="font-medium text-stone-800">{s.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-stone-600">{s.body}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-stone-600">
+                    {s.body}
+                  </p>
                   <div className="mt-2 flex items-center justify-between rounded-lg bg-stone-50 px-3 py-2 font-mono text-xs text-stone-700">
                     <span className="truncate">{s.code}</span>
                     <button
@@ -185,7 +210,7 @@ function ContributionTutorial() {
             ))}
           </ol>
 
-          <div className="mt-6 rounded-xl border border-aq-primary/20 bg-aq-sage/40 px-4 py-3 text-sm text-stone-700">
+          {/* <div className="mt-6 rounded-xl border border-aq-primary/20 bg-aq-sage/40 px-4 py-3 text-sm text-stone-700">
             <strong className="text-stone-900">Not sure where to start?</strong> Open an Issue
             on GitHub describing what's missing or incorrect — even that is a valuable
             contribution.{" "}
@@ -197,7 +222,7 @@ function ContributionTutorial() {
             >
               Open an issue →
             </a>
-          </div>
+          </div> */}
         </div>
       )}
     </section>
@@ -209,7 +234,6 @@ function ContributionTutorial() {
 export default function HomePage() {
   return (
     <div className="space-y-10">
-
       {/* ── Hero / Mission ── */}
       <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/60 px-6 py-9 sm:px-10 sm:py-11">
         <div
@@ -225,17 +249,23 @@ export default function HomePage() {
           </h1>
           <p className="mt-4 max-w-2xl leading-relaxed text-stone-600">
             AnatomyQuest is a{" "}
-            <strong className="text-stone-800">community-driven study resource</strong> built
-            for learners who can't access expensive textbooks or paid courses. We work with
-            students and educators to create clear, image-based guides that explain the{" "}
-            <em>why</em> behind structures — not just the <em>what</em>.
+            <strong className="text-stone-800">
+              community-driven study resource
+            </strong>{" "}
+            built for learners who can't access expensive textbooks or paid
+            courses. We work with students and educators to create clear,
+            image-based guides that explain the <em>why</em> behind structures —
+            not just the <em>what</em>.
           </p>
           <p className="mt-3 max-w-2xl leading-relaxed text-stone-600">
             We are currently registering as a{" "}
-            <strong className="text-stone-800">non-profit</strong>. Every resource this
-            project generates goes toward supporting underprivileged communities. Content is
-            free, permanent, and open to{" "}
-            <Link href="/contribute" className="font-medium text-aq-primary hover:underline">
+            <strong className="text-stone-800">non-profit</strong>. Every
+            resource this project generates goes toward supporting
+            underprivileged communities. Content is free, permanent, and open to{" "}
+            <Link
+              href="/contribute"
+              className="font-medium text-aq-primary hover:underline"
+            >
               contribution
             </Link>
             .
@@ -264,16 +294,29 @@ export default function HomePage() {
           How to Use This Site
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-stone-600">
-          AnatomyQuest is structured around a repeating 5-part framework applied to every
-          bone and structure. When studying any topic, work through each step in order:
+          AnatomyQuest is structured around a repeating 5-part framework applied
+          to every bone and structure. When studying any topic, work through
+          each step in order:
         </p>
         <ol className="mt-4 space-y-3">
           {[
             ["Location", "Where is this structure in the body? What region?"],
-            ["Shape & Surface", "What does it look like? What surfaces and borders does it have?"],
-            ["Neighbors", "What structures surround it — muscles, vessels, nerves?"],
-            ["Landmarks", "Key bony or soft-tissue features used in clinical practice."],
-            ["Blood Supply & Innervation", "What supplies it? Why does this matter clinically?"],
+            [
+              "Shape & Surface",
+              "What does it look like? What surfaces and borders does it have?",
+            ],
+            [
+              "Neighbors",
+              "What structures surround it — muscles, vessels, nerves?",
+            ],
+            [
+              "Landmarks",
+              "Key bony or soft-tissue features used in clinical practice.",
+            ],
+            [
+              "Blood Supply & Innervation",
+              "What supplies it? Why does this matter clinically?",
+            ],
           ].map(([title, desc], i) => (
             <li key={title} className="flex gap-4">
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-aq-primary/10 font-mono text-xs font-bold text-aq-primary">
@@ -286,14 +329,13 @@ export default function HomePage() {
           ))}
         </ol>
         <p className="mt-4 text-sm text-stone-500">
-          Use the <strong className="text-stone-700">left sidebar</strong> to navigate between
-          sections at any time.
+          Use the <strong className="text-stone-700">left sidebar</strong> to
+          navigate between sections at any time.
         </p>
       </section>
 
       {/* ── Contribution Tutorial ── */}
       <ContributionTutorial />
-
     </div>
   );
 }
