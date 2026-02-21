@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Lora } from "next/font/google";
+import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import { site } from "@/lib/site";
 import { getNavigation } from "@/lib/data";
 import "./globals.css";
@@ -8,8 +8,8 @@ import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Sidebar } from "@/components/Sidebar";
 
-const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
-const lora = Lora({ subsets: ["latin"], variable: "--font-serif" });
+const sourceSans = Source_Sans_3({ subsets: ["latin"], variable: "--font-sans" });
+const sourceSerif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif" });
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +31,7 @@ export default function RootLayout({
 }) {
   const nav = getNavigation();
   return (
-    <html lang={site.locale.replace("_", "-")} className={`${dmSans.variable} ${lora.variable}`}>
+    <html lang={site.locale.replace("_", "-")} className={`${sourceSans.variable} ${sourceSerif.variable}`}>
       <body className="min-h-screen flex flex-col font-sans antialiased">
         <Header />
         <div className="flex flex-1 w-full">

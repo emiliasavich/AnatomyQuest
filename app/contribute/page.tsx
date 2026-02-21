@@ -15,7 +15,7 @@ export default function ContributePage() {
         <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/50 px-6 py-6 sm:px-8">
           <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
           <div className="pl-2">
-            <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900">1. Contribute via GitHub</h2>
+            <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">1. Contribute via GitHub</h2>
             <p className="mt-3 text-stone-600 leading-relaxed">
               If you use Git and GitHub, you can propose text changes, fix typos, or add new sections by opening a pull request. This is best for markdown/content and code.
             </p>
@@ -33,7 +33,7 @@ export default function ContributePage() {
         <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/50 px-6 py-6 sm:px-8">
           <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
           <div className="pl-2">
-            <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900">2. Contribute via Canva</h2>
+            <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">2. Contribute via Canva</h2>
             <p className="mt-3 text-stone-600 leading-relaxed">
               For image-based contributions (diagrams, labeled anatomy, study graphics), you can create or edit designs in Canva and share them with us. We’ll integrate approved work into the site with credit.
             </p>
@@ -46,7 +46,7 @@ export default function ContributePage() {
       </div>
 
       <section className="mt-10 rounded-2xl border border-aq-teal/20 bg-aq-sage/40 px-6 py-5">
-        <h2 className="font-serif text-lg font-semibold tracking-tight text-stone-900">Licensing & ownership</h2>
+        <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">Licensing & ownership</h2>
         <p className="mt-2 text-stone-600 text-sm leading-relaxed">
           By contributing, you agree that your contributions may become the property of AnatomyQuest (the organization). We maintain full rights to administer, adapt, and use contributed content to further our mission. Specific terms will be updated as we finalize our non-profit and licensing structure.
         </p>
