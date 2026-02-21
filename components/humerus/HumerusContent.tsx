@@ -20,7 +20,7 @@ function slugify(s: string) {
 function getPreviewImageSrc(
   basePath: string,
   baseName: string,
-  views: Record<string, string[]>[] | Record<string, string[]>
+  views: Record<string, string[]>[] | Record<string, string[]>,
 ): string | null {
   const viewsArray = Array.isArray(views) ? views : [views];
   if (viewsArray.length === 0) return null;
@@ -36,7 +36,10 @@ function stripHtml(s: string) {
   return s.replace(/<[^>]+>/g, "").trim();
 }
 
-function getPreviewDescription(description: unknown, maxLength = 110): string | undefined {
+function getPreviewDescription(
+  description: unknown,
+  maxLength = 110,
+): string | undefined {
   let raw = "";
   if (typeof description === "string") {
     raw = stripHtml(description);
@@ -190,7 +193,7 @@ export function HumerusContent({
           skeletal, muscular, and cardiovascular systems rather than relying on
           rote memorization.
         </p>
-        <p className="my-3 text-stone-700">
+        <p className="my-3 text-stone-600">
           <span className="font-semibold text-stone-900">
             How to use this guide:
           </span>{" "}
@@ -448,23 +451,39 @@ export function HumerusContent({
                   {elements.map((child: Record<string, unknown>, i: number) => {
                     const accordionId = `neighbors-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(String(child.name))}`;
                     return (
-                    <div key={i} id={`neighbors-${slugify(String(child.name))}`} className="scroll-mt-24">
-                      <AccordionSection
-                        id={accordionId}
-                        title={String(child.name)}
-                        defaultOpen={false}
-                        open={openNeighbors[accordionId] ?? false}
-                        onToggle={() => setOpenNeighbors((prev) => ({ ...prev, [accordionId]: !(prev[accordionId] ?? false) }))}
-                        previewImage={
-                          child.views && child.base
-                            ? {
-                                src: getPreviewImageSrc("labeled joints", String(child.base), child.views as Record<string, string[]>[]) || "",
-                                alt: `${String(child.name)} preview`,
-                                description: getPreviewDescription(child.description),
-                              }
-                            : undefined
-                        }
+                      <div
+                        key={i}
+                        id={`neighbors-${slugify(String(child.name))}`}
+                        className="scroll-mt-24"
                       >
+                        <AccordionSection
+                          id={accordionId}
+                          title={String(child.name)}
+                          defaultOpen={false}
+                          open={openNeighbors[accordionId] ?? false}
+                          onToggle={() =>
+                            setOpenNeighbors((prev) => ({
+                              ...prev,
+                              [accordionId]: !(prev[accordionId] ?? false),
+                            }))
+                          }
+                          previewImage={
+                            child.views && child.base
+                              ? {
+                                  src:
+                                    getPreviewImageSrc(
+                                      "labeled joints",
+                                      String(child.base),
+                                      child.views as Record<string, string[]>[],
+                                    ) || "",
+                                  alt: `${String(child.name)} preview`,
+                                  description: getPreviewDescription(
+                                    child.description,
+                                  ),
+                                }
+                              : undefined
+                          }
+                        >
                           <div className="rounded-xl border border-stone-200/80 bg-white p-4 sm:p-5">
                             <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-start">
                               <div className="min-w-0">
@@ -498,8 +517,8 @@ export function HumerusContent({
                               ) : null}
                             </div>
                           </div>
-                      </AccordionSection>
-                    </div>
+                        </AccordionSection>
+                      </div>
                     );
                   })}
                 </div>
@@ -597,26 +616,54 @@ export function HumerusContent({
                   </div>
                 </div>
                 <div className="mt-4 space-y-2">
-                  {landmarkElements.map((child: Record<string, unknown>, i: number) => {
-                    const detailAccordionId = `landmark-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(stripHtml(String(child.name)))}`;
-                    return (
-                      <div key={i} id={`landmark-${slugify(stripHtml(String(child.name)))}`} className="scroll-mt-24">
-                        <AccordionSection
-                          id={detailAccordionId}
-                          title={isHtml(String(child.name)) ? stripHtml(String(child.name)) : String(child.name)}
-                          defaultOpen={false}
-                          open={openLandmarkDetails[detailAccordionId] ?? false}
-                          onToggle={() => setOpenLandmarkDetails((prev) => ({ ...prev, [detailAccordionId]: !(prev[detailAccordionId] ?? false) }))}
-                          previewImage={
-                            child.views && child.base
-                              ? {
-                                  src: getPreviewImageSrc("labeled landmarks", String(child.base), child.views as Record<string, string[]>[]) || "",
-                                  alt: `${stripHtml(String(child.name))} preview`,
-                                  description: getPreviewDescription(child.description),
-                                }
-                              : undefined
-                          }
+                  {landmarkElements.map(
+                    (child: Record<string, unknown>, i: number) => {
+                      const detailAccordionId = `landmark-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(stripHtml(String(child.name)))}`;
+                      return (
+                        <div
+                          key={i}
+                          id={`landmark-${slugify(stripHtml(String(child.name)))}`}
+                          className="scroll-mt-24"
                         >
+                          <AccordionSection
+                            id={detailAccordionId}
+                            title={
+                              isHtml(String(child.name))
+                                ? stripHtml(String(child.name))
+                                : String(child.name)
+                            }
+                            defaultOpen={false}
+                            open={
+                              openLandmarkDetails[detailAccordionId] ?? false
+                            }
+                            onToggle={() =>
+                              setOpenLandmarkDetails((prev) => ({
+                                ...prev,
+                                [detailAccordionId]: !(
+                                  prev[detailAccordionId] ?? false
+                                ),
+                              }))
+                            }
+                            previewImage={
+                              child.views && child.base
+                                ? {
+                                    src:
+                                      getPreviewImageSrc(
+                                        "labeled landmarks",
+                                        String(child.base),
+                                        child.views as Record<
+                                          string,
+                                          string[]
+                                        >[],
+                                      ) || "",
+                                    alt: `${stripHtml(String(child.name))} preview`,
+                                    description: getPreviewDescription(
+                                      child.description,
+                                    ),
+                                  }
+                                : undefined
+                            }
+                          >
                             <div className="rounded-xl border border-stone-200/80 bg-white p-4 sm:p-5">
                               <ul className="list-disc pl-6 my-2 space-y-1">
                                 {(child.description as unknown[])?.map(
@@ -638,8 +685,8 @@ export function HumerusContent({
                                 </div>
                               ) : null}
                             </div>
-                        </AccordionSection>
-                      </div>
+                          </AccordionSection>
+                        </div>
                       );
                     },
                   )}

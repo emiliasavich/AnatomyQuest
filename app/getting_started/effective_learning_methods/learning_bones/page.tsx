@@ -129,7 +129,7 @@ export default function LearningBonesPage() {
             you focus on meaningful connections rather than just memorizing
             facts.
           </p>
-          <p className="mt-4 text-stone-600">
+          <p className="my-3 text-stone-600">
             <span className="font-semibold text-stone-800">Mnemonic:</span>{" "}
             <em>Learning Small Notes About Bones</em>
           </p>
