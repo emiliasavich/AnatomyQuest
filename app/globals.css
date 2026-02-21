@@ -38,15 +38,15 @@ a {
 
 /* Step colors for learning sections */
 .step-location .location-color,
-.location-color { color: #2563eb; }
+.location-color { color: #2e7d8c; }
 .step-shape .shape-color,
-.shape-color { color: #059669; }
+.shape-color { color: #4a7a2e; }
 .step-neighbors .neighbors-color,
-.neighbors-color { color: #7c3aed; }
+.neighbors-color { color: #6d5a8a; }
 .step-landmarks .landmarks-color,
-.landmarks-color { color: #dc2626; }
+.landmarks-color { color: #a67c2e; }
 .step-blood .blood-supply-color,
-.blood-supply-color { color: #ea580c; }
+.blood-supply-color { color: #9e3a3a; }
 
 /* Interactive anatomy terms (popup on hover) */
 .popup-term {
