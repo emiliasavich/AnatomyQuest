@@ -51,6 +51,11 @@ function NavItem({ item, basePath = "" }: { item: NavLink; basePath?: string }) 
 }
 
 export function Sidebar({ nav }: SidebarProps) {
+  const pathname = usePathname();
+
+  // Hide sidebar on the landing page so it can be full-width
+  if (pathname === "/") return null;
+
   return (
     <>
       <aside className="fixed left-0 top-16 bottom-0 z-10 hidden w-56 border-r border-aq-primary/10 bg-aq-sage/40 lg:block xl:w-64">
