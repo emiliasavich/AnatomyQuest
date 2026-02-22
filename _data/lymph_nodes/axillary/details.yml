@@ -1,0 +1,62 @@
+- section: "Location"
+  items:
+    - name: "Axillary Region"
+      description:
+        - "Located in the axilla (armpit), embedded within axillary fat"
+        - "Organized into five groups along the axillary vessels"
+        - "Receive lymphatic drainage from the upper limb, breast, and thoracic wall"
+
+- section: "Groups"
+  items:
+    - name: "Anterior (Pectoral) Group"
+      description:
+        - "Located along the lateral thoracic vessels at the lower border of pectoralis minor"
+        - "Drains the anterior thoracic wall, breast, and skin above the umbilicus"
+        - "Most important group in breast cancer staging"
+    - name: "Posterior (Subscapular) Group"
+      description:
+        - "Located along the subscapular vessels on the posterior axillary wall"
+        - "Drains the posterior thoracic wall and the scapular region"
+    - name: "Lateral Group"
+      description:
+        - "Located along the distal axillary vein"
+        - "Drains most of the upper limb"
+    - name: "Central Group"
+      description:
+        - "Located in the fat of the axilla near the base"
+        - "Receives lymph from the anterior, posterior, and lateral groups"
+        - "Acts as a relay station before draining to the apical group"
+    - name: "Apical Group"
+      description:
+        - "Located at the apex of the axilla, medial to the axillary vein"
+        - "Receives lymph from all other axillary groups"
+        - "Drains into the subclavian lymph trunk"
+
+- section: "Function"
+  items:
+    - name: "Lymph Filtration"
+      description:
+        - "Filter lymph fluid for pathogens, foreign particles, and abnormal cells"
+        - "Contain B lymphocytes and T lymphocytes that mount immune responses"
+        - "Antigen-presenting cells capture and display antigens to activate lymphocytes"
+    - name: "Immune Surveillance"
+      description:
+        - "Monitor lymph draining from the upper limb, breast, and thorax"
+        - "Enlarge (lymphadenopathy) in response to infection or malignancy"
+
+- section: "Clinical Significance"
+  items:
+    - name: "Breast Cancer Metastasis"
+      description:
+        - "Axillary lymph nodes are the most common site of breast cancer metastasis"
+        - "Sentinel lymph node biopsy identifies the first draining node"
+        - "Axillary lymph node dissection may be performed for staging"
+    - name: "Lymphedema"
+      description:
+        - "Swelling of the upper limb caused by impaired lymphatic drainage"
+        - "Can occur after axillary lymph node dissection or radiation therapy"
+        - "Managed with compression garments and manual lymphatic drainage"
+    - name: "Axillary Lymphadenopathy"
+      description:
+        - "Enlarged axillary lymph nodes can indicate infection, autoimmune disease, or malignancy"
+        - "Common causes include upper limb infections, cat-scratch disease, and lymphoma"

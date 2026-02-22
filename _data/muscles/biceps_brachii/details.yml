@@ -1,0 +1,44 @@
+- section: "Overview"
+  items:
+    - name: "Origin"
+      description:
+        - "Short head: apex of the coracoid process of the scapula"
+        - "Long head: supraglenoid tubercle of the scapula"
+    - name: "Insertion"
+      description:
+        - "Radial tuberosity of the radius"
+        - "Bicipital aponeurosis into the deep fascia of the forearm"
+    - name: "Innervation"
+      description:
+        - "Musculocutaneous nerve (C5, C6)"
+    - name: "Blood Supply"
+      description:
+        - "Brachial artery"
+        - "Anterior circumflex humeral artery"
+
+- section: "Actions"
+  items:
+    - name: "Flexion of the Forearm"
+      description:
+        - "Primary flexor of the forearm at the elbow joint"
+        - "Most effective when the forearm is supinated"
+    - name: "Supination of the Forearm"
+      description:
+        - "Most powerful supinator when the elbow is flexed"
+        - "Works alongside the supinator muscle"
+    - name: "Flexion of the Arm"
+      description:
+        - "Weak flexor of the arm at the shoulder joint"
+        - "Assists the anterior deltoid and coracobrachialis"
+
+- section: "Clinical Significance"
+  items:
+    - name: "Biceps Tendon Rupture"
+      description:
+        - "Distal rupture occurs at the radial tuberosity insertion"
+        - "Proximal rupture often involves the long head tendon"
+        - "Causes a 'Popeye' deformity — a visible bulge in the upper arm"
+    - name: "Bicipital Tendinitis"
+      description:
+        - "Inflammation of the long head tendon in the intertubercular sulcus"
+        - "Common in overhead athletes and repetitive lifting"
