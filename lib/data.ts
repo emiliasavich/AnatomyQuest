@@ -48,3 +48,17 @@ export function getHumerusBlood() {
 export function getPopupContent(): Record<string, { text: string; url?: string }> {
   return loadYaml("popup_content.yml");
 }
+
+export interface DetailItem {
+  name: string;
+  description: string[];
+}
+
+export interface DetailSection {
+  section: string;
+  items: DetailItem[];
+}
+
+export function getDetails(category: string, slug: string): DetailSection[] {
+  return loadYaml<DetailSection[]>(path.join(category, slug, "details.yml"));
+}
