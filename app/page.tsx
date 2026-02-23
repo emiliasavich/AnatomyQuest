@@ -18,17 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-export const metadata: Metadata = {
-  title: "AnatomyQuest — Interactive Anatomy Study Resource",
-  description:
-    "Community-driven, image-based anatomy guides that help you understand the why behind structures. Explore bones, landmarks, and more.",
-  openGraph: {
-    title: "AnatomyQuest — Interactive Anatomy Study Resource",
-    description:
-      "Community-driven, image-based anatomy guides that help you understand the why behind structures. Explore bones, landmarks, and more.",
-  },
-};
-
 const MAIN_SECTIONS = [
   {
     title: "Humerus",
