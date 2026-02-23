@@ -60,7 +60,7 @@ export function ImageViewer({
 
   const hasHoverLayers = viewLayers.length === 2;
   const [activeLayerIdx, setActiveLayerIdx] = useState(0);
-  const [showLabeled, setShowLabeled] = useState(false);
+  const [showLabeled, setShowLabeled] = useState(true);
   const defaultLayer = (() => {
     if (!hasHoverLayers) return viewLayers[0];
     if (preferDefaultLayer && viewLayers.includes("default")) return "default";
