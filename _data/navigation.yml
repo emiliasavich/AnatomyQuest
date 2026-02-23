@@ -59,5 +59,3 @@ pages:
         children:
           - title: "Axillary Lymph Nodes"
             url: /lymphatic_system/lymph_nodes/axillary_lymph_nodes
-  - title: Search
-    url: /search/

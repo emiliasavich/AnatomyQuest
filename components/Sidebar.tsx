@@ -2,10 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import type { NavLink } from "@/lib/data";
 
 interface SidebarProps {
   nav: NavLink[];
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${open ? "rotate-90" : ""}`}
+    >
+      <path
+        fillRule="evenodd"
+        d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
 }
 
 function NavItem({
@@ -16,6 +34,7 @@ function NavItem({
   basePath?: string;
 }) {
   const pathname = usePathname();
+  const [open, setOpen] = useState(true);
   const href = item.url
     ? item.url.replace(/\.html$/, "").replace(/\/$/, "")
     : undefined;
@@ -24,20 +43,35 @@ function NavItem({
   if (item.children && item.children.length > 0) {
     return (
       <li className="mt-3 first:mt-0">
-        <details className="group" open>
-          <summary className="cursor-pointer list-none py-1 text-[11px] font-semibold uppercase tracking-wide text-stone-500 focus:outline-none">
-            <span
-              className={`transition-colors ${isActive ? "text-stone-900" : "text-stone-500 group-hover:text-stone-700"}`}
+        <div className="flex items-center gap-1 py-1">
+          {href ? (
+            <Link
+              href={href}
+              className={`text-[11px] font-semibold uppercase tracking-wide transition-colors ${isActive ? "text-stone-900" : "text-stone-500 hover:text-stone-700"}`}
             >
               {item.title}
+            </Link>
+          ) : (
+            <span className="text-[11px] font-semibold uppercase tracking-wide text-stone-500">
+              {item.title}
             </span>
-          </summary>
+          )}
+          <button
+            type="button"
+            onClick={() => setOpen((prev) => !prev)}
+            className="rounded p-0.5 text-stone-400 transition-colors hover:bg-stone-200 hover:text-stone-600"
+            aria-label={open ? `Collapse ${item.title}` : `Expand ${item.title}`}
+          >
+            <ChevronIcon open={open} />
+          </button>
+        </div>
+        {open && (
           <ul className="mt-1 space-y-0.5 pl-2.5">
             {item.children.map((child, i) => (
               <NavItem key={i} item={child} basePath={href || basePath} />
             ))}
           </ul>
-        </details>
+        )}
       </li>
     );
   }
