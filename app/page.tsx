@@ -12,9 +12,9 @@ const MAIN_SECTIONS = [
     description: "Explore bones of the arm and shoulder—location, landmarks, and clinical context.",
   },
   {
-    label: "Entire Body",
-    href: "/entire_body",
-    description: "Bones in full-body context: upper limb, lower limb, and more.",
+    label: "Search",
+    href: "/search",
+    description: "Search across all anatomy content — bones, landmarks, glossary terms, and more.",
   },
 ] as const;
 

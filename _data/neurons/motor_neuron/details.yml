@@ -1,0 +1,58 @@
+- section: "Structure"
+  items:
+    - name: "Cell Body (Soma)"
+      description:
+        - "Contains the nucleus and most organelles"
+        - "Located in the anterior horn of the spinal cord (lower motor neurons) or the motor cortex (upper motor neurons)"
+        - "Receives input from thousands of synaptic connections"
+    - name: "Dendrites"
+      description:
+        - "Short, branching extensions from the cell body"
+        - "Receive signals from other neurons via synapses"
+        - "Integrate excitatory and inhibitory inputs"
+    - name: "Axon"
+      description:
+        - "Single long projection that carries electrical impulses away from the cell body"
+        - "Can extend over one meter in length (e.g., from spinal cord to foot muscles)"
+        - "Wrapped in a myelin sheath formed by Schwann cells in the peripheral nervous system"
+    - name: "Axon Terminal (Synaptic Bouton)"
+      description:
+        - "Branched endings of the axon that form synapses with target cells"
+        - "Contains synaptic vesicles filled with acetylcholine (at the neuromuscular junction)"
+
+- section: "Types"
+  items:
+    - name: "Upper Motor Neurons"
+      description:
+        - "Cell bodies located in the primary motor cortex (precentral gyrus)"
+        - "Axons descend through the corticospinal tract"
+        - "Synapse with lower motor neurons in the spinal cord"
+    - name: "Lower Motor Neurons"
+      description:
+        - "Cell bodies located in the anterior horn of the spinal cord"
+        - "Axons exit via ventral roots and travel in peripheral nerves"
+        - "Directly innervate skeletal muscle fibers at the neuromuscular junction"
+
+- section: "Function"
+  items:
+    - name: "Neuromuscular Junction"
+      description:
+        - "The synapse between a motor neuron axon terminal and a muscle fiber"
+        - "Acetylcholine is released into the synaptic cleft"
+        - "Binds to nicotinic receptors on the motor end plate, triggering muscle contraction"
+    - name: "Motor Unit"
+      description:
+        - "A single motor neuron and all the muscle fibers it innervates"
+        - "Small motor units (e.g., eye muscles) allow fine control"
+        - "Large motor units (e.g., quadriceps) generate powerful movements"
+
+- section: "Clinical Significance"
+  items:
+    - name: "Amyotrophic Lateral Sclerosis (ALS)"
+      description:
+        - "Progressive degeneration of both upper and lower motor neurons"
+        - "Leads to muscle weakness, atrophy, and eventual paralysis"
+    - name: "Poliomyelitis"
+      description:
+        - "Viral infection that destroys lower motor neurons in the anterior horn"
+        - "Results in flaccid paralysis of affected muscles"
