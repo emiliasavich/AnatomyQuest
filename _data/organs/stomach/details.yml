@@ -1,0 +1,70 @@
+- section: "Anatomy"
+  items:
+    - name: "Location"
+      description:
+        - "Located in the left upper quadrant and epigastric region of the abdomen"
+        - "Lies between the esophagus and the duodenum"
+        - "Sits inferior to the diaphragm and anterior to the pancreas"
+    - name: "Cardia"
+      description:
+        - "The region surrounding the cardial orifice where the esophagus enters"
+        - "Contains the lower esophageal sphincter (cardiac sphincter)"
+        - "Prevents reflux of gastric contents into the esophagus"
+    - name: "Fundus"
+      description:
+        - "Dome-shaped superior portion above the level of the cardial orifice"
+        - "Usually filled with gas (visible on X-ray as the gastric bubble)"
+        - "Contains acid-secreting parietal cells and pepsinogen-secreting chief cells"
+    - name: "Body"
+      description:
+        - "The largest region between the fundus and the pyloric antrum"
+        - "Primary site for gastric acid and enzyme secretion"
+        - "Contains gastric rugae (folds) that increase surface area"
+    - name: "Pylorus"
+      description:
+        - "The distal region connecting to the duodenum"
+        - "Divided into the pyloric antrum and pyloric canal"
+        - "Contains the pyloric sphincter, which controls gastric emptying"
+
+- section: "Blood Supply"
+  items:
+    - name: "Left Gastric Artery"
+      description:
+        - "Branch of the celiac trunk"
+        - "Supplies the lesser curvature of the stomach"
+        - "Gives off esophageal branches"
+    - name: "Right Gastric Artery"
+      description:
+        - "Branch of the proper hepatic artery"
+        - "Supplies the lesser curvature (distal portion)"
+    - name: "Left Gastroomental Artery"
+      description:
+        - "Branch of the splenic artery"
+        - "Supplies the greater curvature of the stomach"
+    - name: "Right Gastroomental Artery"
+      description:
+        - "Branch of the gastroduodenal artery"
+        - "Supplies the greater curvature (distal portion)"
+
+- section: "Function"
+  items:
+    - name: "Mechanical Digestion"
+      description:
+        - "Muscular contractions (peristalsis) churn food into chyme"
+        - "Three layers of smooth muscle (longitudinal, circular, oblique) enable mixing"
+    - name: "Chemical Digestion"
+      description:
+        - "Hydrochloric acid (HCl) secreted by parietal cells lowers pH to 1.5–3.5"
+        - "Pepsinogen is activated to pepsin for protein digestion"
+        - "Intrinsic factor is secreted for vitamin B12 absorption in the ileum"
+
+- section: "Clinical Significance"
+  items:
+    - name: "Peptic Ulcer Disease"
+      description:
+        - "Erosion of the gastric mucosa, often caused by Helicobacter pylori or NSAID use"
+        - "Gastric ulcers typically occur along the lesser curvature"
+    - name: "Gastric Cancer"
+      description:
+        - "Most commonly adenocarcinoma arising from the gastric mucosa"
+        - "Risk factors include H. pylori infection, smoking, and high-salt diet"

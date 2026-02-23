@@ -16,12 +16,11 @@ const EXPLORE_CARDS = [
     alt: "Humerus anterior view",
   },
   {
-    title: "Learning Bones",
-    description:
-      "A structured guide through Location, Shape, Neighbors, Landmarks, and Blood Supply.",
-    href: "/getting_started/effective_learning_methods/learning_bones",
-    image: "/assets/images/bones/skull/Frontal Bone - anterior view.webp",
-    alt: "Frontal bone anterior view",
+    title: "Upper Limb",
+    href: "/upper_limb",
+    description: "Explore bones of the arm and shoulder—location, landmarks, and clinical context.",
+    image: "/assets/images/bones/humerus/Humerus - location.webp",
+    alt: "Upper limb overview",
   },
 ] as const;
 
