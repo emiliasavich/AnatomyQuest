@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
+
+export const metadata: Metadata = {
+  title: "Effective Learning Methods",
+  description:
+    "Evidence-based techniques for studying anatomy — structured approaches to learning bones, landmarks, and body systems.",
+};
 
 const ITEMS = [{ path: "/getting_started/effective_learning_methods/learning_bones", title: "Learning Bones" }];
 

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
+
+export const metadata: Metadata = {
+  title: "Getting Started",
+  description:
+    "Begin your anatomy journey with effective study strategies and structured learning paths for bones and body systems.",
+};
 
 const ITEMS = [
   {

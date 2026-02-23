@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/landing/ScrollReveal";
@@ -6,7 +7,18 @@ import { InteractiveFiveSteps } from "@/components/landing/InteractiveFiveSteps"
 import { StatsBar } from "@/components/landing/StatsBar";
 import { HeroImageCycler } from "@/components/landing/HeroImageCycler";
 
-const EXPLORE_CARDS = [
+export const metadata: Metadata = {
+  title: "AnatomyQuest — Interactive Anatomy Study Resource",
+  description:
+    "Community-driven, image-based anatomy guides that help you understand the why behind structures. Explore bones, landmarks, and more.",
+  openGraph: {
+    title: "AnatomyQuest — Interactive Anatomy Study Resource",
+    description:
+      "Community-driven, image-based anatomy guides that help you understand the why behind structures. Explore bones, landmarks, and more.",
+  },
+};
+
+const MAIN_SECTIONS = [
   {
     title: "Humerus",
     description:
@@ -18,7 +30,8 @@ const EXPLORE_CARDS = [
   {
     title: "Upper Limb",
     href: "/upper_limb",
-    description: "Explore bones of the arm and shoulder—location, landmarks, and clinical context.",
+    description:
+      "Explore bones of the arm and shoulder—location, landmarks, and clinical context.",
     image: "/assets/images/bones/humerus/Humerus - location.webp",
     alt: "Upper limb overview",
   },
@@ -115,7 +128,7 @@ export default function HomePage() {
             </h2>
 
             <div className="mt-12 grid gap-8 lg:grid-cols-2">
-              {EXPLORE_CARDS.map((card) => (
+              {MAIN_SECTIONS.map((card) => (
                 <Link
                   key={card.title}
                   href={card.href}
