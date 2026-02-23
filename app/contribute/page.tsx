@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { ContentLayout } from "@/components/ContentLayout";
+
+export const metadata: Metadata = {
+  title: "Contribute",
+  description:
+    "Help build AnatomyQuest — contribute anatomy content via GitHub pull requests or Canva image designs.",
+};
 
 export default function ContributePage() {
   return (

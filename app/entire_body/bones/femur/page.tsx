@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { ContentLayout } from "@/components/ContentLayout";
 import { DevelopmentPageWrapper } from "@/components/DevelopmentPageWrapper";
+
+export const metadata: Metadata = {
+  title: "Femur — Entire Body",
+  description:
+    "Study the femur — the longest and strongest bone in the human body. Location, landmarks, and clinical context.",
+};
 
 export default function FemurPage() {
   return (

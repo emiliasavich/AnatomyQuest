@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { ContentLayout } from "@/components/ContentLayout";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about AnatomyQuest's mission to create interactive, image-driven anatomy resources and support underprivileged communities.",
+};
 
 export default function AboutPage() {
   return (

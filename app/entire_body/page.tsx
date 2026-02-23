@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
+
+export const metadata: Metadata = {
+  title: "Entire Body",
+  description:
+    "Study bones in full-body context — upper limb, lower limb, and more with interactive anatomy guides.",
+};
 
 export default function EntireBodyPage() {
   return (

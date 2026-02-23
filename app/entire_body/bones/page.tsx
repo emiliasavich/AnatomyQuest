@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
+
+export const metadata: Metadata = {
+  title: "Entire Body Bones",
+  description:
+    "Browse all bones in full-body context — interactive guides covering location, shape, neighbors, landmarks, and blood supply.",
+};
 
 const BONES = [
   { path: "/entire_body/bones/humerus", title: "Humerus" },

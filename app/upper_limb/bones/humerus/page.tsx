@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
 import { HumerusContent } from "@/components/humerus/HumerusContent";
@@ -9,6 +10,12 @@ import {
   getFourViews,
   getPopupContent,
 } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Humerus — Upper Limb",
+  description:
+    "Interactive study guide for the humerus — location, shape, neighboring bones, anatomical landmarks, and blood supply of the upper arm bone.",
+};
 
 export default function HumerusPage() {
   const landmarks = getHumerusLandmarks();

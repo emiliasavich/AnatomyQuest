@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ContentLayout } from "@/components/ContentLayout";
 import { HumerusContent } from "@/components/humerus/HumerusContent";
 import {
@@ -8,6 +9,12 @@ import {
   getFourViews,
   getPopupContent,
 } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Humerus — Entire Body",
+  description:
+    "Interactive study guide for the humerus in full-body context — location, shape, neighboring bones, anatomical landmarks, and blood supply.",
+};
 
 export default function EntireBodyHumerusPage() {
   const landmarks = getHumerusLandmarks();

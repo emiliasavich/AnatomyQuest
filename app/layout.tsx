@@ -22,6 +22,25 @@ export const metadata: Metadata = {
     icon: site.logo,
   },
   manifest: "/site.webmanifest",
+  openGraph: {
+    type: "website",
+    locale: site.locale.replace("-", "_"),
+    siteName: site.title,
+    title: {
+      default: site.title,
+      template: `%s | ${site.title}`,
+    },
+    description: site.description,
+    url: site.url,
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: site.title,
+      template: `%s | ${site.title}`,
+    },
+    description: site.description,
+  },
 };
 
 export default function RootLayout({

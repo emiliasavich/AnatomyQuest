@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
+
+export const metadata: Metadata = {
+  title: "Upper Limb",
+  description:
+    "Explore upper limb anatomy — bones of the arm and shoulder with location, landmarks, and clinical context.",
+};
 
 export default function UpperLimbPage() {
   return (

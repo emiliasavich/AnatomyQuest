@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { ContentLayout } from "@/components/ContentLayout";
 import { ConsentSwitch } from "@/components/ConsentSwitch";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "How AnatomyQuest uses Vercel Web Analytics to collect anonymized visitor data and protect your privacy.",
+};
 
 export default function PrivacyPolicyPage() {
   return (
