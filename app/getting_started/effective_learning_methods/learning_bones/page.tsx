@@ -244,13 +244,13 @@ export default function LearningBonesPage() {
                       {card.description}
                     </p>
                   </div>
-                  <div className="relative mx-auto max-w-[180px] aspect-[3/2] w-full">
+                  <div className="relative mx-4 my-2 aspect-square overflow-hidden rounded-xl">
                     <Image
                       src={card.src}
                       alt={card.alt}
                       fill
-                      className="object-contain p-2"
-                      sizes="180px"
+                      className="object-cover"
+                      sizes="280px"
                       unoptimized
                     />
                   </div>
