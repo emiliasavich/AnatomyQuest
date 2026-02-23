@@ -3,7 +3,7 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 
 const navLinks = [
-  { href: "/getting_started", label: "Dictionary" },
+  { href: "/search", label: "Dictionary" },
   { href: "/contribute", label: "Contribute" },
   { href: "/about", label: "About" },
   { href: "/privacy_policy", label: "Privacy Policy" },
