@@ -7,12 +7,6 @@ export const metadata: Metadata = {
     "Help build AnatomyQuest — contribute anatomy content via GitHub pull requests or Canva image designs.",
 };
 
-export const metadata: Metadata = {
-  title: "Contribute",
-  description:
-    "Help build AnatomyQuest — contribute anatomy content via GitHub pull requests or Canva image designs.",
-};
-
 export default function ContributePage() {
   return (
     <ContentLayout
