@@ -68,8 +68,8 @@ export function InteractiveFiveSteps() {
           Five steps to deeply understand any bone
         </h2>
         <p className="mt-4 max-w-2xl text-stone-600 leading-relaxed">
-          Each step connects a bone to the skeletal, muscular, and
-          cardiovascular systems — no isolated facts. Mnemonic:{" "}
+          Each step connects the bone to the bigger picture — no isolated
+          facts. Mnemonic:{" "}
           <em className="text-stone-700">
             Learning Small Notes About Bones
           </em>
