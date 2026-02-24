@@ -4,6 +4,21 @@ import { useState } from "react";
 import Image from "next/image";
 
 type ViewEntry = Record<string, string[]>;
+
+const VIEW_TOOLTIPS: Record<string, string> = {
+  anterior: "Front view",
+  posterior: "Back view",
+  lateral: "Outer side view, away from the midline",
+  medial: "Inner side view, toward the midline",
+  superior: "Top-down view",
+  inferior: "Bottom-up view",
+};
+
+const LAYER_TOOLTIPS: Record<string, string> = {
+  isolated: "Show bone by itself",
+  "not isolated": "Show bone with surrounding structures",
+  default: "Default layer",
+};
 const getViewNames = (views: ViewEntry[]): string[] => {
   const names: string[] = [];
   views.forEach((v) => {
@@ -148,6 +163,7 @@ export function ImageViewer({
               key={name}
               type="button"
               onClick={() => setCurrentView(name)}
+              title={VIEW_TOOLTIPS[name]}
               className={`rounded-lg px-3 py-1.5 text-sm capitalize transition-colors ${currentView === name ? "bg-aq-primary text-white" : "bg-stone-200/80 text-stone-700 hover:bg-stone-300"}`}
             >
               {name}
@@ -162,6 +178,7 @@ export function ImageViewer({
               key={l}
               type="button"
               onClick={() => setLayerIndex(i)}
+              title={LAYER_TOOLTIPS[l]}
               className={`rounded-lg px-2 py-1 text-xs capitalize transition-colors ${layerIndex === i ? "bg-stone-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}`}
             >
               {l}
@@ -181,6 +198,7 @@ export function ImageViewer({
               key={l}
               type="button"
               onClick={() => handleLabelButton(i)}
+              title={LAYER_TOOLTIPS[l] ?? (l === "isolated" ? "Show bone by itself" : "Show bone with surrounding structures")}
               className={`rounded-lg px-2 py-1 text-xs capitalize transition-colors ${showLabeled && activeLayerIdx === i ? "bg-stone-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}`}
             >
               {l === "isolated" ? "isolated" : "complete"}
