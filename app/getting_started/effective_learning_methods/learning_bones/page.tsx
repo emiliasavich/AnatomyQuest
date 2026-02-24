@@ -107,14 +107,22 @@ const COLLAPSE_OPTIONS = [
 type CollapsePreference = (typeof COLLAPSE_OPTIONS)[number]["value"];
 
 export default function LearningBonesPage() {
-  const [openStep, setOpenStep] = useState<StepKey | null>(null);
+  const [openSteps, setOpenSteps] = useState<Set<StepKey>>(new Set());
   const [collapseVote, setCollapseVote] = useState<CollapsePreference | null>(
     null,
   );
   const [surveySubmitted, setSurveySubmitted] = useState(false);
 
   const toggleStep = useCallback((step: StepKey) => {
-    setOpenStep((prev) => (prev === step ? null : step));
+    setOpenSteps((prev) => {
+      const next = new Set(prev);
+      if (next.has(step)) {
+        next.delete(step);
+      } else {
+        next.add(step);
+      }
+      return next;
+    });
   }, []);
 
   const handleSurveySubmit = (e: React.FormEvent) => {
@@ -179,7 +187,7 @@ export default function LearningBonesPage() {
           title="Step 1 – Location"
           question="Which body region contains the bone (e.g., upper arm, lower leg)?"
           purpose="Identifying location helps you build a mental map of the skeleton and recall neighboring bones and muscles."
-          open={openStep === "location"}
+          open={openSteps.has("location")}
           onToggle={() => toggleStep("location")}
         />
 
@@ -189,7 +197,7 @@ export default function LearningBonesPage() {
           title="Step 2 – Shape"
           question="What is the bone's shape?"
           purpose="A bone's shape is closely linked to its function. Recognizing the shape gives insight into the bone's role in movement and support."
-          open={openStep === "shape"}
+          open={openSteps.has("shape")}
           onToggle={() => toggleStep("shape")}
         >
           <h3
@@ -237,7 +245,7 @@ export default function LearningBonesPage() {
           title="Step 3 – Neighbors"
           question="What bones articulate (form joints with) this bone? What is the type of each joint?"
           purpose="Lets you examine what joints the bone is part of and what movements those joints allow."
-          open={openStep === "neighbors"}
+          open={openSteps.has("neighbors")}
           onToggle={() => toggleStep("neighbors")}
         />
 
@@ -247,7 +255,7 @@ export default function LearningBonesPage() {
           title="Step 4 – Anatomical Landmarks"
           question="What are the named parts of the bone? What is the significance of each?"
           purpose="Connects each named location to the muscles, nerves, blood vessels, and other bones that interact with the location."
-          open={openStep === "landmarks"}
+          open={openSteps.has("landmarks")}
           onToggle={() => toggleStep("landmarks")}
         />
 
@@ -257,7 +265,7 @@ export default function LearningBonesPage() {
           title="Step 5 – Blood Supply"
           question="What blood vessels nourish the bone?"
           purpose="Relates the bone to the cardiovascular system and builds your mental map of the body's blood vessels."
-          open={openStep === "blood"}
+          open={openSteps.has("blood")}
           onToggle={() => toggleStep("blood")}
         />
 
