@@ -774,6 +774,198 @@ export function HumerusContent({
           </li>
         </ul>
         <h3
+          id="reference-muscles"
+          className="text-lg font-medium mt-4 text-stone-800"
+        >
+          Muscles
+        </h3>
+        <ul className="list-disc pl-6 space-y-1 text-stone-700">
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/supraspinatus-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Supraspinatus Muscle
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/brachialis-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Brachialis Muscle
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/upper-limb-muscles-and-movements"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Upper Limb Muscles and Movements
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/arm-muscles"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Arm Muscles
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/latissimus-dorsi-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Latissimus Dorsi Muscle
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/extensor-carpi-radialis-longus-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Extensor Carpi Radialis Longus
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/pronator-teres-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Pronator Teres Muscle
+            </a>
+          </li>
+        </ul>
+        <h3
+          id="reference-joints-and-ligaments"
+          className="text-lg font-medium mt-4 text-stone-800"
+        >
+          Joints and Ligaments
+        </h3>
+        <ul className="list-disc pl-6 space-y-1 text-stone-700">
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/elbow-joint"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Elbow Joint
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/ligaments-of-the-upper-limb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Ligaments of the Upper Limb
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/head-of-radius"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Head of Radius
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/proximal-radioulnar-joint"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Proximal Radioulnar Joint
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://anatomy.co.uk/humeroulnar-joint"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Anatomy.co.uk – Humeroulnar Joint
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://anatomy.co.uk/humeroradial-joint"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Anatomy.co.uk – Humeroradial Joint
+            </a>
+          </li>
+        </ul>
+        <h3
+          id="reference-nerves"
+          className="text-lg font-medium mt-4 text-stone-800"
+        >
+          Nerves
+        </h3>
+        <ul className="list-disc pl-6 space-y-1 text-stone-700">
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/axillary-nerve"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Axillary Nerve
+            </a>
+          </li>
+        </ul>
+        <h3
+          id="reference-arteries"
+          className="text-lg font-medium mt-4 text-stone-800"
+        >
+          Arteries
+        </h3>
+        <ul className="list-disc pl-6 space-y-1 text-stone-700">
+          <li>
+            <a
+              href="https://teachmeanatomy.info/encyclopaedia/a/anterior-circumflex-humeral-artery/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Teach Me Anatomy – Anterior Circumflex Humeral Artery
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/posterior-circumflex-humeral-artery"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Posterior Circumflex Humeral Artery
+            </a>
+          </li>
+        </ul>
+        <h3
           id="reference-images"
           className="text-lg font-medium mt-4 text-stone-800"
         >

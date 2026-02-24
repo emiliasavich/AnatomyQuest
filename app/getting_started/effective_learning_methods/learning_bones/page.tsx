@@ -86,12 +86,50 @@ function StepBlock({
   );
 }
 
+const COLLAPSE_OPTIONS = [
+  {
+    value: "yes",
+    label: "Yes, auto-collapse",
+    description: "Only one section open at a time (current behavior)",
+  },
+  {
+    value: "no",
+    label: "No, keep them open",
+    description: "Let me open multiple sections at once",
+  },
+  {
+    value: "no-preference",
+    label: "No preference",
+    description: "Either way works for me",
+  },
+] as const;
+
+type CollapsePreference = (typeof COLLAPSE_OPTIONS)[number]["value"];
+
 export default function LearningBonesPage() {
   const [openStep, setOpenStep] = useState<StepKey | null>(null);
+  const [collapseVote, setCollapseVote] = useState<CollapsePreference | null>(
+    null,
+  );
+  const [surveySubmitted, setSurveySubmitted] = useState(false);
 
   const toggleStep = useCallback((step: StepKey) => {
     setOpenStep((prev) => (prev === step ? null : step));
   }, []);
+
+  const handleSurveySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!collapseVote) return;
+    const selected = COLLAPSE_OPTIONS.find((o) => o.value === collapseVote);
+    const subject = encodeURIComponent(
+      "AnatomyQuest – Section collapse survey",
+    );
+    const body = encodeURIComponent(
+      `Section collapse preference: ${selected?.label}\n\nPage: Learning Bones (Effective Learning Methods)`,
+    );
+    window.location.href = `mailto:emiliasavich@gmail.com?subject=${subject}&body=${body}`;
+    setSurveySubmitted(true);
+  };
 
   return (
     <ContentLayout
@@ -125,87 +163,14 @@ export default function LearningBonesPage() {
             <span className="font-semibold text-stone-900">
               How to use this guide:
             </span>{" "}
-            Follow the five structured steps below. They are designed to help
-            you focus on meaningful connections rather than just memorizing
+            Follow the five steps when studying a bone. They are designed to
+            help you focus on meaningful connections rather than just memorizing
             facts.
           </p>
           <p className="my-3 text-stone-600">
             <span className="font-semibold text-stone-800">Mnemonic:</span>{" "}
             <em>Learning Small Notes About Bones</em>
           </p>
-          <AccordionSection
-            id="five-steps-overview"
-            title="Click to read about the five steps. Then click to close."
-            defaultOpen={false}
-          >
-            <p className="mb-4 text-stone-700">
-              Each step relates the bone to the bigger picture to help you
-              understand the material and remember it for longer.
-            </p>
-            <div className="space-y-4 text-sm text-stone-700">
-              <div>
-                <p className="font-medium text-[#2e7d8c]">Location</p>
-                <p>
-                  <span className="font-medium">Question:</span> Where is the
-                  bone?
-                </p>
-                <p>
-                  <span className="font-medium">Purpose:</span> Helps you build
-                  a mental map of the skeleton.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-[#4a7a2e]">Shape</p>
-                <p>
-                  <span className="font-medium">Question:</span> What is the
-                  bone&apos;s shape?
-                </p>
-                <p>
-                  <span className="font-medium">Purpose:</span> Gives insight
-                  into how the bone interacts with the body.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-[#6d5a8a]">Neighbors</p>
-                <p>
-                  <span className="font-medium">Question:</span> What bones
-                  articulate (form joints with) this bone? What is the type of
-                  each joint?
-                </p>
-                <p>
-                  <span className="font-medium">Purpose:</span> Lets you examine
-                  what joints the bone is part of and what movements those
-                  joints allow.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-[#a67c2e]">
-                  Anatomical Landmarks
-                </p>
-                <p>
-                  <span className="font-medium">Question:</span> What are the
-                  named parts of the bone? What is the significance of each?
-                </p>
-                <p>
-                  <span className="font-medium">Purpose:</span> Connects each
-                  named location to the muscles, nerves, blood vessels, and
-                  other bones that interact with the location.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-[#9e3a3a]">Blood Supply</p>
-                <p>
-                  <span className="font-medium">Question:</span> What blood
-                  vessels nourish the bone?
-                </p>
-                <p>
-                  <span className="font-medium">Purpose:</span> Relates the bone
-                  to the cardiovascular system and builds your mental map of the
-                  body&apos;s blood vessels.
-                </p>
-              </div>
-            </div>
-          </AccordionSection>
         </div>
 
         {/* Step 1 – Location */}
@@ -302,7 +267,7 @@ export default function LearningBonesPage() {
           <p className="mt-1 text-sm text-stone-600">Associated video</p>
         </div>
 
-        {/* Interactive Exercise */}
+        {/* See It in Action */}
         <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/40 px-6 py-6 sm:px-8 sm:py-7">
           <div
             className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary"
@@ -310,7 +275,7 @@ export default function LearningBonesPage() {
           />
           <div className="pl-2">
             <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
-              Interactive Exercise
+              See It in Action!
             </h2>
             <p className="mt-3 text-stone-700">
               First, see the five steps applied to the{" "}
@@ -330,6 +295,68 @@ export default function LearningBonesPage() {
               and check your work using the femur study sheet (Coming soon!).
             </p>
           </div>
+        </section>
+
+        {/* Section Collapse Survey */}
+        <section className="rounded-2xl border border-stone-200/90 bg-stone-50/80 px-6 py-6 sm:px-8 sm:py-7">
+          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Quick Survey
+          </h2>
+          <p className="mt-3 text-stone-700">
+            Currently, opening a new step automatically closes the previous one.
+            Should it stay this way, or would you prefer to keep multiple
+            sections open at the same time?
+          </p>
+
+          {surveySubmitted ? (
+            <p className="mt-4 font-medium text-aq-primary">
+              Thank you for your feedback!
+            </p>
+          ) : (
+            <form onSubmit={handleSurveySubmit} className="mt-4">
+              <fieldset>
+                <legend className="sr-only">
+                  Section auto-collapse preference
+                </legend>
+                <div className="space-y-3">
+                  {COLLAPSE_OPTIONS.map((option) => (
+                    <label
+                      key={option.value}
+                      className={`flex cursor-pointer items-start gap-3 rounded-xl border px-4 py-3 transition-colors ${
+                        collapseVote === option.value
+                          ? "border-aq-primary bg-aq-primary/5"
+                          : "border-stone-200 bg-white hover:border-stone-300"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="collapse-preference"
+                        value={option.value}
+                        checked={collapseVote === option.value}
+                        onChange={() => setCollapseVote(option.value)}
+                        className="mt-0.5 accent-aq-primary"
+                      />
+                      <div>
+                        <span className="font-medium text-stone-900">
+                          {option.label}
+                        </span>
+                        <p className="text-sm text-stone-600">
+                          {option.description}
+                        </p>
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+              <button
+                type="submit"
+                disabled={!collapseVote}
+                className="mt-4 rounded-lg bg-aq-primary px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-aq-primary/90 focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Submit
+              </button>
+            </form>
+          )}
         </section>
 
         <FeedbackSection />
