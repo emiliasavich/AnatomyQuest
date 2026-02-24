@@ -209,7 +209,10 @@ export default function LearningBonesPage() {
                       {card.description}
                     </p>
                   </div>
-                  <div className="relative mx-4 my-2 aspect-square overflow-hidden rounded-xl">
+                  <div
+                    className="relative mx-4 my-2 aspect-square overflow-hidden rounded-xl"
+                    title={`${card.type} bone: ${card.description}`}
+                  >
                     <Image
                       src={card.src}
                       alt={card.alt}
