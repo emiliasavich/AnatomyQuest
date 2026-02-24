@@ -160,7 +160,7 @@ export default function ContributePage() {
           <ul className="mt-3 space-y-2 text-sm text-stone-600 leading-relaxed">
             <li className="flex gap-2">
               <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
@@ -171,7 +171,7 @@ export default function ContributePage() {
             </li>
             <li className="flex gap-2">
               <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
@@ -182,7 +182,7 @@ export default function ContributePage() {
             </li>
             <li className="flex gap-2">
               <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
@@ -192,7 +192,7 @@ export default function ContributePage() {
             </li>
             <li className="flex gap-2">
               <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
