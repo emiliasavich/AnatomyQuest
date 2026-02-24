@@ -199,7 +199,7 @@ export function ImageViewer({
               type="button"
               onClick={() => handleLabelButton(i)}
               title={LAYER_TOOLTIPS[l] ?? (l === "isolated" ? "Show bone by itself" : "Show bone with surrounding structures")}
-              className={`rounded-lg px-2 py-1 text-xs capitalize transition-colors ${showLabeled && activeLayerIdx === i ? "bg-stone-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}`}
+              className={`rounded-lg px-2 py-1 text-xs capitalize transition-colors ${activeLayerIdx === i ? "bg-stone-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}`}
             >
               {l === "isolated" ? "isolated" : "complete"}
             </button>
