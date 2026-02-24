@@ -9,24 +9,12 @@ export function FeedbackSection() {
           Feedback
         </h2>
         <p className="mt-3 text-stone-700">
-          We&apos;d love to hear from you! You can:
+          We&apos;d love to hear from you! Fill out the form below and we&apos;ll get back to you at{" "}
+          <a href="mailto:connect@anatomyquest.org" className="font-medium text-aq-primary hover:underline">
+            connect@anatomyquest.org
+          </a>.
         </p>
-        <ol className="mt-4 list-decimal space-y-4 pl-6">
-          <li>
-            <span className="font-semibold text-stone-900">Email us directly</span>
-            <p className="mt-1 text-stone-700">
-              Send us an email at{" "}
-              <a href="mailto:emiliasavich@gmail.com" className="font-medium text-aq-primary hover:underline">
-                emiliasavich@gmail.com
-              </a>{" "}
-              (our official email is coming soon).
-            </p>
-          </li>
-          <li>
-            <span className="font-semibold text-stone-900">Leave anonymous feedback</span>
-            <FeedbackForm />
-          </li>
-        </ol>
+        <FeedbackForm />
       </div>
     </section>
   );

@@ -39,7 +39,7 @@ export default function ContributePage() {
             </p>
             <p className="mt-3 text-sm text-stone-500">
               Contact us to get access to the Canva space or to submit your design:{" "}
-              <a href="mailto:emiliasavich@gmail.com" className="font-medium text-aq-primary hover:underline">emiliasavich@gmail.com</a>
+              <a href="mailto:connect@anatomyquest.org" className="font-medium text-aq-primary hover:underline">connect@anatomyquest.org</a>
             </p>
           </div>
         </section>
