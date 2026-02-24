@@ -741,7 +741,10 @@ export function HumerusContent({
 
       {/* References */}
       <div className="relative overflow-hidden rounded-2xl border border-stone-200/90 bg-stone-50/80 px-6 py-6 sm:px-8 sm:py-7">
-        <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
+        <div
+          className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary"
+          aria-hidden
+        />
         <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900">
           References
         </h2>
