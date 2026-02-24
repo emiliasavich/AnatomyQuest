@@ -28,7 +28,7 @@ const STEPS = [
     color: "#6d5a8a",
     question: "What bones form joints with this bone?",
     description:
-      "Learn which bones articulate with the humerus — the scapula proximally, and the radius and ulna distally.",
+      "Learn which bones articulate (form joints) with the humerus — the scapula proximally, and the radius and ulna distally.",
     image:
       "/assets/images/bones/humerus/labeled neighbors/proximal - anterior - not isolated.webp",
     imageAlt: "Humerus proximal neighbors - scapula articulation",
@@ -38,7 +38,7 @@ const STEPS = [
     color: "#a67c2e",
     question: "What are the named parts and their significance?",
     description:
-      "Explore every bump, ridge, and groove. Each landmark connects to muscles, nerves, or blood vessels — nothing is arbitrary.",
+      "Each landmark has a purpose — nothing is arbitrary.",
     image:
       "/assets/images/bones/humerus/labeled landmarks/head - anterior - default.webp",
     imageAlt: "Humerus head labeled landmarks",
