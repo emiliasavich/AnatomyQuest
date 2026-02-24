@@ -193,7 +193,7 @@ export function InteractiveFiveSteps() {
           </div>
         </div>
 
-        <div className="mt-6 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/getting_started/effective_learning_methods/learning_bones"
             className="inline-flex items-center gap-2 text-sm font-semibold text-aq-primary hover:underline"
