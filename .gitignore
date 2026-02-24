@@ -1,15 +1,20 @@
-# Jekyll build folder
-_site/
+# Dependencies
+node_modules/
 
-# Jekyll configuration
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# Next.js
+.next/
+out/
 
-# Ruby / Bundler
-.bundle/
-vendor/bundle/
-vendor
+# Environment
+.env
+.env*.local
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Debug / logs
+npm-debug.log*
 
 # OS generated files
 .DS_Store
@@ -19,14 +24,6 @@ Thumbs.db
 *~
 *.swp
 *.swo
-*.tmp
-
-# Logs
-*.log
-
-# Other temp files
-.sass-cache/
-.cache/
 
 # Files I don't want to push
 *hide*

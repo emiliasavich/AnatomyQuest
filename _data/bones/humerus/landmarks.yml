@@ -1,18 +1,6 @@
 - big_picture_name: "Head and Neck"
   singular: true
   elements:
-    - name: Head
-      description:
-        - "<span class='popup-term' data-popup-id='popup-articulate'>Articulates</span> with glenoid fossa of <span class=\"popup-term\" data-popup-id=\"popup-scapula\">scapula</span> to form the shoulder (glenohumeral) joint"
-      base: head
-      views:
-        - anterior:
-            - isolated
-            - default
-        - posterior:
-            - isolated
-            - default
-
     - name: Anatomical Neck
       description:
         - "Narrow region <span class=\"popup-term\" data-popup-id=\"popup-distal\">distal</span> to the humerus's head"
@@ -26,12 +14,23 @@
             - isolated
             - default
 
+    - name: Head
+      description:
+        - "<span class='popup-term' data-popup-id='popup-articulate'>Articulates</span> with glenoid fossa of <span class=\"popup-term\" data-popup-id=\"popup-scapula\">scapula</span> to form the shoulder (glenohumeral) joint"
+      base: head
+      views:
+        - anterior:
+            - isolated
+            - default
+        - posterior:
+            - isolated
+            - default
+
     - name: Surgical Neck
       description:
         - "Narrow region <span class=\"popup-term\" data-popup-id=\"popup-distal\">distal</span> to tubercles"
         - "Common fracture site"
-        - "Close to <span class=\"popup-term\" data-popup-id=\"popup-axillary_nerve\">axillary nerve</span>, 
-        <span class=\"popup-term\" data-popup-id=\"popup-anterior_circumflex_humeral_artery\">anterior circumflex humeral artery</span>, and <span class=\"popup-term\" data-popup-id=\"popup-posterior_circumflex_humeral_artery\">posterior circumflex humeral artery</span>"
+        - "Close to <span class=\"popup-term\" data-popup-id=\"popup-axillary_nerve\">axillary nerve</span>, <span class=\"popup-term\" data-popup-id=\"popup-anterior_circumflex_humeral_artery\">anterior circumflex humeral artery</span>, and <span class=\"popup-term\" data-popup-id=\"popup-posterior_circumflex_humeral_artery\">posterior circumflex humeral artery</span>"
       base: surgical neck
       views:
         - anterior:
@@ -43,13 +42,21 @@
 - big_picture_name: "Tubercles"
   singular: false
   elements:
-    - name: Intertubercular Sulcus
+    - name: Crest of Greater Tubercle
       description:
-        - "Groove between the greater and lesser tubercles"
-        - "Guides the long tendon of the <span class=\"popup-term\" data-popup-id=\"popup-biceps_brachii\">biceps brachii</span>"
-        - "Also called the bicipital groove due to its relation with the <span class=\"popup-term\" data-popup-id=\"popup-biceps_brachii\">biceps brachii</span> tendon"
-        - "<span class=\"popup-term\" data-popup-id=\"popup-insertion\">Insertion</span> site for the <span class=\"popup-term\" data-popup-id=\"popup-latissimus_dorsi\">latissimus dorsi</span> "
-      base: intertubercular sulcus
+        - "<span class='popup-term' data-popup-id='popup-lateral'>Lateral</span> lip of the intertubercular sulcus"
+        - "<span class='popup-term' data-popup-id='popup-insertion'>Insertion</span> site for the <span class='popup-term' data-popup-id='popup-pectoralis_major'>pectoralis major's</span> tendon"
+      base: crest of greater tubercle
+      views:
+        - anterior:
+            - isolated
+            - default
+
+    - name: Crest of Lesser Tubercle
+      description:
+        - "<span class='popup-term' data-popup-id='popup-medial'>Medial</span> lip of the intertubercular sulcus"
+        - "<span class='popup-term' data-popup-id='popup-insertion'>Insertion</span> site for the <span class='popup-term' data-popup-id='popup-teres_major'>teres major's</span> tendon"
+      base: crest of lesser tubercle
       views:
         - anterior:
             - isolated
@@ -72,11 +79,13 @@
             - isolated
             - default
 
-    - name: Crest of Greater Tubercle
+    - name: Intertubercular Sulcus
       description:
-        - "<span class='popup-term' data-popup-id='popup-lateral'>Lateral</span> lip of the intertubercular sulcus"
-        - "<span class='popup-term' data-popup-id='popup-insertion'>Insertion</span> site for the <span class='popup-term' data-popup-id='popup-pectoralis_major'>pectoralis major's</span> tendon"
-      base: crest of greater tubercle
+        - "Groove between the greater and lesser tubercles"
+        - "Guides the long tendon of the <span class=\"popup-term\" data-popup-id=\"popup-biceps_brachii\">biceps brachii</span>"
+        - "Also called the bicipital groove due to its relation with the <span class=\"popup-term\" data-popup-id=\"popup-biceps_brachii\">biceps brachii</span> tendon"
+        - "<span class=\"popup-term\" data-popup-id=\"popup-insertion\">Insertion</span> site for the <span class=\"popup-term\" data-popup-id=\"popup-latissimus_dorsi\">latissimus dorsi</span> "
+      base: intertubercular sulcus
       views:
         - anterior:
             - isolated
@@ -92,19 +101,21 @@
             - isolated
             - default
 
-    - name: Crest of Lesser Tubercle
+- big_picture_name: "Body"
+  singular: true
+  elements:
+    - name: Body
       description:
-        - "<span class='popup-term' data-popup-id='popup-medial'>Medial</span> lip of the intertubercular sulcus"
-        - "<span class='popup-term' data-popup-id='popup-insertion'>Insertion</span> site for the <span class='popup-term' data-popup-id='popup-teres_major'>teres major's</span> tendon"
-      base: crest of lesser tubercle
+        - "The shaft of the humerus (the bone's long midsection)"
+      base: body
       views:
         - anterior:
             - isolated
             - default
+        - posterior:
+            - isolated
+            - default
 
-- big_picture_name: "Body"
-  singular: true
-  elements:
     - name: Deltoid Tuberosity
       description:
         - "Rough <span class='popup-term' data-popup-id='popup-lateral'>lateral</span> region in the middle of humerus"
@@ -115,18 +126,6 @@
             - isolated
             - default
         - lateral:
-            - isolated
-            - default
-        - posterior:
-            - isolated
-            - default
-
-    - name: Body
-      description:
-        - "The shaft of the humerus (the bone's long midsection)"
-      base: body
-      views:
-        - anterior:
             - isolated
             - default
         - posterior:
@@ -198,23 +197,6 @@
 - big_picture_name: Surfaces
   singular: false
   elements:
-    - name: <span class='popup-term' data-popup-id='popup-anteromedial'>Anteromedial</span> Surface
-      description:
-        - Surface between the <span class='popup-term' data-popup-id='popup-anterior'>anterior</span> and <span class='popup-term' data-popup-id='popup-medial'>medial</span> borders
-        - Encompasses the intertubercular groove
-        - <span class='popup-term' data-popup-id='popup-distal'>Distal</span> portion is covered by the <span class='popup-term' data-popup-id='popup-brachialis'>brachialis</span>
-        - <span class='popup-term' data-popup-id='popup-insertion'>Insertion</span> site for the <span class='popup-term' data-popup-id='popup-coracobrachialis'>coracobrachialis</span>
-      base: anteromedial surface
-      views:
-        - anterior:
-            - isolated
-            - layer1
-            - default
-        - medial:
-            - isolated
-            - layer1
-            - default
-
     - name: <span class='popup-term' data-popup-id='popup-anterolateral'>Anterolateral</span> Surface
       description:
         - Surface between the <span class='popup-term' data-popup-id='popup-anterior'>anterior</span> and <span class='popup-term' data-popup-id='popup-lateral'>lateral</span> borders"
@@ -230,6 +212,23 @@
             - isolated
             - deltoid
             - brachialis
+            - default
+
+    - name: <span class='popup-term' data-popup-id='popup-anteromedial'>Anteromedial</span> Surface
+      description:
+        - Surface between the <span class='popup-term' data-popup-id='popup-anterior'>anterior</span> and <span class='popup-term' data-popup-id='popup-medial'>medial</span> borders
+        - Encompasses the intertubercular groove
+        - <span class='popup-term' data-popup-id='popup-distal'>Distal</span> portion is covered by the <span class='popup-term' data-popup-id='popup-brachialis'>brachialis</span>
+        - <span class='popup-term' data-popup-id='popup-insertion'>Insertion</span> site for the <span class='popup-term' data-popup-id='popup-coracobrachialis'>coracobrachialis</span>
+      base: anteromedial surface
+      views:
+        - anterior:
+            - isolated
+            - layer1
+            - default
+        - medial:
+            - isolated
+            - layer1
             - default
 
     - name: <span class='popup-term' data-popup-id='popup-posterior'>Posterior</span> Surface
@@ -317,19 +316,6 @@
 - big_picture_name: Fossas
   singular: false
   elements:
-    - name: Radial Fossa
-      description:
-        - Small <span class='popup-term' data-popup-id='popup-anterior'>anterior</span> depression <span class='popup-term' data-popup-id='popup-superior'>superior</span> to the capitulum and <span class='popup-term' data-popup-id='popup-lateral'>lateral</span> to the coronoid fossa
-        - Accommodates the <span class='popup-term' data-popup-id='popup-radius'>radial</span> head during elbow <span class='popup-term' data-popup-id='popup-flexion'>flexion</span>
-      base: radial fossa
-      views:
-        - anterior:
-            - isolated
-            - default
-        - anterolateral:
-            - isolated
-            - default
-
     - name: Coronoid Fossa
       description:
         - <span class='popup-term' data-popup-id='popup-anterior'>Anterior</span> depression <span class='popup-term' data-popup-id='popup-superior'>superior</span> to the trochlea
@@ -356,24 +342,22 @@
             - isolated
             - default
 
-- big_picture_name: Distal Structures
-  singular: false
-  elements:
-    - name: Trochlea
+    - name: Radial Fossa
       description:
-        - Pulley-shaped structure on the <span class='popup-term' data-popup-id='popup-humerus'>humerus</span>'s <span class='popup-term' data-popup-id='popup-distal'>distal</span> end
-        - <span class='popup-term' data-popup-id='popup-articulate'>Articulates</span> with the trochlear notch of the <span class='popup-term' data-popup-id='popup-ulna'>ulna</span>
-        - Allows for <span class='popup-term' data-popup-id='popup-hinge'>hinge</span> movement
-        - <span class='popup-term' data-popup-id='popup-medial'>Medial</span> to the <span class='popup-term' data-popup-id='popup-humerus'>humerus</span>'s capitulum
-      base: trochlea
+        - Small <span class='popup-term' data-popup-id='popup-anterior'>anterior</span> depression <span class='popup-term' data-popup-id='popup-superior'>superior</span> to the capitulum and <span class='popup-term' data-popup-id='popup-lateral'>lateral</span> to the coronoid fossa
+        - Accommodates the <span class='popup-term' data-popup-id='popup-radius'>radial</span> head during elbow <span class='popup-term' data-popup-id='popup-flexion'>flexion</span>
+      base: radial fossa
       views:
         - anterior:
             - isolated
             - default
-        - posterior:
+        - anterolateral:
             - isolated
             - default
 
+- big_picture_name: Distal Structures
+  singular: false
+  elements:
     - name: Capitulum
       description:
         - Rounded structure on the humerus's <span class='popup-term' data-popup-id='popup-distal'>distal</span> end
@@ -405,9 +389,24 @@
     - name: Groove for the Ulnar Nerve
       description:
         - Groove on the <span class='popup-term' data-popup-id='popup-posterior'>posterior</span> surface of the <span class='popup-term' data-popup-id='popup-medial'>medial</span> epicondyle that the ulnar nerve runs through
-        - “Funny bone” area because striking this area compresses the <span class='popup-term' data-popup-id='popup-ulnar_nerve'>ulnar nerve</span> and leads to the "funny bone" sensation
+        - “Funny bone” area because striking this area compresses the <span class='popup-term' data-popup-id='popup-ulnar_nerve'>ulnar nerve</span> and leads to the “funny bone” sensation
         - Also called the <span class='popup-term' data-popup-id='popup-cubital'>Cubital</span> Groove
       base: cubital groove
+      views:
+        - anterior:
+            - isolated
+            - default
+        - posterior:
+            - isolated
+            - default
+
+    - name: Trochlea
+      description:
+        - Pulley-shaped structure on the <span class='popup-term' data-popup-id='popup-humerus'>humerus</span>'s <span class='popup-term' data-popup-id='popup-distal'>distal</span> end
+        - <span class='popup-term' data-popup-id='popup-articulate'>Articulates</span> with the trochlear notch of the <span class='popup-term' data-popup-id='popup-ulna'>ulna</span>
+        - Allows for <span class='popup-term' data-popup-id='popup-hinge'>hinge</span> movement
+        - <span class='popup-term' data-popup-id='popup-medial'>Medial</span> to the <span class='popup-term' data-popup-id='popup-humerus'>humerus</span>'s capitulum
+      base: trochlea
       views:
         - anterior:
             - isolated

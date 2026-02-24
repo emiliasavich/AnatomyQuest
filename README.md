@@ -1,62 +1,54 @@
 # AnatomyQuest
+
 Repository of anatomy information pages created in collaboration with underprivileged communities. Revenue raised by the site will be used to directly support those communities.
 
-Licenced under CC-BY-SA-4.0.
+Licensed under CC-BY-SA-4.0.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) 14 (React 18)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Running Locally
 
-This is a Jekyll-based static site. Follow these steps to run it locally:
-
 ### Prerequisites
 
-1. **Install Homebrew** (if not already installed):
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-2. **Install rbenv and ruby-build**:
-   ```bash
-   brew install rbenv ruby-build
-   ```
-
-3. **Set up rbenv in your shell** (add to your `~/.zshrc` or `~/.bash_profile`):
-   ```bash
-   eval "$(rbenv init -)"
-   ```
+- [Node.js](https://nodejs.org/) (v18 or later)
+- npm (comes with Node.js)
 
 ### Setup
 
 1. **Clone the repository**:
+
    ```bash
-   git clone https://github.com/emiliasavich/Anatomy.git
-   cd Anatomy
+   git clone https://github.com/emiliasavich/AnatomyQuest.git
+   cd AnatomyQuest
    ```
 
-2. **Install Ruby 3.3.0** (or the version specified in `.ruby-version`):
+2. **Install dependencies**:
    ```bash
-   rbenv install 3.3.0
-   rbenv local 3.3.0
+   npm install
    ```
 
-3. **Install Bundler**:
-   ```bash
-   gem install bundler
-   ```
+### Development
 
-4. **Install dependencies**:
-   ```bash
-   bundle install
-   ```
+Start the development server:
 
-### Running the Development Server
-
-Start the Jekyll development server:
 ```bash
-bundle exec jekyll serve
+npm run dev
 ```
 
-The site will be available at [http://127.0.0.1:4000](http://127.0.0.1:4000)
+The site will be available at [http://localhost:3000](http://localhost:3000).
 
-The server has auto-regeneration enabled, so any changes you make to files will automatically rebuild the site.
+The server supports hot reloading, so any changes you make to files will automatically update in the browser.
 
 To stop the server, press `Ctrl+C`.
+
+### Other Commands
+
+| Command         | Description                 |
+| --------------- | --------------------------- |
+| `npm run build` | Create a production build   |
+| `npm run start` | Start the production server |
+| `npm run lint`  | Run ESLint                  |

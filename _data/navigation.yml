@@ -8,6 +8,7 @@ main:
       #url: /terms/
 
 # documentation links
+# (Scaffold 1: 200+ bones/regions not yet covered — see lib/scaffolds.ts)
 pages:
   - title: Getting Started
     url: /getting_started/
@@ -25,11 +26,4 @@ pages:
         children:
           - title: "Humerus"
             url: /upper_limb/bones/humerus.html
-  - title: Entire Body
-    url: /entire_body/
-    children:
-      - title: "Bones"
-        url: /entire_body/bones/
-        children:
-          - title: "Humerus"
-            url: /entire_body/bones/humerus.html
+          # Scaffold 1: Radius, Ulna, Carpals, Metacarpals, Phalanges
