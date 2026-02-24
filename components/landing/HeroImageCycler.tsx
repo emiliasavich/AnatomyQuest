@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const IMAGES = [
   {
-    src: "/assets/images/bones/humerus/Humerus - location.webp",
-    alt: "Humerus highlighted in the skeleton",
+    src: "/assets/images/bones/humerus/labeled landmark headers/head and neck - anterior - not isolated.webp",
+    alt: "Humerus head and neck region — labeled landmarks",
   },
   {
     src: "/assets/images/bones/humerus/labeled landmarks/head - anterior - default.webp",
@@ -17,8 +17,8 @@ const IMAGES = [
     alt: "Humerus proximal neighbors — scapula articulation",
   },
   {
-    src: "/assets/images/bones/humerus/Humerus - shape.webp",
-    alt: "Humerus bone shape classification",
+    src: "/assets/images/bones/humerus/labeled landmarks/greater tubercle - anterior - default.webp",
+    alt: "Greater tubercle — labeled landmark",
   },
   {
     src: "/assets/images/bones/humerus/labeled landmarks/deltoid tuberosity - anterior - default.webp",
@@ -41,14 +41,13 @@ export function HeroImageCycler() {
   const image = IMAGES[index];
 
   return (
-    <div className="relative w-[240px] overflow-hidden rounded-2xl border border-aq-primary/10 bg-aq-sage/40 shadow-sm">
+    <div className="relative h-[340px] w-[420px] overflow-hidden rounded-2xl border border-aq-primary/10 bg-aq-sage/40 shadow-sm">
       <Image
         key={image.src}
         src={image.src}
         alt={image.alt}
-        width={240}
-        height={320}
-        className="demo-image-enter w-full object-contain"
+        fill
+        className="demo-image-enter object-cover"
         unoptimized
         priority
       />
