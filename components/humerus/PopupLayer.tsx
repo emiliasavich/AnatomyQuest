@@ -12,12 +12,20 @@ const SHOW_DELAY_MS = 500;
 export function PopupLayer({ popupContent }: PopupLayerProps) {
   const [popup, setPopup] = useState<{ key: string; x: number; y: number } | null>(null);
   const showTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const popupContainerRef = useRef<HTMLDivElement | null>(null);
 
   const clearShowTimeout = useCallback(() => {
     if (showTimeoutRef.current != null) {
       clearTimeout(showTimeoutRef.current);
       showTimeoutRef.current = null;
+    }
+  }, []);
+
+  const clearHideTimeout = useCallback(() => {
+    if (hideTimeoutRef.current != null) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
     }
   }, []);
 
@@ -37,6 +45,7 @@ export function PopupLayer({ popupContent }: PopupLayerProps) {
       if (!key || !popupContent[key]) return;
 
       clearShowTimeout();
+      clearHideTimeout();
       showTimeoutRef.current = setTimeout(() => {
         showTimeoutRef.current = null;
         const rect = target.getBoundingClientRect();
@@ -55,7 +64,11 @@ export function PopupLayer({ popupContent }: PopupLayerProps) {
       if (!fromTerm) return;
 
       clearShowTimeout();
-      setPopup(null);
+      clearHideTimeout();
+      hideTimeoutRef.current = setTimeout(() => {
+        hideTimeoutRef.current = null;
+        setPopup(null);
+      }, 150);
     };
 
     document.addEventListener("mouseover", handleEnter, true);
@@ -64,13 +77,19 @@ export function PopupLayer({ popupContent }: PopupLayerProps) {
       document.removeEventListener("mouseover", handleEnter, true);
       document.removeEventListener("mouseout", handleOut, true);
       clearShowTimeout();
+      clearHideTimeout();
     };
-  }, [popupContent, getKeyFromId, clearShowTimeout]);
+  }, [popupContent, getKeyFromId, clearShowTimeout, clearHideTimeout]);
+
+  const handlePopupEnter = useCallback(() => {
+    clearHideTimeout();
+  }, [clearHideTimeout]);
 
   const handlePopupLeave = useCallback(() => {
     clearShowTimeout();
+    clearHideTimeout();
     setPopup(null);
-  }, [clearShowTimeout]);
+  }, [clearShowTimeout, clearHideTimeout]);
 
   if (!popup) return null;
 
@@ -94,6 +113,7 @@ export function PopupLayer({ popupContent }: PopupLayerProps) {
         transform: "translateZ(0)",
         pointerEvents: "auto",
       }}
+      onMouseEnter={handlePopupEnter}
       onMouseLeave={handlePopupLeave}
     >
       <div
