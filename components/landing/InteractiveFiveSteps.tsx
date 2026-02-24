@@ -17,9 +17,9 @@ const STEPS = [
   {
     name: "Shape",
     color: "#4a7a2e",
-    question: "What is the bone's classification and function?",
+    question: "What is the bone's shape and function?",
     description:
-      "Understand its classification (long bone), cross-sectional shape, and how form follows function in the skeletal system.",
+      "Understand its shape (long bone) and how form follows function in the skeletal system.",
     image: "/assets/images/bones/humerus/Humerus - shape.webp",
     imageAlt: "Humerus bone shape classification",
   },
