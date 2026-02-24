@@ -145,7 +145,6 @@ export function ImageViewer({
           </div>
         ) : (
           <Image
-            key={`${viewForSrc}-${hasHoverLayers ? activeLayer : layer}`}
             src={hasHoverLayers ? activeSrc : defaultSrc}
             alt={hasHoverLayers ? activeAlt : defaultAlt}
             width={size}
