@@ -5,27 +5,33 @@ import {
   getHumerusNeighbors,
   getHumerusBlood,
   getPopupContent,
-  getDetails,
 } from "@/lib/data";
 import { SearchClient } from "./SearchClient";
 
 export interface SearchEntry {
   title: string;
   snippet: string;
-  category: "page" | "landmark" | "glossary" | "blood_supply" | "neighbor" | "detail";
+  category:
+    | "page"
+    | "landmark"
+    | "glossary"
+    | "blood_supply"
+    | "neighbor"
+    | "detail";
   href: string;
   context?: string;
 }
 
 function stripHtml(html: unknown): string {
   if (typeof html !== "string") return "";
-  return html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function humanize(key: string): string {
-  return key
-    .replace(/_/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 function normalizeUrl(url: string): string {
@@ -127,30 +133,6 @@ function buildSearchIndex(): SearchEntry[] {
       href: value.url || "",
       context: "Glossary",
     });
-  }
-
-  // 6. Detail pages (muscles, neurons, organs, lymph nodes)
-  const detailSources = [
-    { category: "muscles", slug: "biceps_brachii", label: "Biceps Brachii", href: "/muscular_system/muscles/biceps_brachii" },
-    { category: "neurons", slug: "motor_neuron", label: "Motor Neuron", href: "/nervous_system/neurons/motor_neuron" },
-    { category: "organs", slug: "stomach", label: "Stomach", href: "/digestive_system/organs/stomach" },
-    { category: "lymph_nodes", slug: "axillary", label: "Axillary Lymph Nodes", href: "/lymphatic_system/lymph_nodes/axillary_lymph_nodes" },
-  ] as const;
-
-  for (const src of detailSources) {
-    const sections = getDetails(src.category, src.slug);
-    for (const section of sections) {
-      for (const item of section.items) {
-        const desc = Array.isArray(item.description) ? item.description : [];
-        entries.push({
-          title: item.name,
-          snippet: desc.join(" ").slice(0, 200),
-          category: "detail",
-          href: src.href,
-          context: `${src.label} — ${section.section}`,
-        });
-      }
-    }
   }
 
   return entries;
