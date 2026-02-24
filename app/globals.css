@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aq-primary: #2d5016;
+  --aq-muted: #6b7280;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-aq-warm text-stone-900;
+}
+
+a {
+  @apply text-aq-primary hover:underline;
+}
+
+.prose a {
+  @apply text-aq-primary hover:underline;
+}
+
+.prose h2 {
+  @apply font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl;
+}
+
+.prose h3 {
+  @apply font-serif text-lg font-semibold tracking-tight text-stone-900;
+}
+
+/* Content toggle (accordion) */
+.content-toggle-content {
+  @apply overflow-hidden transition-all duration-200;
+}
+
+/* Step colors for learning sections */
+.step-location .location-color,
+.location-color { color: #2e7d8c; }
+.step-shape .shape-color,
+.shape-color { color: #4a7a2e; }
+.step-neighbors .neighbors-color,
+.neighbors-color { color: #6d5a8a; }
+.step-landmarks .landmarks-color,
+.landmarks-color { color: #a67c2e; }
+.step-blood .blood-supply-color,
+.blood-supply-color { color: #9e3a3a; }
+
+/* Interactive anatomy terms (popup on hover) */
+.popup-term {
+  @apply cursor-help border-b border-dotted border-stone-400 text-aq-primary;
+}
+.popup-term:hover {
+  @apply border-aq-primary;
+}
+
+/* Inside tooltip content: terms are plain text, no nested tooltips */
+.popup-layer-content .popup-term {
+  @apply cursor-text border-none text-inherit;
+  pointer-events: none;
+}
+
+/* "Information Page Coming Soon" in popups */
+.popup_coming {
+  @apply mt-2 text-xs text-stone-500 italic;
+}
+
+/* Tooltip image preview fade-in */
+.preview-tooltip-enter {
+  animation: tooltipFadeIn 150ms ease-out;
+}
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll-reveal animations ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.scroll-reveal.is-visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Image crossfade for the interactive demo */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.demo-image-enter {
+  animation: fadeIn 0.3s ease-out;
+}

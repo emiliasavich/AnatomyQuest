@@ -8,6 +8,7 @@ main:
       #url: /terms/
 
 # documentation links
+# (Scaffold 1: 200+ bones/regions not yet covered — see lib/scaffolds.ts)
 pages:
   - title: Getting Started
     url: /getting_started/
@@ -25,11 +26,36 @@ pages:
         children:
           - title: "Humerus"
             url: /upper_limb/bones/humerus.html
-  - title: Entire Body
-    url: /entire_body/
+          # Scaffold 1: Radius, Ulna, Carpals, Metacarpals, Phalanges
+  - title: Muscular System
+    url: /muscular_system/
     children:
-      - title: "Bones"
-        url: /entire_body/bones/
+      - title: "Muscles"
+        url: /muscular_system/muscles/
         children:
-          - title: "Humerus"
-            url: /entire_body/bones/humerus.html
+          - title: "Biceps Brachii"
+            url: /muscular_system/muscles/biceps_brachii
+  - title: Nervous System
+    url: /nervous_system/
+    children:
+      - title: "Neurons"
+        url: /nervous_system/neurons/
+        children:
+          - title: "Motor Neuron"
+            url: /nervous_system/neurons/motor_neuron
+  - title: Digestive System
+    url: /digestive_system/
+    children:
+      - title: "Organs"
+        url: /digestive_system/organs/
+        children:
+          - title: "Stomach"
+            url: /digestive_system/organs/stomach
+  - title: Lymphatic System
+    url: /lymphatic_system/
+    children:
+      - title: "Lymph Nodes"
+        url: /lymphatic_system/lymph_nodes/
+        children:
+          - title: "Axillary Lymph Nodes"
+            url: /lymphatic_system/lymph_nodes/axillary_lymph_nodes
