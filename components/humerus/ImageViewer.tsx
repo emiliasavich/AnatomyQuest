@@ -145,7 +145,6 @@ export function ImageViewer({
           </div>
         ) : (
           <Image
-            key={`${viewForSrc}-${hasHoverLayers ? activeLayer : layer}`}
             src={hasHoverLayers ? activeSrc : defaultSrc}
             alt={hasHoverLayers ? activeAlt : defaultAlt}
             width={size}
@@ -198,10 +197,15 @@ export function ImageViewer({
               key={l}
               type="button"
               onClick={() => handleLabelButton(i)}
-              title={LAYER_TOOLTIPS[l] ?? (l === "isolated" ? "Show bone by itself" : "Show bone with surrounding structures")}
-              className={`rounded-lg px-2 py-1 text-xs capitalize transition-colors ${activeLayerIdx === i ? "bg-stone-700 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}`}
+              title={
+                LAYER_TOOLTIPS[l] ??
+                (l === "isolated"
+                  ? "Show bone by itself"
+                  : "Show bone with surrounding structures")
+              }
+              className={`rounded-lg px-3 py-1.5 text-xs font-medium capitalize transition-colors ${activeLayerIdx === i ? "bg-aq-primary text-white" : "bg-stone-200/80 text-stone-700 hover:bg-stone-300"}`}
             >
-              {l === "isolated" ? "isolated" : "context"}
+              {l === "isolated" ? "Isolated" : "Context"}
             </button>
           ))}
         </div>

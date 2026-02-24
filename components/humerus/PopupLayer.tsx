@@ -103,15 +103,24 @@ export function PopupLayer({ popupContent }: PopupLayerProps) {
       clearShowTimeout();
       clearHideTimeout();
     };
-  }, [popupContent, getKeyFromId, getPopupDepth, clearShowTimeout, clearHideTimeout]);
+  }, [
+    popupContent,
+    getKeyFromId,
+    getPopupDepth,
+    clearShowTimeout,
+    clearHideTimeout,
+  ]);
 
-  const handlePopupEnter = useCallback((depth: number) => {
-    clearHideTimeout();
-    // Close any popups above this depth
-    setPopupStack((prev) =>
-      prev.length > depth + 1 ? prev.slice(0, depth + 1) : prev,
-    );
-  }, [clearHideTimeout]);
+  const handlePopupEnter = useCallback(
+    (depth: number) => {
+      clearHideTimeout();
+      // Close any popups above this depth
+      setPopupStack((prev) =>
+        prev.length > depth + 1 ? prev.slice(0, depth + 1) : prev,
+      );
+    },
+    [clearHideTimeout],
+  );
 
   const handlePopupLeave = useCallback(() => {
     clearShowTimeout();
@@ -148,7 +157,17 @@ export function PopupLayer({ popupContent }: PopupLayerProps) {
               pointerEvents: "auto",
             }}
             onMouseEnter={() => handlePopupEnter(depth)}
-            onMouseLeave={handlePopupLeave}
+            onMouseLeave={(e) => {
+              const toEl = e.relatedTarget as HTMLElement | null;
+              // Don't close if moving to another popup or term
+              if (
+                toEl?.closest("[data-popup-layer]") ||
+                toEl?.closest(".popup-term")
+              ) {
+                return;
+              }
+              handlePopupLeave();
+            }}
           >
             <div
               className="popup-layer-content prose prose-stone prose-sm max-w-none text-stone-700"
