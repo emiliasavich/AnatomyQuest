@@ -268,7 +268,7 @@ export default function LearningBonesPage() {
         </div>
 
         {/* See It in Action */}
-        <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/40 px-6 py-6 sm:px-8 sm:py-7">
+        <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/40 px-6 py-8 sm:px-8 sm:py-9">
           <div
             className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary"
             aria-hidden

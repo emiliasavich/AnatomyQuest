@@ -37,8 +37,7 @@ const STEPS = [
     name: "Landmarks",
     color: "#a67c2e",
     question: "What are the named parts and their significance?",
-    description:
-      "Each landmark has a purpose — nothing is arbitrary.",
+    description: "Each landmark has a purpose — nothing is arbitrary.",
     image:
       "/assets/images/bones/humerus/labeled landmarks/head - anterior - default.webp",
     imageAlt: "Humerus head labeled landmarks",
@@ -68,11 +67,9 @@ export function InteractiveFiveSteps() {
           Five steps to deeply understand any bone
         </h2>
         <p className="mt-4 max-w-2xl text-stone-600 leading-relaxed">
-          Each step connects the bone to the bigger picture — no isolated
-          facts. Mnemonic:{" "}
-          <em className="text-stone-700">
-            Learning Small Notes About Bones
-          </em>
+          Each step connects the bone to the bigger picture — no isolated facts.
+          Mnemonic:{" "}
+          <em className="text-stone-700">Learning Small Notes About Bones</em>
         </p>
 
         {/* Tab bar */}
