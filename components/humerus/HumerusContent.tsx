@@ -193,7 +193,7 @@ export function HumerusContent({
           skeletal, muscular, and cardiovascular systems rather than relying on
           rote memorization.
         </p>
-        <p className="my-3 text-stone-600">
+        <p className="mt-3 text-stone-600">
           <span className="font-semibold text-stone-900">
             How to use this guide:
           </span>{" "}
@@ -206,6 +206,7 @@ export function HumerusContent({
           </Link>{" "}
           below.
         </p>
+        <div className="mt-5 -mb-4">
         <AccordionSection
           id="five-steps-overview"
           title="Click to read about the five steps. Then click to close."
@@ -285,6 +286,7 @@ export function HumerusContent({
             </div>
           </div>
         </AccordionSection>
+        </div>
       </div>
 
       {/* Step 1 – Location */}
