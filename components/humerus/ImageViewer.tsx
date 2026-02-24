@@ -205,7 +205,7 @@ export function ImageViewer({
               }
               className={`rounded-lg px-3 py-1.5 text-xs font-medium capitalize transition-colors ${activeLayerIdx === i ? "bg-aq-primary text-white" : "bg-stone-200/80 text-stone-700 hover:bg-stone-300"}`}
             >
-              {l === "isolated" ? "Isolated" : "Complete"}
+              {l === "isolated" ? "Isolated" : "Context"}
             </button>
           ))}
         </div>
