@@ -272,9 +272,29 @@ export default function LearningBonesPage() {
         {/* References */}
         <div className="rounded-2xl border border-stone-200/90 bg-stone-50/80 px-6 py-4 sm:px-8">
           <p className="text-sm text-stone-600">
-            Information based on Teach Me Anatomy.
+            Information based on{" "}
+            <a
+              href="https://teachmeanatomy.info/the-basics/learning-anatomy/bones/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-aq-primary hover:underline"
+            >
+              Teach Me Anatomy
+            </a>
+            .
           </p>
-          <p className="mt-1 text-sm text-stone-600">Images from Z-Anatomy.</p>
+          <p className="mt-1 text-sm text-stone-600">
+            Images from{" "}
+            <a
+              href="https://www.z-anatomy.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-aq-primary hover:underline"
+            >
+              Z-Anatomy
+            </a>
+            .
+          </p>
           <p className="mt-1 text-sm text-stone-600">Associated video</p>
         </div>
 
