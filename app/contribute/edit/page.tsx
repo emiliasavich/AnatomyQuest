@@ -1,10 +1,15 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
 
 export default function ContributeEditPage() {
+  const searchParams = useSearchParams();
+  const fromPage =
+    searchParams.get("from") ||
+    "/getting_started/effective_learning_methods/learning_bones";
   const [content, setContent] = useState(
     "Edit the page content here. Format your text using the toolbar above.",
   );
@@ -71,7 +76,7 @@ export default function ContributeEditPage() {
         </h1>
         {/* Back Link */}
         <Link
-          href="/getting_started/effective_learning_methods/learning_bones"
+          href={fromPage}
           className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-aq-primary rounded-lg hover:bg-aq-primary/90 transition-colors"
           style={{ color: "white" }}
         >
@@ -95,34 +100,36 @@ export default function ContributeEditPage() {
       <div className="space-y-6">
         {/* Contributor Info */}
         <div className="rounded-xl border border-stone-200/80 bg-white p-6">
-          <label className="block">
-            <span className="text-sm font-semibold text-stone-900">
-              Display Name
-            </span>
-            <input
-              type="text"
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-              placeholder="Your name or username"
-              className="mt-2 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:border-aq-primary focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2"
-            />
-          </label>
+          <div className="flex gap-4">
+            <label className="block flex-[0.8]">
+              <span className="text-sm font-semibold text-stone-900">
+                Display Name
+              </span>
+              <input
+                type="text"
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+                placeholder="Your name or username"
+                className="mt-2 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:border-aq-primary focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2"
+              />
+            </label>
 
-          <label className="mt-4 block">
-            <span className="text-sm font-semibold text-stone-900">
-              Type of Contribution
-            </span>
-            <select
-              value={contributionType}
-              onChange={(e) => setContributionType(e.target.value)}
-              className="mt-2 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:border-aq-primary focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2"
-            >
-              <option value="improve">Improve explanation</option>
-              <option value="fix">Fix error</option>
-              <option value="add">Add new content</option>
-              <option value="suggest">Suggest image/diagram</option>
-            </select>
-          </label>
+            <label className="block flex-[0.2]">
+              <span className="text-sm font-semibold text-stone-900">
+                Type of Contribution
+              </span>
+              <select
+                value={contributionType}
+                onChange={(e) => setContributionType(e.target.value)}
+                className="mt-2 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:border-aq-primary focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2"
+              >
+                <option value="improve">Improve explanation</option>
+                <option value="fix">Fix error</option>
+                <option value="add">Add new content</option>
+                <option value="suggest">Suggest image/diagram</option>
+              </select>
+            </label>
+          </div>
         </div>
 
         {/* Editor */}
