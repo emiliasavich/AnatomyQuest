@@ -957,7 +957,7 @@ export function HumerusContent({
         </p>
       </div>
 
-      <FeedbackSection />
+      <FeedbackSection subjectTopic="Humerus" />
     </div>
   );
 }

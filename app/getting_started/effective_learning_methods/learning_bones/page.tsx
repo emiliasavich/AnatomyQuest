@@ -390,7 +390,7 @@ export default function LearningBonesPage() {
           )}
         </section>
 
-        <FeedbackSection />
+        <FeedbackSection subjectTopic="Learning bones" />
 
         {/* Updated */}
         <p className="flex items-center gap-2 text-sm text-stone-500">

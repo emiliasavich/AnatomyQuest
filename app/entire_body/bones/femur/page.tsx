@@ -19,7 +19,7 @@ export default function FemurPage() {
         { label: "Femur" },
       ]}
     >
-      <DevelopmentPageWrapper scope="page">
+      <DevelopmentPageWrapper scope="page" subjectTopic="Femur">
         <p className="text-stone-700">The femur is the thigh bone — the longest and strongest bone in the human body.</p>
       </DevelopmentPageWrapper>
     </ContentLayout>

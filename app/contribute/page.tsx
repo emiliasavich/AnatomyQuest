@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContentLayout } from "@/components/ContentLayout";
+import { FeedbackSection } from "@/components/FeedbackSection";
 
 export const metadata: Metadata = {
   title: "Contribute",
@@ -218,6 +219,11 @@ export default function ContributePage() {
             mission. Specific terms will be updated as we finalize our
             non-profit and licensing structure.
           </p>
+        </section>
+
+        {/* Feedback */}
+        <section className="mt-10">
+          <FeedbackSection subjectTopic="Contribute" />
         </section>
       </div>
     </ContentLayout>

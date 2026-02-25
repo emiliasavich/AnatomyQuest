@@ -4,7 +4,12 @@ import { useState } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
-export function FeedbackForm() {
+interface FeedbackFormProps {
+  /** Optional topic for the email subject (e.g. "Humerus", "Contribute"). */
+  subjectTopic?: string;
+}
+
+export function FeedbackForm({ subjectTopic }: FeedbackFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -17,14 +22,17 @@ export function FeedbackForm() {
     setErrorMsg("");
 
     try {
+      const body: { name: string; email: string; message: string; subjectTopic?: string } = {
+        name: name.trim(),
+        email: email.trim(),
+        message: message.trim(),
+      };
+      if (subjectTopic?.trim()) body.subjectTopic = subjectTopic.trim();
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim(),
-          message: message.trim(),
-        }),
+        body: JSON.stringify(body),
       });
 
       if (!res.ok) {
