@@ -59,14 +59,16 @@ export default function ContributeEditPage() {
 
   return (
     <ContentLayout
-      title="Contribute to AnatomyQuest"
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Contribute", href: "/contribute" },
         { label: "Edit Page" },
       ]}
     >
-      <div className="space-y-6">
+      <div className="flex items-center justify-between gap-4 mb-8">
+        <h1 className="font-serif text-3xl font-semibold tracking-tight text-stone-900">
+          Contribute to AnatomyQuest
+        </h1>
         {/* Back Link */}
         <Link
           href="/getting_started/effective_learning_methods/learning_bones"
@@ -87,7 +89,9 @@ export default function ContributeEditPage() {
           </svg>
           Back to page
         </Link>
+      </div>
 
+      <div className="space-y-6">
         {/* Contributor Info */}
         <div className="rounded-xl border border-stone-200/80 bg-white p-6">
           <label className="block">
