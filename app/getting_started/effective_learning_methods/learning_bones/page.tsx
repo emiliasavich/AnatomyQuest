@@ -13,6 +13,33 @@ import {
   type StepKey,
 } from "@/lib/step-themes";
 
+function EditButton({ path }: { path: string }) {
+  return (
+    <Link
+      href={`/contribute/edit?from=${encodeURIComponent(path)}`}
+      className="inline-flex items-center gap-2 rounded-lg bg-aq-primary px-4 py-2.5 text-sm font-semibold hover:bg-aq-primary/90 focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2 transition-colors shadow-md hover:shadow-lg"
+      style={{ color: "white" }}
+      title="Suggest an edit or improvement to this page"
+    >
+      <svg
+        className="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+        />
+      </svg>
+      Edit
+    </Link>
+  );
+}
+
 const SHAPE_CARDS = [
   {
     type: "Long",
@@ -135,13 +162,12 @@ export default function LearningBonesPage() {
     const body = encodeURIComponent(
       `Section collapse preference: ${selected?.label}\n\nPage: Learning Bones (Effective Learning Methods)`,
     );
-    window.location.href = `mailto:emiliasavich@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@anatomyquest.com?subject=${subject}&body=${body}`;
     setSurveySubmitted(true);
   };
 
   return (
     <ContentLayout
-      title="How to Effectively Study Bones"
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Getting Started", href: "/getting_started" },
@@ -152,6 +178,13 @@ export default function LearningBonesPage() {
         { label: "Learning Bones" },
       ]}
     >
+      <div className="flex items-center justify-between gap-4 mb-8">
+        <h1 className="font-serif text-3xl font-semibold tracking-tight text-stone-900">
+          How to Effectively Study Bones
+        </h1>
+        <EditButton path="/getting_started/effective_learning_methods/learning_bones" />
+      </div>
+
       <div className="space-y-8">
         <WorkInProgressNotice scope="page" />
 

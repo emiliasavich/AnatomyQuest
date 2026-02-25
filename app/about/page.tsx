@@ -63,12 +63,12 @@ export default function AboutPage() {
             If you have suggestions for improving this website or its study
             sheets, please share them at{" "}
             <a
-              href="mailto:emiliasavich@gmail.com"
+              href="mailto:contact@anatomyquest.com"
               className="text-aq-primary hover:underline font-medium"
             >
-              emiliasavich@gmail.com
-            </a>{" "}
-            (our official email is coming soon).
+              contact@anatomyquest.com
+            </a>
+            .
           </p>
         </section>
       </div>

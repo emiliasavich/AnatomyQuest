@@ -16,8 +16,10 @@ export default function ContributePage() {
     >
       <p className="text-stone-600 mb-8 leading-relaxed">
         AnatomyQuest is community-driven — like Wikipedia, anyone can help
-        improve the content directly on the site. You do not need any technical
-        skills. If you know anatomy, you can contribute.
+        improve the content. But unlike Wikipedia, every contribution is
+        reviewed by our team for anatomical accuracy before it goes live. You do
+        not need any technical skills. If you know anatomy, we welcome your
+        contributions.
       </p>
 
       <div className="space-y-8">
@@ -100,7 +102,9 @@ export default function ContributePage() {
                     When you are done, click{" "}
                     <strong className="text-stone-800">Publish</strong> to
                     submit your draft. Our team reviews every submission for
-                    accuracy and clarity before it goes live on the site.
+                    anatomical accuracy, completeness, and clarity. We verify
+                    your sources and ensure the content meets our educational
+                    standards before it goes live.
                   </p>
                 </div>
               </div>
@@ -158,50 +162,58 @@ export default function ContributePage() {
           <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
             Contribution guidelines
           </h2>
-          <ul className="mt-3 space-y-2 text-sm text-stone-600 leading-relaxed">
-            <li className="flex gap-2">
+          <p className="mt-3 text-sm text-stone-600 leading-relaxed">
+            To maintain AnatomyQuest&apos;s educational quality and accuracy,
+            all contributions must follow these standards:
+          </p>
+          <ul className="mt-4 space-y-2 text-sm text-stone-600 leading-relaxed">
+            <li className="flex items-center gap-2">
               <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
-                aria-hidden
-              />
-              <span>
-                <strong className="text-stone-800">Use your own words.</strong>{" "}
-                Do not copy content from other websites. Rephrase information
-                from your sources.
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
-                aria-hidden
-              />
-              <span>
-                <strong className="text-stone-800">Cite your sources.</strong>{" "}
-                Include references to textbooks or peer-reviewed anatomy
-                resources so reviewers can verify accuracy.
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
-                aria-hidden
-              />
-              <span>
-                <strong className="text-stone-800">Write for students.</strong>{" "}
-                Use clear, plain language. Explain jargon when you use it.
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <span
-                className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
                 <strong className="text-stone-800">
-                  Follow the site&apos;s philosophy.
+                  Cite your sources first.
                 </strong>{" "}
-                Explain the <em>why</em> behind structures, not just the{" "}
-                <em>what</em>.
+                Include references to textbooks, peer-reviewed articles, or
+                reliable anatomy resources. This is required—we verify all
+                sources.
+              </span>
+            </li>
+            <li className="flex items-center gap-2">
+              <span
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                aria-hidden
+              />
+              <span>
+                <strong className="text-stone-800">Use your own words.</strong>{" "}
+                Do not copy from other websites. Rephrase information from your
+                sources in your own language.
+              </span>
+            </li>
+            <li className="flex items-center gap-2">
+              <span
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                aria-hidden
+              />
+              <span>
+                <strong className="text-stone-800">Write for students.</strong>{" "}
+                Use clear, plain language. Explain anatomical terms and avoid
+                unnecessary jargon.
+              </span>
+            </li>
+            <li className="flex items-center gap-2">
+              <span
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                aria-hidden
+              />
+              <span>
+                <strong className="text-stone-800">
+                  Explain the why, not just the what.
+                </strong>{" "}
+                Help students understand <em>why</em> structures exist and how
+                they work, not just their names and locations.
               </span>
             </li>
           </ul>
