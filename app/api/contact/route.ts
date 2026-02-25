@@ -28,16 +28,25 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, email, message } = body as {
+    const { name, email, message, subjectTopic } = body as {
       name: string;
       email: string;
       message: string;
+      subjectTopic?: string;
     };
 
     const safeName = sanitize(name);
     const safeEmail = sanitize(email);
     const safeMessage = sanitize(message);
-    const subject = `[AnatomyQuest] Message from ${safeName}`;
+    const nameForSubject = safeName.replace(/[\r\n]+/g, " ").slice(0, 80);
+    const topic =
+      typeof subjectTopic === "string" && subjectTopic.trim()
+        ? sanitize(subjectTopic).replace(/[\r\n]+/g, " ").slice(0, 60)
+        : "";
+    const subject =
+      topic.length > 0
+        ? `[AnatomyQuest] ${topic} – Message from ${nameForSubject}`.slice(0, 200)
+        : `[AnatomyQuest] Message from ${nameForSubject}`.slice(0, 200);
 
     const apiUrl = SEND_EMAIL_API_BASE;
     const payload = {

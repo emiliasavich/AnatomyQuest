@@ -13,6 +13,33 @@ import {
   type StepKey,
 } from "@/lib/step-themes";
 
+function EditButton({ path }: { path: string }) {
+  return (
+    <Link
+      href={`/contribute/edit?from=${encodeURIComponent(path)}`}
+      className="inline-flex items-center gap-2 rounded-lg bg-aq-primary px-4 py-2.5 text-sm font-semibold hover:bg-aq-primary/90 focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2 transition-colors shadow-md hover:shadow-lg"
+      style={{ color: "white" }}
+      title="Suggest an edit or improvement to this page"
+    >
+      <svg
+        className="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+        />
+      </svg>
+      Edit
+    </Link>
+  );
+}
+
 const SHAPE_CARDS = [
   {
     type: "Long",
@@ -107,14 +134,22 @@ const COLLAPSE_OPTIONS = [
 type CollapsePreference = (typeof COLLAPSE_OPTIONS)[number]["value"];
 
 export default function LearningBonesPage() {
-  const [openStep, setOpenStep] = useState<StepKey | null>(null);
+  const [openSteps, setOpenSteps] = useState<Set<StepKey>>(new Set());
   const [collapseVote, setCollapseVote] = useState<CollapsePreference | null>(
     null,
   );
   const [surveySubmitted, setSurveySubmitted] = useState(false);
 
   const toggleStep = useCallback((step: StepKey) => {
-    setOpenStep((prev) => (prev === step ? null : step));
+    setOpenSteps((prev) => {
+      const next = new Set(prev);
+      if (next.has(step)) {
+        next.delete(step);
+      } else {
+        next.add(step);
+      }
+      return next;
+    });
   }, []);
 
   const handleSurveySubmit = (e: React.FormEvent) => {
@@ -127,13 +162,12 @@ export default function LearningBonesPage() {
     const body = encodeURIComponent(
       `Section collapse preference: ${selected?.label}\n\nPage: Learning Bones (Effective Learning Methods)`,
     );
-    window.location.href = `mailto:emiliasavich@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@anatomyquest.com?subject=${subject}&body=${body}`;
     setSurveySubmitted(true);
   };
 
   return (
     <ContentLayout
-      title="How to Effectively Study Bones"
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Getting Started", href: "/getting_started" },
@@ -144,6 +178,13 @@ export default function LearningBonesPage() {
         { label: "Learning Bones" },
       ]}
     >
+      <div className="flex items-center justify-between gap-4 mb-8">
+        <h1 className="font-serif text-3xl font-semibold tracking-tight text-stone-900">
+          How to Effectively Study Bones
+        </h1>
+        <EditButton path="/getting_started/effective_learning_methods/learning_bones" />
+      </div>
+
       <div className="space-y-8">
         <WorkInProgressNotice scope="page" />
 
@@ -179,7 +220,7 @@ export default function LearningBonesPage() {
           title="Step 1 – Location"
           question="Which body region contains the bone (e.g., upper arm, lower leg)?"
           purpose="Identifying location helps you build a mental map of the skeleton and recall neighboring bones and muscles."
-          open={openStep === "location"}
+          open={openSteps.has("location")}
           onToggle={() => toggleStep("location")}
         />
 
@@ -189,7 +230,7 @@ export default function LearningBonesPage() {
           title="Step 2 – Shape"
           question="What is the bone's shape?"
           purpose="A bone's shape is closely linked to its function. Recognizing the shape gives insight into the bone's role in movement and support."
-          open={openStep === "shape"}
+          open={openSteps.has("shape")}
           onToggle={() => toggleStep("shape")}
         >
           <h3
@@ -209,7 +250,10 @@ export default function LearningBonesPage() {
                       {card.description}
                     </p>
                   </div>
-                  <div className="relative mx-4 my-2 aspect-square overflow-hidden rounded-xl">
+                  <div
+                    className="relative mx-4 my-2 aspect-square overflow-hidden rounded-xl"
+                    title={`${card.type} bone: ${card.description}`}
+                  >
                     <Image
                       src={card.src}
                       alt={card.alt}
@@ -234,7 +278,7 @@ export default function LearningBonesPage() {
           title="Step 3 – Neighbors"
           question="What bones articulate (form joints with) this bone? What is the type of each joint?"
           purpose="Lets you examine what joints the bone is part of and what movements those joints allow."
-          open={openStep === "neighbors"}
+          open={openSteps.has("neighbors")}
           onToggle={() => toggleStep("neighbors")}
         />
 
@@ -244,7 +288,7 @@ export default function LearningBonesPage() {
           title="Step 4 – Anatomical Landmarks"
           question="What are the named parts of the bone? What is the significance of each?"
           purpose="Connects each named location to the muscles, nerves, blood vessels, and other bones that interact with the location."
-          open={openStep === "landmarks"}
+          open={openSteps.has("landmarks")}
           onToggle={() => toggleStep("landmarks")}
         />
 
@@ -254,21 +298,41 @@ export default function LearningBonesPage() {
           title="Step 5 – Blood Supply"
           question="What blood vessels nourish the bone?"
           purpose="Relates the bone to the cardiovascular system and builds your mental map of the body's blood vessels."
-          open={openStep === "blood"}
+          open={openSteps.has("blood")}
           onToggle={() => toggleStep("blood")}
         />
 
         {/* References */}
         <div className="rounded-2xl border border-stone-200/90 bg-stone-50/80 px-6 py-4 sm:px-8">
           <p className="text-sm text-stone-600">
-            Information based on Teach Me Anatomy.
+            Information based on{" "}
+            <a
+              href="https://teachmeanatomy.info/the-basics/learning-anatomy/bones/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-aq-primary hover:underline"
+            >
+              Teach Me Anatomy
+            </a>
+            .
           </p>
-          <p className="mt-1 text-sm text-stone-600">Images from Z-Anatomy.</p>
+          <p className="mt-1 text-sm text-stone-600">
+            Images from{" "}
+            <a
+              href="https://www.z-anatomy.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-aq-primary hover:underline"
+            >
+              Z-Anatomy
+            </a>
+            .
+          </p>
           <p className="mt-1 text-sm text-stone-600">Associated video</p>
         </div>
 
         {/* See It in Action */}
-        <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/40 px-6 py-6 sm:px-8 sm:py-7">
+        <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/40 px-6 py-8 sm:px-8 sm:py-9">
           <div
             className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary"
             aria-hidden
@@ -359,7 +423,7 @@ export default function LearningBonesPage() {
           )}
         </section>
 
-        <FeedbackSection />
+        <FeedbackSection subjectTopic="Learning bones" />
 
         {/* Updated */}
         <p className="flex items-center gap-2 text-sm text-stone-500">

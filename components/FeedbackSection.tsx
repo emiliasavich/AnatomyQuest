@@ -1,6 +1,11 @@
 import { FeedbackForm } from "./FeedbackForm";
 
-export function FeedbackSection() {
+interface FeedbackSectionProps {
+  /** Optional topic for the email subject (e.g. "Humerus", "Contribute"). */
+  subjectTopic?: string;
+}
+
+export function FeedbackSection({ subjectTopic }: FeedbackSectionProps) {
   return (
     <section className="relative overflow-hidden rounded-2xl border border-aq-primary/20 bg-aq-sage/40 px-6 py-6 sm:px-8 sm:py-7">
       <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
@@ -15,7 +20,7 @@ export function FeedbackSection() {
           </a>
           .
         </p>
-        <FeedbackForm />
+        <FeedbackForm subjectTopic={subjectTopic} />
       </div>
     </section>
   );
