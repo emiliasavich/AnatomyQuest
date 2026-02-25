@@ -72,7 +72,8 @@ export default function ContributeEditPage() {
         {/* Back Link */}
         <Link
           href="/getting_started/effective_learning_methods/learning_bones"
-          className="inline-flex items-center gap-2 text-sm text-aq-primary hover:underline"
+          className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-aq-primary rounded-lg hover:bg-aq-primary/90 transition-colors"
+          style={{ color: "white" }}
         >
           <svg
             className="h-4 w-4"
