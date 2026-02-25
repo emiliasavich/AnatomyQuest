@@ -13,6 +13,42 @@ import {
   type StepKey,
 } from "@/lib/step-themes";
 
+function EditButton() {
+  const handleEdit = () => {
+    const subject = encodeURIComponent(
+      "AnatomyQuest – Contribution: How to Effectively Study Bones",
+    );
+    const body = encodeURIComponent(
+      "Display Name: [Your name or username]\n\nPage: How to Effectively Study Bones (Learning Bones)\nURL: /getting_started/effective_learning_methods/learning_bones\n\nType of contribution:\n- [ ] Fix error\n- [ ] Improve explanation\n- [ ] Add new content\n- [ ] Suggest image/diagram\n\nYour contribution:\n",
+    );
+    window.location.href = `mailto:contact@anatomyquest.com?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <button
+      onClick={handleEdit}
+      className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2 transition-colors"
+      title="Suggest an edit or improvement to this page"
+    >
+      <svg
+        className="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+        />
+      </svg>
+      Edit
+    </button>
+  );
+}
+
 const SHAPE_CARDS = [
   {
     type: "Long",
@@ -152,6 +188,10 @@ export default function LearningBonesPage() {
         { label: "Learning Bones" },
       ]}
     >
+      <div className="flex justify-end mb-6">
+        <EditButton />
+      </div>
+
       <div className="space-y-8">
         <WorkInProgressNotice scope="page" />
 
