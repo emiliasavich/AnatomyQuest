@@ -14,20 +14,10 @@ import {
 } from "@/lib/step-themes";
 
 function EditButton() {
-  const handleEdit = () => {
-    const subject = encodeURIComponent(
-      "AnatomyQuest – Contribution: How to Effectively Study Bones",
-    );
-    const body = encodeURIComponent(
-      "Display Name: [Your name or username]\n\nPage: How to Effectively Study Bones (Learning Bones)\nURL: /getting_started/effective_learning_methods/learning_bones\n\nType of contribution:\n- [ ] Fix error\n- [ ] Improve explanation\n- [ ] Add new content\n- [ ] Suggest image/diagram\n\nYour contribution:\n",
-    );
-    window.location.href = `mailto:contact@anatomyquest.com?subject=${subject}&body=${body}`;
-  };
-
   return (
-    <button
-      onClick={handleEdit}
-      className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2 transition-colors"
+    <Link
+      href="/contribute/edit"
+      className="inline-flex items-center gap-2 rounded-lg bg-aq-primary text-white px-4 py-2.5 text-sm font-semibold hover:bg-aq-primary/90 focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2 transition-colors shadow-md hover:shadow-lg"
       title="Suggest an edit or improvement to this page"
     >
       <svg
@@ -45,7 +35,7 @@ function EditButton() {
         />
       </svg>
       Edit
-    </button>
+    </Link>
   );
 }
 
@@ -171,13 +161,12 @@ export default function LearningBonesPage() {
     const body = encodeURIComponent(
       `Section collapse preference: ${selected?.label}\n\nPage: Learning Bones (Effective Learning Methods)`,
     );
-    window.location.href = `mailto:emiliasavich@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@anatomyquest.com?subject=${subject}&body=${body}`;
     setSurveySubmitted(true);
   };
 
   return (
     <ContentLayout
-      title="How to Effectively Study Bones"
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Getting Started", href: "/getting_started" },
@@ -188,7 +177,10 @@ export default function LearningBonesPage() {
         { label: "Learning Bones" },
       ]}
     >
-      <div className="flex justify-end mb-6">
+      <div className="flex items-center justify-between gap-4 mb-8">
+        <h1 className="font-serif text-3xl font-semibold tracking-tight text-stone-900">
+          How to Effectively Study Bones
+        </h1>
         <EditButton />
       </div>
 
