@@ -1,6 +1,6 @@
 const STATS = [
   { value: "100+", label: "Labeled landmarks" },
-  { value: "4", label: "Anatomical views" },
+  { value: "8", label: "Anatomical views" },
   { value: "Free", label: "& open source" },
   { value: "CC BY-SA", label: "4.0 licensed" },
 ] as const;

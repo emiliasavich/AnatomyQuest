@@ -3,8 +3,8 @@ export const site = {
   logo: "/assets/images/WebsiteAvatar.png",
   title: "AnatomyQuest",
   subtitle: "",
-  email: "emiliasavich@gmail.com",
-  name: "Emilia Savich",
+  email: "connect@anatomyquest.org",
+  name: "AnatomyQuest",
   description:
     "An anatomy site that makes learning interactive.",
   url: "https://anatomyquest.org/",

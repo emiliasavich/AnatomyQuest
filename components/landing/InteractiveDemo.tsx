@@ -12,7 +12,7 @@ const DEMO_IMAGES = {
 } as const;
 
 export function InteractiveDemo() {
-  const [showLabels, setShowLabels] = useState(false);
+  const [showLabels, setShowLabels] = useState(true);
 
   return (
     <section className="border-y border-stone-200/60 bg-white">
@@ -26,7 +26,7 @@ export function InteractiveDemo() {
               See how interactive learning works
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-stone-600">
-              Every diagram on AnatomyQuest starts unlabeled. Click to reveal
+              Every diagram on AnatomyQuest starts labeled. Click to hide
               the labels and test your knowledge — just like on the real learning
               pages.
             </p>

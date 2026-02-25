@@ -234,7 +234,7 @@ export default function HomePage() {
                   Education that gives back
                 </h2>
                 <p className="mt-4 text-stone-600 leading-relaxed">
-                  We collaborate with underprivileged communities to create
+                  We collaborate with students and professionals to create
                   learning pages. Free, open source, and licensed under{" "}
                   <a
                     href="https://creativecommons.org/licenses/by-sa/4.0/"

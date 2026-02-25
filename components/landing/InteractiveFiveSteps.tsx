@@ -17,9 +17,9 @@ const STEPS = [
   {
     name: "Shape",
     color: "#4a7a2e",
-    question: "What is the bone's classification and function?",
+    question: "What is the bone's shape and function?",
     description:
-      "Understand its classification (long bone), cross-sectional shape, and how form follows function in the skeletal system.",
+      "Understand its shape (long bone) and how form follows function in the skeletal system.",
     image: "/assets/images/bones/humerus/Humerus - shape.webp",
     imageAlt: "Humerus bone shape classification",
   },
@@ -28,7 +28,7 @@ const STEPS = [
     color: "#6d5a8a",
     question: "What bones form joints with this bone?",
     description:
-      "Learn which bones articulate with the humerus — the scapula proximally, and the radius and ulna distally.",
+      "Learn which bones articulate (form joints) with the humerus — the scapula proximally, and the radius and ulna distally.",
     image:
       "/assets/images/bones/humerus/labeled neighbors/proximal - anterior - not isolated.webp",
     imageAlt: "Humerus proximal neighbors - scapula articulation",
@@ -37,8 +37,7 @@ const STEPS = [
     name: "Landmarks",
     color: "#a67c2e",
     question: "What are the named parts and their significance?",
-    description:
-      "Explore every bump, ridge, and groove. Each landmark connects to muscles, nerves, or blood vessels — nothing is arbitrary.",
+    description: "Each landmark has a purpose — nothing is arbitrary.",
     image:
       "/assets/images/bones/humerus/labeled landmarks/head - anterior - default.webp",
     imageAlt: "Humerus head labeled landmarks",
@@ -68,11 +67,9 @@ export function InteractiveFiveSteps() {
           Five steps to deeply understand any bone
         </h2>
         <p className="mt-4 max-w-2xl text-stone-600 leading-relaxed">
-          Each step connects a bone to the skeletal, muscular, and
-          cardiovascular systems — no isolated facts. Mnemonic:{" "}
-          <em className="text-stone-700">
-            Learning Small Notes About Bones
-          </em>
+          Each step connects the bone to the bigger picture — no isolated facts.
+          Mnemonic:{" "}
+          <em className="text-stone-700">Learning Small Notes About Bones</em>
         </p>
 
         {/* Tab bar */}
@@ -196,7 +193,7 @@ export function InteractiveFiveSteps() {
           </div>
         </div>
 
-        <div className="mt-6 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/getting_started/effective_learning_methods/learning_bones"
             className="inline-flex items-center gap-2 text-sm font-semibold text-aq-primary hover:underline"

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FeedbackSection } from "@/components/FeedbackSection";
 import { WorkInProgressNotice } from "@/components/WorkInProgressNotice";
-import { STEP_ACCORDION_THEMES } from "@/lib/step-themes";
+import { STEP_STYLES } from "@/lib/step-themes";
 import { AccordionSection } from "./AccordionSection";
 import { ImageViewer } from "./ImageViewer";
 import { PopupLayer } from "./PopupLayer";
@@ -115,8 +115,6 @@ function renderDescription(desc: unknown): React.ReactNode {
 const STEP_HEADING_CLASS =
   "font-serif text-xl font-semibold tracking-tight sm:text-2xl";
 
-type StepKey = "location" | "shape" | "neighbors" | "landmarks" | "blood";
-
 interface HumerusContentProps {
   landmarks: unknown;
   neighbors: unknown;
@@ -134,7 +132,6 @@ export function HumerusContent({
   fourViews,
   popupContent,
 }: HumerusContentProps) {
-  const [openStep, setOpenStep] = useState<StepKey | null>(null);
   const [openNeighbors, setOpenNeighbors] = useState<Record<string, boolean>>(
     {},
   );
@@ -142,13 +139,8 @@ export function HumerusContent({
     Record<string, boolean>
   >({});
 
-  const toggleStep = useCallback((step: StepKey) => {
-    setOpenStep((prev) => (prev === step ? null : step));
-  }, []);
-
   const openAndScrollTo = useCallback(
     (accordionId: string, targetId: string) => {
-      setOpenStep("neighbors");
       setOpenNeighbors((prev) => ({ ...prev, [accordionId]: true }));
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -163,7 +155,6 @@ export function HumerusContent({
 
   const openAndScrollToLandmark = useCallback(
     (accordionId: string, targetId: string) => {
-      setOpenStep("landmarks");
       setOpenLandmarkDetails((prev) => ({ ...prev, [accordionId]: true }));
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -193,7 +184,7 @@ export function HumerusContent({
           skeletal, muscular, and cardiovascular systems rather than relying on
           rote memorization.
         </p>
-        <p className="my-3 text-stone-600">
+        <p className="mt-3 text-stone-600">
           <span className="font-semibold text-stone-900">
             How to use this guide:
           </span>{" "}
@@ -206,6 +197,7 @@ export function HumerusContent({
           </Link>{" "}
           below.
         </p>
+        <div className="mt-5 -mb-4">
         <AccordionSection
           id="five-steps-overview"
           title="Click to read about the five steps. Then click to close."
@@ -285,18 +277,14 @@ export function HumerusContent({
             </div>
           </div>
         </AccordionSection>
+        </div>
       </div>
 
       {/* Step 1 – Location */}
-      <AccordionSection
-        id="step-location"
-        title="Step 1 – Location"
-        open={openStep === "location"}
-        onToggle={() => toggleStep("location")}
-        colorTheme={STEP_ACCORDION_THEMES.location}
-        headingLevel="h2"
-        headingClassName={STEP_HEADING_CLASS}
-      >
+      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.location.bg} ${STEP_STYLES.location.border}`}>
+        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.location.heading}`}>
+          Step 1 – Location
+        </h2>
         <p className="mt-3 text-stone-700">
           The humerus is found in the <strong>upper arm</strong> between the
           shoulder and elbow.
@@ -314,18 +302,13 @@ export function HumerusContent({
             Humerus
           </figcaption>
         </figure>
-      </AccordionSection>
+      </section>
 
       {/* Step 2 – Shape */}
-      <AccordionSection
-        id="step-shape"
-        title="Step 2 – Shape"
-        open={openStep === "shape"}
-        onToggle={() => toggleStep("shape")}
-        colorTheme={STEP_ACCORDION_THEMES.shape}
-        headingLevel="h2"
-        headingClassName={STEP_HEADING_CLASS}
-      >
+      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.shape.bg} ${STEP_STYLES.shape.border}`}>
+        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.shape.heading}`}>
+          Step 2 – Shape
+        </h2>
         <p className="mt-3 text-stone-700">
           The humerus is a <strong>long bone</strong>, which means it functions
           as a lever to enable movement of the arm.
@@ -343,18 +326,13 @@ export function HumerusContent({
             Humerus
           </figcaption>
         </figure>
-      </AccordionSection>
+      </section>
 
       {/* Step 3 – Neighbors */}
-      <AccordionSection
-        id="step-neighbors"
-        title="Step 3 – Neighbors"
-        open={openStep === "neighbors"}
-        onToggle={() => toggleStep("neighbors")}
-        colorTheme={STEP_ACCORDION_THEMES.neighbors}
-        headingLevel="h2"
-        headingClassName={STEP_HEADING_CLASS}
-      >
+      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.neighbors.bg} ${STEP_STYLES.neighbors.border}`}>
+        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.neighbors.heading}`}>
+          Step 3 – Neighbors
+        </h2>
         <p className="mt-3 text-stone-700">
           The{" "}
           <span className="popup-term" data-popup-id="popup-humerus">
@@ -525,18 +503,13 @@ export function HumerusContent({
               </div>
             );
           })}
-      </AccordionSection>
+      </section>
 
       {/* Step 4 – Anatomical Landmarks */}
-      <AccordionSection
-        id="step-landmarks"
-        title="Step 4 – Anatomical Landmarks"
-        open={openStep === "landmarks"}
-        onToggle={() => toggleStep("landmarks")}
-        colorTheme={STEP_ACCORDION_THEMES.landmarks}
-        headingLevel="h2"
-        headingClassName={STEP_HEADING_CLASS}
-      >
+      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.landmarks.bg} ${STEP_STYLES.landmarks.border}`}>
+        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.landmarks.heading}`}>
+          Step 4 – Anatomical Landmarks
+        </h2>
         <p className="mt-3 text-stone-700">
           Most of the named landmarks on the humerus are sites of muscle
           attachment. Some are grooves that guide tendons, nerves, and blood
@@ -694,18 +667,13 @@ export function HumerusContent({
               </div>
             );
           })}
-      </AccordionSection>
+      </section>
 
       {/* Step 5 – Blood Supply */}
-      <AccordionSection
-        id="step-blood"
-        title="Step 5 – Blood Supply"
-        open={openStep === "blood"}
-        onToggle={() => toggleStep("blood")}
-        colorTheme={STEP_ACCORDION_THEMES.blood}
-        headingLevel="h2"
-        headingClassName={STEP_HEADING_CLASS}
-      >
+      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.blood.bg} ${STEP_STYLES.blood.border}`}>
+        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.blood.heading}`}>
+          Step 5 – Blood Supply
+        </h2>
         <p className="mt-3 font-semibold text-stone-800">UNFINISHED</p>
         <p className="mt-2 text-stone-700">
           <span className="font-medium text-stone-800">Plan:</span> Write a
@@ -737,11 +705,14 @@ export function HumerusContent({
               </ul>
             </AccordionSection>
           ))}
-      </AccordionSection>
+      </section>
 
       {/* References */}
       <div className="relative overflow-hidden rounded-2xl border border-stone-200/90 bg-stone-50/80 px-6 py-6 sm:px-8 sm:py-7">
-        <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary" aria-hidden />
+        <div
+          className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-aq-primary"
+          aria-hidden
+        />
         <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900">
           References
         </h2>
@@ -770,6 +741,198 @@ export function HumerusContent({
               className="font-medium text-aq-primary hover:underline"
             >
               Lumen Learning – Bones of the Upper Limb
+            </a>
+          </li>
+        </ul>
+        <h3
+          id="reference-muscles"
+          className="text-lg font-medium mt-4 text-stone-800"
+        >
+          Muscles
+        </h3>
+        <ul className="list-disc pl-6 space-y-1 text-stone-700">
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/supraspinatus-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Supraspinatus Muscle
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/brachialis-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Brachialis Muscle
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/upper-limb-muscles-and-movements"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Upper Limb Muscles and Movements
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/arm-muscles"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Arm Muscles
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/latissimus-dorsi-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Latissimus Dorsi Muscle
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/extensor-carpi-radialis-longus-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Extensor Carpi Radialis Longus
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/pronator-teres-muscle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Pronator Teres Muscle
+            </a>
+          </li>
+        </ul>
+        <h3
+          id="reference-joints-and-ligaments"
+          className="text-lg font-medium mt-4 text-stone-800"
+        >
+          Joints and Ligaments
+        </h3>
+        <ul className="list-disc pl-6 space-y-1 text-stone-700">
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/elbow-joint"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Elbow Joint
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/ligaments-of-the-upper-limb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Ligaments of the Upper Limb
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/head-of-radius"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Head of Radius
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/proximal-radioulnar-joint"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Proximal Radioulnar Joint
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://anatomy.co.uk/humeroulnar-joint"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Anatomy.co.uk – Humeroulnar Joint
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://anatomy.co.uk/humeroradial-joint"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Anatomy.co.uk – Humeroradial Joint
+            </a>
+          </li>
+        </ul>
+        <h3
+          id="reference-nerves"
+          className="text-lg font-medium mt-4 text-stone-800"
+        >
+          Nerves
+        </h3>
+        <ul className="list-disc pl-6 space-y-1 text-stone-700">
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/axillary-nerve"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Axillary Nerve
+            </a>
+          </li>
+        </ul>
+        <h3
+          id="reference-arteries"
+          className="text-lg font-medium mt-4 text-stone-800"
+        >
+          Arteries
+        </h3>
+        <ul className="list-disc pl-6 space-y-1 text-stone-700">
+          <li>
+            <a
+              href="https://teachmeanatomy.info/encyclopaedia/a/anterior-circumflex-humeral-artery/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Teach Me Anatomy – Anterior Circumflex Humeral Artery
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.kenhub.com/en/library/anatomy/posterior-circumflex-humeral-artery"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-aq-primary hover:underline"
+            >
+              Kenhub – Posterior Circumflex Humeral Artery
             </a>
           </li>
         </ul>
