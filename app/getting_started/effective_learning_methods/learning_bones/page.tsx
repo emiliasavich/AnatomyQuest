@@ -17,7 +17,8 @@ function EditButton() {
   return (
     <Link
       href="/contribute/edit"
-      className="inline-flex items-center gap-2 rounded-lg bg-aq-primary text-white px-4 py-2.5 text-sm font-semibold hover:bg-aq-primary/90 focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2 transition-colors shadow-md hover:shadow-lg"
+      className="inline-flex items-center gap-2 rounded-lg bg-aq-primary px-4 py-2.5 text-sm font-semibold hover:bg-aq-primary/90 focus:outline-none focus:ring-2 focus:ring-aq-primary focus:ring-offset-2 transition-colors shadow-md hover:shadow-lg"
+      style={{ color: "white" }}
       title="Suggest an edit or improvement to this page"
     >
       <svg
