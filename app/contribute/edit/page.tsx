@@ -1,15 +1,41 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ContentLayout } from "@/components/ContentLayout";
 
-export default function ContributeEditPage() {
+function BackLink() {
   const searchParams = useSearchParams();
   const fromPage =
     searchParams.get("from") ||
     "/getting_started/effective_learning_methods/learning_bones";
+
+  return (
+    <Link
+      href={fromPage}
+      className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-aq-primary rounded-lg hover:bg-aq-primary/90 transition-colors"
+      style={{ color: "white" }}
+    >
+      <svg
+        className="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+      Back to page
+    </Link>
+  );
+}
+
+export default function ContributeEditPage() {
   const [content, setContent] = useState(
     "Edit the page content here. Format your text using the toolbar above.",
   );
@@ -75,26 +101,9 @@ export default function ContributeEditPage() {
           Contribute to AnatomyQuest
         </h1>
         {/* Back Link */}
-        <Link
-          href={fromPage}
-          className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-aq-primary rounded-lg hover:bg-aq-primary/90 transition-colors"
-          style={{ color: "white" }}
-        >
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to page
-        </Link>
+        <Suspense fallback={<div className="h-10 w-32 bg-stone-200 rounded-lg" />}>
+          <BackLink />
+        </Suspense>
       </div>
 
       <div className="space-y-6">
