@@ -158,9 +158,9 @@ export default function ContributePage() {
             Contribution guidelines
           </h2>
           <ul className="mt-3 space-y-2 text-sm text-stone-600 leading-relaxed">
-            <li className="flex gap-2">
+            <li className="flex items-center gap-2">
               <span
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
@@ -169,9 +169,9 @@ export default function ContributePage() {
                 from your sources.
               </span>
             </li>
-            <li className="flex gap-2">
+            <li className="flex items-center gap-2">
               <span
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
@@ -180,9 +180,9 @@ export default function ContributePage() {
                 resources so reviewers can verify accuracy.
               </span>
             </li>
-            <li className="flex gap-2">
+            <li className="flex items-center gap-2">
               <span
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
@@ -190,9 +190,9 @@ export default function ContributePage() {
                 Use clear, plain language. Explain jargon when you use it.
               </span>
             </li>
-            <li className="flex gap-2">
+            <li className="flex items-center gap-2">
               <span
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-aq-primary/60"
                 aria-hidden
               />
               <span>
