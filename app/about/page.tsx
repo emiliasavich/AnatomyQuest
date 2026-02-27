@@ -55,9 +55,10 @@ export default function AboutPage() {
           </summary>
           <div className="mt-4">
             <p className="text-stone-600 leading-relaxed mb-4">
-              We focus on helping students understand the deeper principles behind
-              anatomy, not just memorize facts. Our approach emphasizes connections
-              between form and function through comprehensive, interactive resources.
+              We focus on helping students understand the deeper principles
+              behind anatomy, not just memorize facts. Our approach emphasizes
+              connections between form and function through comprehensive,
+              interactive resources.
             </p>
             <ul className="space-y-3">
               {[
@@ -137,22 +138,43 @@ export default function AboutPage() {
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
-              { stat: "15K+", label: "Students reached" },
-              { stat: "200+", label: "Anatomy pages" },
-              { stat: "$45K", label: "Donated to communities" },
+              {
+                stat: "15K+",
+                label: "Students reached",
+                icon: "👥",
+                color: "from-orange-50/60 border-orange-200/80 text-orange-700",
+              },
+              {
+                stat: "200+",
+                label: "Anatomy pages",
+                icon: "📚",
+                color: "from-blue-50/60 border-blue-200/80 text-blue-700",
+              },
+              {
+                stat: "$45K",
+                label: "Donated to communities",
+                icon: "❤️",
+                color:
+                  "from-emerald-50/60 border-emerald-200/80 text-emerald-700",
+              },
             ].map((item) => (
               <div
                 key={item.label}
-                className="rounded-xl border border-stone-200/80 bg-aq-sage/20 px-4 py-5 text-center"
+                className={`rounded-xl border bg-gradient-to-br ${item.color} px-4 py-6 text-center`}
               >
-                <p className="text-2xl font-semibold text-aq-primary">{item.stat}</p>
-                <p className="mt-1 text-sm text-stone-600">{item.label}</p>
+                <p className="text-3xl mb-2">{item.icon}</p>
+                <p className="text-4xl font-bold text-stone-900">{item.stat}</p>
+                <p className="mt-2 text-sm font-medium text-stone-700">
+                  {item.label}
+                </p>
               </div>
             ))}
           </div>
-          <div className="mt-8">
-            <p className="mb-5 text-sm font-medium text-stone-700">Student testimonials</p>
-            <ul className="space-y-4">
+          <div className="mt-10">
+            <h3 className="mb-6 text-sm font-medium text-stone-700 uppercase tracking-wide">
+              Student testimonials
+            </h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {[
                 {
                   name: "Sarah Chen",
@@ -169,11 +191,19 @@ export default function AboutPage() {
               ].map((testimonial) => (
                 <li
                   key={testimonial.name}
-                  className="rounded-lg border border-stone-200/60 bg-white p-4 italic text-stone-600"
+                  className="rounded-lg border-l-4 border-l-aq-primary border border-stone-200/60 bg-white p-5"
                 >
-                  <p className="leading-relaxed">"{testimonial.quote}"</p>
-                  <p className="mt-2 text-sm font-medium text-stone-700">
-                    — {testimonial.name}, {testimonial.role}
+                  <p className="text-lg leading-relaxed text-stone-700">
+                    <span className="text-2xl text-stone-300 mr-1">"</span>
+                    {testimonial.quote}
+                    <span className="text-2xl text-stone-300 ml-1">"</span>
+                  </p>
+                  <p className="mt-3 text-sm font-medium text-stone-600">
+                    —{" "}
+                    <strong className="text-stone-900">
+                      {testimonial.name}
+                    </strong>
+                    , {testimonial.role}
                   </p>
                 </li>
               ))}
@@ -200,7 +230,9 @@ export default function AboutPage() {
           </summary>
           <div className="mt-4">
             <p className="text-stone-600 leading-relaxed mb-6">
-              AnatomyQuest was founded by a diverse team of educators, developers, and community advocates passionate about making anatomy education accessible to everyone.
+              AnatomyQuest was founded by a diverse team of educators,
+              developers, and community advocates passionate about making
+              anatomy education accessible to everyone.
             </p>
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[
@@ -208,20 +240,45 @@ export default function AboutPage() {
                   name: "Dr. Emilia Savich",
                   role: "Founder & Anatomy Expert",
                   bio: "Medical educator with 8+ years teaching anatomy. PhD in Education.",
+                  icon: "📚",
+                  badgeColor: "bg-orange-100/80 text-orange-700",
+                  borderColor: "#ea580c",
+                  gradient: "from-orange-50/60",
+                  borderClass: "border-orange-200/80",
+                  title: "Founder",
                 },
                 {
                   name: "Favio Jasso",
                   role: "Co-Founder & Lead Developer",
                   bio: "Full-stack engineer passionate about educational technology and open source.",
+                  icon: "💻",
+                  badgeColor: "bg-blue-100/80 text-blue-700",
+                  borderColor: "#0ea5e9",
+                  gradient: "from-blue-50/60",
+                  borderClass: "border-blue-200/80",
+                  title: "Co-Founder",
                 },
               ].map((member) => (
                 <div
                   key={member.name}
-                  className="rounded-xl border border-stone-200/80 bg-white p-5"
+                  className={`rounded-xl border-l-4 bg-gradient-to-br ${member.gradient} ${member.borderClass} border p-5`}
+                  style={{ borderLeftColor: member.borderColor }}
                 >
-                  <p className="font-medium text-stone-900">{member.name}</p>
-                  <p className="mt-1 text-sm text-aq-primary font-medium">{member.role}</p>
-                  <p className="mt-2 text-sm text-stone-600 leading-relaxed">{member.bio}</p>
+                  <div className="flex items-start justify-between mb-3">
+                    <p className="text-2xl">{member.icon}</p>
+                    <span
+                      className={`inline-block px-2.5 py-1 rounded-full text-xs font-semibold ${member.badgeColor}`}
+                    >
+                      {member.title}
+                    </span>
+                  </div>
+                  <p className="font-semibold text-stone-900">{member.name}</p>
+                  <p className="mt-2 text-xs font-medium uppercase tracking-wide text-stone-600">
+                    {member.role}
+                  </p>
+                  <p className="mt-3 text-sm text-stone-700 leading-relaxed">
+                    {member.bio}
+                  </p>
                 </div>
               ))}
             </ul>
@@ -247,7 +304,9 @@ export default function AboutPage() {
           </summary>
           <div className="mt-4">
             <p className="text-stone-600 leading-relaxed mb-4">
-              We collaborate with organizations working directly in underserved communities. Together, we create educational opportunities and provide direct support where it's needed most.
+              We collaborate with organizations working directly in underserved
+              communities. Together, we create educational opportunities and
+              provide direct support where it's needed most.
             </p>
             <ul className="space-y-3">
               {[
@@ -295,7 +354,8 @@ export default function AboutPage() {
               },
               {
                 action: "Contribute content",
-                description: "Help improve anatomy pages. No experience needed.",
+                description:
+                  "Help improve anatomy pages. No experience needed.",
                 href: "/contribute",
               },
               {
