@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContentLayout } from "@/components/ContentLayout";
+import { FeedbackSection } from "@/components/FeedbackSection";
 
 export const metadata: Metadata = {
   title: "About",
@@ -22,9 +23,9 @@ export default function AboutPage() {
 
       <div className="space-y-8">
         {/* Our Mission */}
-        <section className="rounded-2xl border border-stone-200/80 bg-aq-sage/30 px-6 py-5 sm:px-8">
+        <section>
           <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
-            Our Mission
+            Our mission
           </h2>
           <p className="mt-3 text-stone-600 leading-relaxed">
             We aim to collaborate with underprivileged communities to create
@@ -36,40 +37,88 @@ export default function AboutPage() {
         </section>
 
         {/* Educational Approach */}
-        <section className="rounded-2xl border border-stone-200/80 bg-aq-sage/30 px-6 py-5 sm:px-8">
+        <section>
           <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
-            Educational Approach
+            Educational approach
           </h2>
           <p className="mt-3 text-stone-600 leading-relaxed">
-            The goal is to focus on the <em>why</em> behind anatomical
-            structures, not just the <em>what</em>, to make knowledge more
-            meaningful and easier to retain. For example, instead of simply
-            asking{" "}
-            <em>&quot;What is the greater tubercle of the humerus?&quot;</em>,
-            these information pages encourage students to ask{" "}
-            <em>
-              &quot;Why is the greater tubercle a named structure, and what role
-              does it play?&quot;
-            </em>
+            We focus on helping students understand the deeper principles behind
+            anatomy, not just memorize facts. Our approach emphasizes connections
+            between form and function through comprehensive, interactive resources.
           </p>
+          <ul className="mt-4 space-y-3">
+            {[
+              {
+                title: "Focus on the why",
+                description:
+                  "We explore the why behind anatomical structures, not just the what, to make knowledge more meaningful and easier to retain.",
+              },
+              {
+                title: "Interactive learning",
+                description:
+                  "Our image-driven resources help students see anatomical structures in context, making connections that stick in their memory.",
+              },
+            ].map((item) => (
+              <li
+                key={item.title}
+                className="relative overflow-hidden rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8"
+              >
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40"
+                  aria-hidden
+                />
+                <p className="font-medium text-stone-900">{item.title}</p>
+                <p className="mt-1 text-sm text-stone-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Our Values */}
+        <section>
+          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Our values
+          </h2>
+          <ul className="mt-4 space-y-3">
+            {[
+              {
+                title: "Educational excellence",
+                description:
+                  "We're committed to creating the highest quality anatomy educational resources that help students truly understand the human body.",
+              },
+              {
+                title: "Community impact",
+                description:
+                  "We reinvest our revenue into supporting underprivileged communities, creating positive real-world impact beyond education.",
+              },
+              {
+                title: "Open collaboration",
+                description:
+                  "We welcome contributions, feedback, and partnerships from educators, students, and community members worldwide.",
+              },
+            ].map((item) => (
+              <li
+                key={item.title}
+                className="relative overflow-hidden rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8"
+              >
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40"
+                  aria-hidden
+                />
+                <p className="font-medium text-stone-900">{item.title}</p>
+                <p className="mt-1 text-sm text-stone-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Feedback */}
-        <section className="rounded-2xl border border-aq-teal/20 bg-aq-sage/40 px-6 py-5 sm:px-8">
-          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
-            Feedback
-          </h2>
-          <p className="mt-3 text-stone-600 text-sm leading-relaxed">
-            If you have suggestions for improving this website or its study
-            sheets, please share them at{" "}
-            <a
-              href="mailto:contact@anatomyquest.com"
-              className="text-aq-primary hover:underline font-medium"
-            >
-              contact@anatomyquest.com
-            </a>
-            .
-          </p>
+        <section className="mt-10">
+          <FeedbackSection subjectTopic="About" />
         </section>
       </div>
     </ContentLayout>
