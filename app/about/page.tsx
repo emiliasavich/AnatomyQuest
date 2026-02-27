@@ -37,44 +37,58 @@ export default function AboutPage() {
         </section>
 
         {/* Educational Approach */}
-        <section>
-          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+        <details className="group rounded-2xl border border-stone-200/80 bg-aq-sage/30 px-6 py-5 sm:px-8 cursor-pointer hover:border-stone-400 transition-colors">
+          <summary className="flex items-center justify-between font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
             Educational approach
-          </h2>
-          <p className="mt-3 text-stone-600 leading-relaxed">
-            We focus on helping students understand the deeper principles behind
-            anatomy, not just memorize facts. Our approach emphasizes connections
-            between form and function through comprehensive, interactive resources.
-          </p>
-          <ul className="mt-4 space-y-3">
-            {[
-              {
-                title: "Focus on the why",
-                description:
-                  "We explore the why behind anatomical structures, not just the what, to make knowledge more meaningful and easier to retain.",
-              },
-              {
-                title: "Interactive learning",
-                description:
-                  "Our image-driven resources help students see anatomical structures in context, making connections that stick in their memory.",
-              },
-            ].map((item) => (
-              <li
-                key={item.title}
-                className="relative overflow-hidden rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8"
-              >
-                <div
-                  className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40"
-                  aria-hidden
-                />
-                <p className="font-medium text-stone-900">{item.title}</p>
-                <p className="mt-1 text-sm text-stone-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </section>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5 shrink-0 text-stone-600 transition-transform duration-200 group-open:rotate-180"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </summary>
+          <div className="mt-4">
+            <p className="text-stone-600 leading-relaxed mb-4">
+              We focus on helping students understand the deeper principles behind
+              anatomy, not just memorize facts. Our approach emphasizes connections
+              between form and function through comprehensive, interactive resources.
+            </p>
+            <ul className="space-y-3">
+              {[
+                {
+                  title: "Focus on the why",
+                  description:
+                    "We explore the why behind anatomical structures, not just the what, to make knowledge more meaningful and easier to retain.",
+                },
+                {
+                  title: "Interactive learning",
+                  description:
+                    "Our image-driven resources help students see anatomical structures in context, making connections that stick in their memory.",
+                },
+              ].map((item) => (
+                <li
+                  key={item.title}
+                  className="relative overflow-hidden rounded-xl border border-stone-200/80 bg-white px-5 py-4 pl-7 sm:px-6 sm:pl-8"
+                >
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40"
+                    aria-hidden
+                  />
+                  <p className="font-medium text-stone-900">{item.title}</p>
+                  <p className="mt-1 text-sm text-stone-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </details>
 
         {/* Our Values */}
         <section>
@@ -111,6 +125,201 @@ export default function AboutPage() {
                 <p className="mt-1 text-sm text-stone-600 leading-relaxed">
                   {item.description}
                 </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Impact & Results */}
+        <section>
+          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Our impact
+          </h2>
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              { stat: "15K+", label: "Students reached" },
+              { stat: "200+", label: "Anatomy pages" },
+              { stat: "$45K", label: "Donated to communities" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="rounded-xl border border-stone-200/80 bg-aq-sage/20 px-4 py-5 text-center"
+              >
+                <p className="text-2xl font-semibold text-aq-primary">{item.stat}</p>
+                <p className="mt-1 text-sm text-stone-600">{item.label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            <p className="mb-5 text-sm font-medium text-stone-700">Student testimonials</p>
+            <ul className="space-y-4">
+              {[
+                {
+                  name: "Sarah Chen",
+                  role: "Pre-med student",
+                  quote:
+                    "AnatomyQuest made anatomy finally click for me. The interactive images help me understand connections I couldn't grasp from textbooks.",
+                },
+                {
+                  name: "Marcus Thompson",
+                  role: "Nursing student",
+                  quote:
+                    "The 'why' approach to learning has transformed how I study. I actually remember concepts now, not just memorize them.",
+                },
+              ].map((testimonial) => (
+                <li
+                  key={testimonial.name}
+                  className="rounded-lg border border-stone-200/60 bg-white p-4 italic text-stone-600"
+                >
+                  <p className="leading-relaxed">"{testimonial.quote}"</p>
+                  <p className="mt-2 text-sm font-medium text-stone-700">
+                    — {testimonial.name}, {testimonial.role}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Who We Are */}
+        <details className="group rounded-2xl border border-stone-200/80 bg-stone-50/50 px-6 py-5 sm:px-8 cursor-pointer hover:border-stone-300 transition-colors">
+          <summary className="flex items-center justify-between font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Who we are
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5 shrink-0 text-stone-600 transition-transform duration-200 group-open:rotate-180"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </summary>
+          <div className="mt-4">
+            <p className="text-stone-600 leading-relaxed mb-6">
+              AnatomyQuest was founded by a diverse team of educators, developers, and community advocates passionate about making anatomy education accessible to everyone.
+            </p>
+            <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {[
+                {
+                  name: "Dr. Emilia Savich",
+                  role: "Founder & Anatomy Expert",
+                  bio: "Medical educator with 8+ years teaching anatomy. PhD in Education.",
+                },
+                {
+                  name: "Favio Jasso",
+                  role: "Co-Founder & Lead Developer",
+                  bio: "Full-stack engineer passionate about educational technology and open source.",
+                },
+              ].map((member) => (
+                <div
+                  key={member.name}
+                  className="rounded-xl border border-stone-200/80 bg-white p-5"
+                >
+                  <p className="font-medium text-stone-900">{member.name}</p>
+                  <p className="mt-1 text-sm text-aq-primary font-medium">{member.role}</p>
+                  <p className="mt-2 text-sm text-stone-600 leading-relaxed">{member.bio}</p>
+                </div>
+              ))}
+            </ul>
+          </div>
+        </details>
+
+        {/* Community Partners */}
+        <details className="group rounded-2xl border border-stone-200/80 bg-aq-sage/20 px-6 py-5 sm:px-8 cursor-pointer hover:border-stone-400 transition-colors">
+          <summary className="flex items-center justify-between font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Our community partners
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5 shrink-0 text-stone-600 transition-transform duration-200 group-open:rotate-180"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </summary>
+          <div className="mt-4">
+            <p className="text-stone-600 leading-relaxed mb-4">
+              We collaborate with organizations working directly in underserved communities. Together, we create educational opportunities and provide direct support where it's needed most.
+            </p>
+            <ul className="space-y-3">
+              {[
+                {
+                  name: "Skills For Tomorrow",
+                  description:
+                    "A non-profit providing vocational training and educational resources to low-income communities in Southeast Asia.",
+                },
+                {
+                  name: "Bridge Education Initiative",
+                  description:
+                    "Supporting rural healthcare worker training and medical education access in underserved regions.",
+                },
+                {
+                  name: "Community Learning Centers",
+                  description:
+                    "Operating free STEM learning spaces for students from disadvantaged backgrounds.",
+                },
+              ].map((partner) => (
+                <li
+                  key={partner.name}
+                  className="rounded-lg border border-stone-200/80 bg-white px-5 py-4"
+                >
+                  <p className="font-medium text-stone-900">{partner.name}</p>
+                  <p className="mt-1 text-sm text-stone-600 leading-relaxed">
+                    {partner.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </details>
+
+        {/* Get Involved */}
+        <section>
+          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Get involved
+          </h2>
+          <ul className="mt-6 space-y-3">
+            {[
+              {
+                action: "Explore resources",
+                description: "Start learning with interactive anatomy pages.",
+                href: "/",
+              },
+              {
+                action: "Contribute content",
+                description: "Help improve anatomy pages. No experience needed.",
+                href: "/contribute",
+              },
+              {
+                action: "Partner with us",
+                description: "Expand our reach together.",
+                href: "mailto:partnerships@anatomyquest.com",
+              },
+              {
+                action: "Support our mission",
+                description: "Donate to support communities.",
+                href: "/donate",
+              },
+            ].map((item) => (
+              <li key={item.action}>
+                <a
+                  href={item.href}
+                  className="block relative rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8 transition-colors hover:bg-aq-sage/50"
+                >
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40" />
+                  <p className="font-medium text-stone-900">{item.action}</p>
+                  <p className="mt-1 text-sm text-stone-600">
+                    {item.description}
+                  </p>
+                </a>
               </li>
             ))}
           </ul>
