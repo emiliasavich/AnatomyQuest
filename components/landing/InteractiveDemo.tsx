@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const DEMO_IMAGES = {
   unlabeled:
-    "/assets/images/bones/humerus/unlabeled landmark headers/head and neck - anterior - not isolated.webp",
+    "/assets/images/bones/humerus/unlabeled landmark headers/head and neck - anterior - isolated.webp",
   labeled:
     "/assets/images/bones/humerus/labeled landmark headers/head and neck - anterior - not isolated.webp",
 } as const;
@@ -26,8 +26,8 @@ export function InteractiveDemo() {
               See how interactive learning works
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-stone-600">
-              Every diagram on AnatomyQuest starts labeled. Click to hide
-              the labels and test your knowledge — just like on the real learning
+              Every diagram on AnatomyQuest starts labeled. Click to hide the
+              labels and test your knowledge — just like on the real learning
               pages.
             </p>
 
