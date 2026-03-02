@@ -9,6 +9,7 @@ import { STEP_STYLES, STEP_ACCORDION_THEMES } from "@/lib/step-themes";
 import { AccordionSection } from "./AccordionSection";
 import { ImageViewer } from "./ImageViewer";
 import { PopupLayer } from "./PopupLayer";
+import { HoverTooltip } from "./HoverTooltip";
 
 function slugify(s: string) {
   return s
@@ -197,6 +198,7 @@ export function HumerusContent({
   return (
     <div className="relative space-y-8">
       {popupContent && <PopupLayer popupContent={popupContent} />}
+      {popupContent && <HoverTooltip popupContent={popupContent} />}
       <WorkInProgressNotice scope="page" />
 
       {/* Intro */}
