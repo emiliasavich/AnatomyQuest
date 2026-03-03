@@ -168,6 +168,25 @@ export function HumerusContent({
     [],
   );
 
+  // Helper to toggle all accordions in a group (e.g., all bones under "Proximal")
+  const toggleAllInGroup = useCallback(
+    (groupPrefix: string, elementNames: string[], setter: React.Dispatch<React.SetStateAction<Record<string, boolean>>>) => {
+      setter((prev) => {
+        // Check if any accordion in the group is currently open
+        const accordionIds = elementNames.map((name) => `${groupPrefix}-${slugify(name)}`);
+        const anyOpen = accordionIds.some((id) => prev[id]);
+
+        // Toggle: if any are open, close all; if all are closed, open all
+        const updated = { ...prev };
+        accordionIds.forEach((id) => {
+          updated[id] = !anyOpen;
+        });
+        return updated;
+      });
+    },
+    [],
+  );
+
   // Derive preview image srcs from data
   const neighborsPreviewSrc =
     Array.isArray(neighbors) && neighbors.length > 0
@@ -488,6 +507,8 @@ export function HumerusContent({
                 <div className="mt-4 space-y-2">
                   {elements.map((child: Record<string, unknown>, i: number) => {
                     const accordionId = `neighbors-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(String(child.name))}`;
+                    const groupPrefix = `neighbors-detail-${slugify(String(bigPicture.big_picture_name))}`;
+                    const elementNames = elements.map((e: Record<string, unknown>) => String(e.name));
                     return (
                       <div
                         key={i}
@@ -500,10 +521,7 @@ export function HumerusContent({
                           defaultOpen={false}
                           open={openNeighbors[accordionId] ?? false}
                           onToggle={() =>
-                            setOpenNeighbors((prev) => ({
-                              ...prev,
-                              [accordionId]: !(prev[accordionId] ?? false),
-                            }))
+                            toggleAllInGroup(groupPrefix, elementNames, setOpenNeighbors)
                           }
                           previewImage={
                             child.views && child.base
@@ -665,6 +683,8 @@ export function HumerusContent({
                   {landmarkElements.map(
                     (child: Record<string, unknown>, i: number) => {
                       const detailAccordionId = `landmark-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(stripHtml(String(child.name)))}`;
+                      const groupPrefix = `landmark-detail-${slugify(String(bigPicture.big_picture_name))}`;
+                      const elementNames = landmarkElements.map((e: Record<string, unknown>) => stripHtml(String(e.name)));
                       return (
                         <div
                           key={i}
@@ -683,12 +703,7 @@ export function HumerusContent({
                               openLandmarkDetails[detailAccordionId] ?? false
                             }
                             onToggle={() =>
-                              setOpenLandmarkDetails((prev) => ({
-                                ...prev,
-                                [detailAccordionId]: !(
-                                  prev[detailAccordionId] ?? false
-                                ),
-                              }))
+                              toggleAllInGroup(groupPrefix, elementNames, setOpenLandmarkDetails)
                             }
                             previewImage={
                               child.views && child.base
