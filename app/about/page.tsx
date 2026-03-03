@@ -238,25 +238,25 @@ export default function AboutPage() {
               {[
                 {
                   name: "Dr. Emilia Savich",
-                  role: "Founder & Anatomy Expert",
+                  role: "Co-Founder & Medical Student",
                   bio: "Medical educator with 8+ years teaching anatomy. PhD in Education.",
                   icon: "📚",
                   badgeColor: "bg-orange-100/80 text-orange-700",
                   borderColor: "#ea580c",
                   gradient: "from-orange-50/60",
                   borderClass: "border-orange-200/80",
-                  title: "Founder",
+                  title: "Co-Founder & Medical Student",
                 },
                 {
                   name: "Favio Jasso",
-                  role: "Co-Founder & Lead Developer",
+                  role: "Co-Founder & Chief Technology Officer",
                   bio: "Full-stack engineer passionate about educational technology and open source.",
                   icon: "💻",
                   badgeColor: "bg-blue-100/80 text-blue-700",
                   borderColor: "#0ea5e9",
                   gradient: "from-blue-50/60",
                   borderClass: "border-blue-200/80",
-                  title: "Co-Founder",
+                  title: "Co-Founder & Chief Technology Officer",
                 },
               ].map((member) => (
                 <div
