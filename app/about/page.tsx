@@ -132,7 +132,7 @@ export default function AboutPage() {
         </section>
 
         {/* Impact & Results */}
-        <section>
+        {/* <section>
           <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
             Our impact
           </h2>
@@ -209,7 +209,7 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-        </section>
+        </section> */}
 
         {/* Who We Are */}
         <details className="group rounded-2xl border border-stone-200/80 bg-stone-50/50 px-6 py-5 sm:px-8 cursor-pointer hover:border-stone-300 transition-colors">
