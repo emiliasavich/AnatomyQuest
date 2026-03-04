@@ -31,7 +31,9 @@ export default function ContributePage() {
           <ul className="mt-4 grid sm:grid-cols-3 gap-4">
             <li className="flex items-center gap-2">
               <span className="text-aq-primary text-lg">✓</span>
-              <p className="font-medium text-stone-900">Help thousands of students</p>
+              <p className="font-medium text-stone-900">
+                Help thousands of students
+              </p>
             </li>
             <li className="flex items-center gap-2">
               <span className="text-aq-primary text-lg">✓</span>
@@ -39,7 +41,9 @@ export default function ContributePage() {
             </li>
             <li className="flex items-center gap-2">
               <span className="text-aq-primary text-lg">✓</span>
-              <p className="font-medium text-stone-900">Support open education</p>
+              <p className="font-medium text-stone-900">
+                Support open education
+              </p>
             </li>
           </ul>
         </section>
@@ -90,53 +94,112 @@ export default function ContributePage() {
 
           {/* Example contributions */}
           <div className="mt-6">
-            <p className="text-sm font-medium text-stone-800 mb-3">Examples of accepted contributions:</p>
+            <p className="text-sm font-medium text-stone-800 mb-3">
+              Examples of accepted contributions:
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-
-            {/* Fixed Example */}
-            <div className="rounded-xl border border-stone-200/80 bg-white overflow-hidden">
-              <div className="border-b border-stone-200/80 px-5 py-3 sm:px-6 bg-gradient-to-r from-orange-50/50 to-transparent">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-orange-100 text-orange-700 text-xs font-bold">✓</span>
-                  <span className="text-sm font-semibold text-orange-900">Fixed</span>
+              {/* Fixed Example */}
+              <div className="rounded-xl border border-stone-200/80 bg-white overflow-hidden">
+                <div className="border-b border-stone-200/80 px-5 py-3 sm:px-6 bg-gradient-to-r from-orange-50/50 to-transparent">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-orange-100 text-orange-700 text-xs font-bold">
+                      ✓
+                    </span>
+                    <span className="text-sm font-semibold text-orange-900">
+                      Fixed
+                    </span>
+                  </div>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Corrected inaccurate or incomplete information
+                  </p>
                 </div>
-                <p className="text-xs text-stone-600 leading-relaxed">Corrected inaccurate or incomplete information</p>
-              </div>
-              <div className="px-5 py-4 sm:px-6 space-y-2">
-                <p className="text-xs font-medium text-stone-700 uppercase tracking-wide">Before:</p>
-                <p className="text-sm text-stone-600 font-medium italic">"The clavicle is connected to the shoulder"</p>
-                <p className="text-xs font-medium text-stone-700 uppercase tracking-wide mt-3">After:</p>
-                <p className="text-sm text-stone-700 font-medium">"The clavicle <strong className="text-stone-900">(collarbone) articulates with the sternum medially and acromion process</strong> of the scapula laterally."</p>
-              </div>
-            </div>
-
-            {/* Clarified Example */}
-            <div className="rounded-xl border border-stone-200/80 bg-white overflow-hidden">
-              <div className="border-b border-stone-200/80 px-5 py-3 sm:px-6 bg-gradient-to-r from-blue-50/50 to-transparent">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold">💡</span>
-                  <span className="text-sm font-semibold text-blue-900">Clarified</span>
+                <div className="px-5 py-4 sm:px-6 space-y-2">
+                  <p className="text-xs font-medium text-stone-700 uppercase tracking-wide">
+                    Before:
+                  </p>
+                  <p className="text-sm text-stone-600 font-medium italic">
+                    "The clavicle is connected to the shoulder"
+                  </p>
+                  <p className="text-xs font-medium text-stone-700 uppercase tracking-wide mt-3">
+                    After:
+                  </p>
+                  <p className="text-sm text-stone-700 font-medium">
+                    "The clavicle{" "}
+                    <strong className="text-stone-900">
+                      (collarbone) articulates with the sternum medially and
+                      acromion process
+                    </strong>{" "}
+                    of the scapula laterally."
+                  </p>
                 </div>
-                <p className="text-xs text-stone-600 leading-relaxed">Added context, clinical significance, or better explanations</p>
               </div>
-              <div className="px-5 py-4 sm:px-6">
-                <p className="text-sm text-stone-700 leading-relaxed">Added <strong className="text-stone-900">clinical significance section</strong> explaining why understanding a specific nerve pathway matters for <strong className="text-stone-900">diagnosis and treatment planning</strong>.</p>
-              </div>
-            </div>
 
-            {/* Expanded Example */}
-            <div className="rounded-xl border border-stone-200/80 bg-white overflow-hidden">
-              <div className="border-b border-stone-200/80 px-5 py-3 sm:px-6 bg-gradient-to-r from-emerald-50/50 to-transparent">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">+</span>
-                  <span className="text-sm font-semibold text-emerald-900">Expanded</span>
+              {/* Clarified Example */}
+              <div className="rounded-xl border border-stone-200/80 bg-white overflow-hidden">
+                <div className="border-b border-stone-200/80 px-5 py-3 sm:px-6 bg-gradient-to-r from-blue-50/50 to-transparent">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold">
+                      💡
+                    </span>
+                    <span className="text-sm font-semibold text-blue-900">
+                      Clarified
+                    </span>
+                  </div>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Added context, clinical significance, or better explanations
+                  </p>
                 </div>
-                <p className="text-xs text-stone-600 leading-relaxed">Added new sections, details, or comprehensive coverage</p>
+                <div className="px-5 py-4 sm:px-6">
+                  <p className="text-sm text-stone-700 leading-relaxed">
+                    Added{" "}
+                    <strong className="text-stone-900">
+                      clinical significance section
+                    </strong>{" "}
+                    explaining why understanding a specific nerve pathway
+                    matters for{" "}
+                    <strong className="text-stone-900">
+                      diagnosis and treatment planning
+                    </strong>
+                    .
+                  </p>
+                </div>
               </div>
-              <div className="px-5 py-4 sm:px-6">
-                <p className="text-sm text-stone-700 leading-relaxed">Contributed <strong className="text-stone-900">3 new paragraphs</strong> on the <strong className="text-stone-900">blood supply of the femur</strong>, including <strong className="text-stone-900">arterial branches and clinical significance</strong>, with citations to <strong className="text-stone-900">peer-reviewed anatomy textbooks</strong>.</p>
+
+              {/* Expanded Example */}
+              <div className="rounded-xl border border-stone-200/80 bg-white overflow-hidden">
+                <div className="border-b border-stone-200/80 px-5 py-3 sm:px-6 bg-gradient-to-r from-emerald-50/50 to-transparent">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">
+                      +
+                    </span>
+                    <span className="text-sm font-semibold text-emerald-900">
+                      Expanded
+                    </span>
+                  </div>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Added new sections, details, or comprehensive coverage
+                  </p>
+                </div>
+                <div className="px-5 py-4 sm:px-6">
+                  <p className="text-sm text-stone-700 leading-relaxed">
+                    Contributed{" "}
+                    <strong className="text-stone-900">3 new paragraphs</strong>{" "}
+                    on the{" "}
+                    <strong className="text-stone-900">
+                      blood supply of the femur
+                    </strong>
+                    , including{" "}
+                    <strong className="text-stone-900">
+                      arterial branches and clinical significance
+                    </strong>
+                    , with citations to{" "}
+                    <strong className="text-stone-900">
+                      peer-reviewed anatomy textbooks
+                    </strong>
+                    .
+                  </p>
+                </div>
               </div>
-            </div>
             </div>
           </div>
         </section>
@@ -225,7 +288,8 @@ export default function ContributePage() {
                     standards before it goes live.
                   </p>
                   <p className="mt-2 text-sm text-aq-primary font-medium">
-                    ⏱ Most submissions are reviewed within 5-10 business days. You'll receive feedback via email.
+                    ⏱ Most submissions are reviewed within 5-10 business days.
+                    You'll receive feedback via email.
                   </p>
                 </div>
               </div>
@@ -276,9 +340,11 @@ export default function ContributePage() {
                   aria-hidden
                 />
                 <span>
-                  <strong className="text-stone-800">Use your own words.</strong>{" "}
-                  Do not copy from other websites. Rephrase information from your
-                  sources in your own language.
+                  <strong className="text-stone-800">
+                    Use your own words.
+                  </strong>{" "}
+                  Do not copy from other websites. Rephrase information from
+                  your sources in your own language.
                 </span>
               </li>
               <li className="flex items-center gap-2">
@@ -287,7 +353,9 @@ export default function ContributePage() {
                   aria-hidden
                 />
                 <span>
-                  <strong className="text-stone-800">Write for students.</strong>{" "}
+                  <strong className="text-stone-800">
+                    Write for students.
+                  </strong>{" "}
                   Use clear, plain language. Explain anatomical terms and avoid
                   unnecessary jargon.
                 </span>
@@ -328,16 +396,37 @@ export default function ContributePage() {
           </summary>
           <div className="mt-4 space-y-4 text-sm text-stone-600 leading-relaxed">
             <p>
-              By contributing, you grant AnatomyQuest a perpetual, worldwide, royalty-free license to use, modify, and distribute your contributions. This means:
+              By contributing, you grant AnatomyQuest a perpetual, worldwide,
+              royalty-free license to use, modify, and distribute your
+              contributions. This means:
             </p>
             <ul className="space-y-2 ml-4 border-l-2 border-stone-300 pl-4">
-              <li>✓ Your contributions will be available under an open-source license</li>
-              <li>✓ You retain the right to be credited as the original contributor</li>
-              <li>✓ Your content can be adapted or translated to serve our educational mission</li>
-              <li>✓ The content you contribute becomes part of AnatomyQuest's public resource</li>
+              <li>
+                ✓ Your contributions will be available under an open-source
+                license
+              </li>
+              <li>
+                ✓ You retain the right to be credited as the original
+                contributor
+              </li>
+              <li>
+                ✓ Your content can be adapted or translated to serve our
+                educational mission
+              </li>
+              <li>
+                ✓ The content you contribute becomes part of AnatomyQuest's
+                public resource
+              </li>
             </ul>
             <p className="pt-2">
-              Questions about licensing? <a href="mailto:hello@anatomyquest.com" className="text-aq-primary font-medium hover:underline">Contact us</a> for more details.
+              Questions about licensing?{" "}
+              <a
+                href="mailto:hello@anatomyquest.com"
+                className="text-aq-primary font-medium hover:underline"
+              >
+                Contact us
+              </a>{" "}
+              for more details.
             </p>
           </div>
         </details>
@@ -348,7 +437,15 @@ export default function ContributePage() {
             Have questions?
           </h2>
           <p className="mt-3 text-stone-600 leading-relaxed">
-            Check our <a href="/contribute/faq" className="text-aq-primary font-medium hover:underline">Frequently asked questions</a> page for answers about the review process, sources, images, accounts, and more.
+            Check our{" "}
+            <a
+              href="/contribute/faq"
+              className="text-aq-primary font-medium hover:underline"
+            >
+              Frequently asked questions
+            </a>{" "}
+            page for answers about the review process, sources, images,
+            accounts, and more.
           </p>
         </section>
 
@@ -360,14 +457,18 @@ export default function ContributePage() {
                 Contribute on GitHub
               </h2>
               <p className="mt-3 text-stone-600 leading-relaxed">
-                AnatomyQuest is open source. Developers, designers, and content creators can contribute directly on GitHub — fork the repository, submit pull requests, report issues, or join discussions about the project.
+                AnatomyQuest is open source. Developers, designers, and content
+                creators can contribute directly on GitHub — fork the
+                repository, submit pull requests, report issues, or join
+                discussions about the project.
               </p>
             </div>
             <a
               href="https://github.com/emiliasavich/AnatomyQuest"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-stone-900 px-4 py-2 font-medium text-white transition-colors hover:bg-stone-800 sm:mt-0"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-purple-900 px-4 py-2 font-medium text-white transition-colors hover:bg-purple-800 sm:mt-0"
+              style={{ color: "white" }}
             >
               <svg
                 className="h-5 w-5"

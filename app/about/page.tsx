@@ -357,7 +357,8 @@ export default function AboutPage() {
               href="https://github.com/emiliasavich/AnatomyQuest"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-stone-900 px-4 py-2 font-medium text-white transition-colors hover:bg-stone-800 sm:mt-0"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-purple-900 px-4 py-2 font-medium text-white transition-colors hover:bg-purple-800 sm:mt-0"
+              style={{ color: "white" }}
             >
               <svg
                 className="h-5 w-5"
@@ -406,7 +407,10 @@ export default function AboutPage() {
                   href={item.href}
                   className="block relative overflow-hidden rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8 transition-colors hover:bg-aq-sage/50"
                 >
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40" aria-hidden />
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40"
+                    aria-hidden
+                  />
                   <p className="font-medium text-stone-900">{item.action}</p>
                   <p className="mt-1 text-sm text-stone-600">
                     {item.description}
