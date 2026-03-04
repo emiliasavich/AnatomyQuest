@@ -125,7 +125,7 @@ export default function AboutPage() {
           <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
               {
-                name: "Edward Kim",
+                name: "Anonymous",
                 role: "NJIT Undergraduate",
                 quote:
                   "Reviewing this site was the coolest thing I've done all week",
