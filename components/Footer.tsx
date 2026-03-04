@@ -2,9 +2,14 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 const footerLinks = [
-  { href: "/contribute", label: "Contribute" },
-  { href: "/about", label: "About" },
-  { href: "/privacy_policy", label: "Privacy Policy" },
+  { href: "/contribute", label: "Contribute", external: false },
+  { href: "/about", label: "About", external: false },
+  { href: "/privacy_policy", label: "Privacy Policy", external: false },
+  {
+    href: "https://github.com/emiliasavich/AnatomyQuest",
+    label: "GitHub",
+    external: true,
+  },
 ] as const;
 
 export function Footer() {
@@ -16,11 +21,12 @@ export function Footer() {
             className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm"
             aria-label="Footer"
           >
-            {footerLinks.map(({ href, label }) => (
+            {footerLinks.map(({ href, label, external }) => (
               <Link
                 key={href}
                 href={href}
                 className="font-medium text-stone-600 transition-colors hover:text-aq-primary"
+                {...(external && { target: "_blank", rel: "noopener noreferrer" })}
               >
                 {label}
               </Link>
