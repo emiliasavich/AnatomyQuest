@@ -5,24 +5,24 @@ import Image from "next/image";
 
 const IMAGES = [
   {
-    src: "/assets/images/bones/humerus/labeled landmark headers/head and neck - anterior - not isolated.webp",
-    alt: "Humerus head and neck region — labeled landmarks",
+    src: "/assets/images/bones/humerus/labeled landmarks/intertubercular sulcus - anterior - default.webp",
+    alt: "Intertubercular sulcus — labeled landmark (672x551)",
   },
   {
-    src: "/assets/images/bones/humerus/labeled landmarks/head - anterior - default.webp",
-    alt: "Humerus head — labeled landmarks",
+    src: "/assets/images/bones/humerus/labeled landmarks/anatomical neck - posterior - default.webp",
+    alt: "Anatomical neck — labeled landmark (672x551)",
   },
   {
-    src: "/assets/images/bones/humerus/labeled neighbors/proximal - anterior - not isolated.webp",
-    alt: "Humerus proximal neighbors — scapula articulation",
+    src: "/assets/images/bones/humerus/labeled landmarks/anterior border - anterior - default.webp",
+    alt: "Anterior border — labeled landmark (672x551)",
   },
   {
-    src: "/assets/images/bones/humerus/labeled landmarks/greater tubercle - anterior - default.webp",
-    alt: "Greater tubercle — labeled landmark",
+    src: "/assets/images/bones/humerus/labeled landmarks/lateral border - anterior - isolated.webp",
+    alt: "Lateral border — labeled landmark (672x551)",
   },
   {
-    src: "/assets/images/bones/humerus/labeled landmarks/deltoid tuberosity - anterior - default.webp",
-    alt: "Deltoid tuberosity — labeled landmark",
+    src: "/assets/images/bones/humerus/labeled landmarks/body - posterior - default.webp",
+    alt: "Humerus body posterior view — labeled landmarks (672x551)",
   },
 ] as const;
 

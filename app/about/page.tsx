@@ -36,6 +36,125 @@ export default function AboutPage() {
           </p>
         </section>
 
+        {/* Our Values */}
+        <section>
+          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Our values
+          </h2>
+          <ul className="mt-4 space-y-3">
+            {[
+              {
+                title: "Educational excellence",
+                description:
+                  "We're committed to creating the highest quality anatomy educational resources that help students truly understand the human body.",
+              },
+              {
+                title: "Community impact",
+                description:
+                  "We reinvest our revenue into supporting underprivileged communities, creating positive real-world impact beyond education.",
+              },
+              {
+                title: "Open collaboration",
+                description:
+                  "We welcome contributions, feedback, and partnerships from educators, students, and community members worldwide.",
+              },
+            ].map((item) => (
+              <li
+                key={item.title}
+                className="relative overflow-hidden rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8"
+              >
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40"
+                  aria-hidden
+                />
+                <p className="font-medium text-stone-900">{item.title}</p>
+                <p className="mt-1 text-sm text-stone-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Our Impact */}
+        {/* <section>
+          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Our impact
+          </h2>
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              {
+                stat: "15K+",
+                label: "Students reached",
+                icon: "👥",
+                color: "from-orange-50/60 border-orange-200/80 text-orange-700",
+              },
+              {
+                stat: "200+",
+                label: "Anatomy pages",
+                icon: "📚",
+                color: "from-blue-50/60 border-blue-200/80 text-blue-700",
+              },
+              {
+                stat: "$45K",
+                label: "Donated to communities",
+                icon: "❤️",
+                color:
+                  "from-emerald-50/60 border-emerald-200/80 text-emerald-700",
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className={`rounded-xl border bg-gradient-to-br ${item.color} px-4 py-6 text-center`}
+              >
+                <p className="text-3xl mb-2">{item.icon}</p>
+                <p className="text-4xl font-bold text-stone-900">{item.stat}</p>
+                <p className="mt-2 text-sm font-medium text-stone-700">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section> */}
+
+        {/* Testimonials */}
+        <section>
+          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+            Testimonials
+          </h2>
+          <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                name: "Anonymous",
+                role: "NJIT Undergraduate",
+                quote:
+                  "Reviewing this site was the coolest thing I've done all week",
+              },
+              {
+                name: "Amy Shepard",
+                role: "Director at New Bridge Jobs Plus",
+                quote: "This is beautifully designed",
+              },
+            ].map((testimonial) => (
+              <li
+                key={testimonial.name}
+                className="rounded-lg border-l-4 border-l-aq-primary border border-stone-200/60 bg-white p-5"
+              >
+                <p className="text-lg leading-relaxed text-stone-700">
+                  <span className="text-2xl text-stone-300 mr-1">"</span>
+                  {testimonial.quote}
+                  <span className="text-2xl text-stone-300 ml-1">"</span>
+                </p>
+                <p className="mt-3 text-sm font-medium text-stone-600">
+                  —{" "}
+                  <strong className="text-stone-900">{testimonial.name}</strong>
+                  , {testimonial.role}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* Educational Approach */}
         <details className="group rounded-2xl border border-stone-200/80 bg-aq-sage/30 px-6 py-5 sm:px-8 cursor-pointer hover:border-stone-400 transition-colors">
           <summary className="flex items-center justify-between font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
@@ -91,126 +210,6 @@ export default function AboutPage() {
           </div>
         </details>
 
-        {/* Our Values */}
-        <section>
-          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
-            Our values
-          </h2>
-          <ul className="mt-4 space-y-3">
-            {[
-              {
-                title: "Educational excellence",
-                description:
-                  "We're committed to creating the highest quality anatomy educational resources that help students truly understand the human body.",
-              },
-              {
-                title: "Community impact",
-                description:
-                  "We reinvest our revenue into supporting underprivileged communities, creating positive real-world impact beyond education.",
-              },
-              {
-                title: "Open collaboration",
-                description:
-                  "We welcome contributions, feedback, and partnerships from educators, students, and community members worldwide.",
-              },
-            ].map((item) => (
-              <li
-                key={item.title}
-                className="relative overflow-hidden rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8"
-              >
-                <div
-                  className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40"
-                  aria-hidden
-                />
-                <p className="font-medium text-stone-900">{item.title}</p>
-                <p className="mt-1 text-sm text-stone-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Impact & Results */}
-        <section>
-          <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
-            Our impact
-          </h2>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {[
-              {
-                stat: "15K+",
-                label: "Students reached",
-                icon: "👥",
-                color: "from-orange-50/60 border-orange-200/80 text-orange-700",
-              },
-              {
-                stat: "200+",
-                label: "Anatomy pages",
-                icon: "📚",
-                color: "from-blue-50/60 border-blue-200/80 text-blue-700",
-              },
-              {
-                stat: "$45K",
-                label: "Donated to communities",
-                icon: "❤️",
-                color:
-                  "from-emerald-50/60 border-emerald-200/80 text-emerald-700",
-              },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className={`rounded-xl border bg-gradient-to-br ${item.color} px-4 py-6 text-center`}
-              >
-                <p className="text-3xl mb-2">{item.icon}</p>
-                <p className="text-4xl font-bold text-stone-900">{item.stat}</p>
-                <p className="mt-2 text-sm font-medium text-stone-700">
-                  {item.label}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <h3 className="mb-6 text-sm font-medium text-stone-700 uppercase tracking-wide">
-              Student testimonials
-            </h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {[
-                {
-                  name: "Sarah Chen",
-                  role: "Pre-med student",
-                  quote:
-                    "AnatomyQuest made anatomy finally click for me. The interactive images help me understand connections I couldn't grasp from textbooks.",
-                },
-                {
-                  name: "Marcus Thompson",
-                  role: "Nursing student",
-                  quote:
-                    "The 'why' approach to learning has transformed how I study. I actually remember concepts now, not just memorize them.",
-                },
-              ].map((testimonial) => (
-                <li
-                  key={testimonial.name}
-                  className="rounded-lg border-l-4 border-l-aq-primary border border-stone-200/60 bg-white p-5"
-                >
-                  <p className="text-lg leading-relaxed text-stone-700">
-                    <span className="text-2xl text-stone-300 mr-1">"</span>
-                    {testimonial.quote}
-                    <span className="text-2xl text-stone-300 ml-1">"</span>
-                  </p>
-                  <p className="mt-3 text-sm font-medium text-stone-600">
-                    —{" "}
-                    <strong className="text-stone-900">
-                      {testimonial.name}
-                    </strong>
-                    , {testimonial.role}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         {/* Who We Are */}
         <details className="group rounded-2xl border border-stone-200/80 bg-stone-50/50 px-6 py-5 sm:px-8 cursor-pointer hover:border-stone-300 transition-colors">
           <summary className="flex items-center justify-between font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
@@ -237,26 +236,26 @@ export default function AboutPage() {
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[
                 {
-                  name: "Dr. Emilia Savich",
-                  role: "Founder & Anatomy Expert",
-                  bio: "Medical educator with 8+ years teaching anatomy. PhD in Education.",
+                  name: "Emilia Savich",
+                  role: "Co-Founder & President",
+                  bio: "Pre-Medical Student passionate about making improvements in Education.",
                   icon: "📚",
                   badgeColor: "bg-orange-100/80 text-orange-700",
                   borderColor: "#ea580c",
                   gradient: "from-orange-50/60",
                   borderClass: "border-orange-200/80",
-                  title: "Founder",
+                  title: "Co-Founder & President",
                 },
                 {
                   name: "Favio Jasso",
-                  role: "Co-Founder & Lead Developer",
-                  bio: "Full-stack engineer passionate about educational technology and open source.",
+                  role: "Co-Founder & Chief Technical Officer",
+                  bio: "Software Engineer passionate about building technology that supports open source initiatives.",
                   icon: "💻",
                   badgeColor: "bg-blue-100/80 text-blue-700",
                   borderColor: "#0ea5e9",
                   gradient: "from-blue-50/60",
                   borderClass: "border-blue-200/80",
-                  title: "Co-Founder",
+                  title: "Co-Founder & Chief Technical Officer",
                 },
               ].map((member) => (
                 <div
@@ -340,6 +339,40 @@ export default function AboutPage() {
           </div>
         </details>
 
+        {/* GitHub Contributions */}
+        <section className="rounded-2xl border border-aq-primary/30 bg-gradient-to-br from-aq-primary/5 to-transparent px-6 py-5 sm:px-8">
+          <div className="flex items-start justify-between gap-4 sm:items-center">
+            <div className="flex-1">
+              <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
+                Contribute on GitHub
+              </h2>
+              <p className="mt-3 text-stone-600 leading-relaxed">
+                AnatomyQuest is open source. Developers, designers, and content
+                creators can contribute directly on GitHub — fork the
+                repository, submit pull requests, report issues, or join
+                discussions about the project.
+              </p>
+            </div>
+            <a
+              href="https://github.com/emiliasavich/AnatomyQuest"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-purple-900 px-4 py-2 font-medium text-white transition-colors hover:bg-purple-800 sm:mt-0"
+              style={{ color: "white" }}
+            >
+              <svg
+                className="h-5 w-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+        </section>
+
         {/* Get Involved */}
         <section>
           <h2 className="font-serif text-xl font-semibold tracking-tight text-stone-900 sm:text-2xl">
@@ -372,9 +405,12 @@ export default function AboutPage() {
               <li key={item.action}>
                 <a
                   href={item.href}
-                  className="block relative rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8 transition-colors hover:bg-aq-sage/50"
+                  className="block relative overflow-hidden rounded-xl border border-stone-200/80 bg-aq-sage/30 px-5 py-4 pl-7 sm:px-6 sm:pl-8 transition-colors hover:bg-aq-sage/50"
                 >
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40" />
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1 bg-aq-primary/40"
+                    aria-hidden
+                  />
                   <p className="font-medium text-stone-900">{item.action}</p>
                   <p className="mt-1 text-sm text-stone-600">
                     {item.description}

@@ -145,7 +145,14 @@ export function AccordionSection({
         aria-controls={id}
         id={`${id}-header`}
       >
-        <HeadingTag className={headingClassName}>{title}</HeadingTag>
+        <div className="flex items-center gap-2">
+          <HeadingTag className={headingClassName}>{title}</HeadingTag>
+          {previewImage && !open && (
+            <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-stone-200/50 text-stone-600 opacity-70 hover:opacity-100 transition-opacity">
+              Hover for preview
+            </span>
+          )}
+        </div>
         <span className={toggleClasses}>{open ? "−" : "+"}</span>
       </button>
       <div
