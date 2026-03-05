@@ -15,8 +15,8 @@ export function FeedbackSection({ subjectTopic }: FeedbackSectionProps) {
         </h2>
         <p className="mt-3 text-stone-700">
           We&apos;d love to hear from you! Fill out the form below and we&apos;ll get back to you at{" "}
-          <a href="mailto:connect@anatomyquest.org" className="font-medium text-aq-primary hover:underline">
-            connect@anatomyquest.org
+          <a href="mailto:contact@anatomyquest.org" className="font-medium text-aq-primary hover:underline">
+            contact@anatomyquest.org
           </a>
           .
         </p>
