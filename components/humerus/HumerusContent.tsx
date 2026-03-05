@@ -5,10 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { FeedbackSection } from "@/components/FeedbackSection";
 import { WorkInProgressNotice } from "@/components/WorkInProgressNotice";
-import { STEP_STYLES } from "@/lib/step-themes";
+import { STEP_STYLES, STEP_ACCORDION_THEMES } from "@/lib/step-themes";
 import { AccordionSection } from "./AccordionSection";
 import { ImageViewer } from "./ImageViewer";
 import { PopupLayer } from "./PopupLayer";
+import { HoverTooltip } from "./HoverTooltip";
 
 function slugify(s: string) {
   return s
@@ -167,9 +168,56 @@ export function HumerusContent({
     [],
   );
 
+  // Helper to toggle all accordions in a group (e.g., all bones under "Proximal")
+  const toggleAllInGroup = useCallback(
+    (groupPrefix: string, elementNames: string[], setter: React.Dispatch<React.SetStateAction<Record<string, boolean>>>) => {
+      setter((prev) => {
+        // Check if any accordion in the group is currently open
+        const accordionIds = elementNames.map((name) => `${groupPrefix}-${slugify(name)}`);
+        const anyOpen = accordionIds.some((id) => prev[id]);
+
+        // Toggle: if any are open, close all; if all are closed, open all
+        const updated = { ...prev };
+        accordionIds.forEach((id) => {
+          updated[id] = !anyOpen;
+        });
+        return updated;
+      });
+    },
+    [],
+  );
+
+  // Derive preview image srcs from data
+  const neighborsPreviewSrc =
+    Array.isArray(neighbors) && neighbors.length > 0
+      ? (() => {
+          const first = neighbors[0] as Record<string, unknown>;
+          const name = first.image_name != null ? String(first.image_name) : null;
+          return name
+            ? `/assets/images/bones/humerus/labeled neighbors/${name} - anterior - isolated.webp`
+            : null;
+        })()
+      : null;
+
+  const landmarksPreviewSrc =
+    Array.isArray(landmarks) && landmarks.length > 0
+      ? (() => {
+          const firstGroup = landmarks[0] as Record<string, unknown>;
+          const els = (firstGroup.elements as Record<string, unknown>[]) ?? [];
+          const firstEl = els[0];
+          if (!firstEl?.views || !firstEl?.base) return null;
+          return getPreviewImageSrc(
+            "labeled landmarks",
+            String(firstEl.base),
+            firstEl.views as Record<string, string[]>[],
+          );
+        })()
+      : null;
+
   return (
     <div className="relative space-y-8">
       {popupContent && <PopupLayer popupContent={popupContent} />}
+      {popupContent && <HoverTooltip popupContent={popupContent} />}
       <WorkInProgressNotice scope="page" />
 
       {/* Intro */}
@@ -281,10 +329,19 @@ export function HumerusContent({
       </div>
 
       {/* Step 1 – Location */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.location.bg} ${STEP_STYLES.location.border}`}>
-        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.location.heading}`}>
-          Step 1 – Location
-        </h2>
+      <AccordionSection
+        id="step-location"
+        title="Step 1 – Location"
+        defaultOpen={false}
+        colorTheme={STEP_ACCORDION_THEMES.location}
+        headingLevel="h2"
+        headingClassName={`${STEP_HEADING_CLASS} ${STEP_STYLES.location.heading}`}
+        previewImage={{
+          src: "/assets/images/bones/humerus/Humerus - location.webp",
+          alt: "Humerus Location",
+          description: "The humerus is found in the upper arm between the shoulder and elbow.",
+        }}
+      >
         <p className="mt-3 text-stone-700">
           The humerus is found in the <strong>upper arm</strong> between the
           shoulder and elbow.
@@ -302,13 +359,22 @@ export function HumerusContent({
             Humerus
           </figcaption>
         </figure>
-      </section>
+      </AccordionSection>
 
       {/* Step 2 – Shape */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.shape.bg} ${STEP_STYLES.shape.border}`}>
-        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.shape.heading}`}>
-          Step 2 – Shape
-        </h2>
+      <AccordionSection
+        id="step-shape"
+        title="Step 2 – Shape"
+        defaultOpen={false}
+        colorTheme={STEP_ACCORDION_THEMES.shape}
+        headingLevel="h2"
+        headingClassName={`${STEP_HEADING_CLASS} ${STEP_STYLES.shape.heading}`}
+        previewImage={{
+          src: "/assets/images/bones/humerus/Humerus - shape.webp",
+          alt: "Humerus Shape",
+          description: "The humerus is a long bone, which means it functions as a lever to enable movement of the arm.",
+        }}
+      >
         <p className="mt-3 text-stone-700">
           The humerus is a <strong>long bone</strong>, which means it functions
           as a lever to enable movement of the arm.
@@ -326,13 +392,26 @@ export function HumerusContent({
             Humerus
           </figcaption>
         </figure>
-      </section>
+      </AccordionSection>
 
       {/* Step 3 – Neighbors */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.neighbors.bg} ${STEP_STYLES.neighbors.border}`}>
-        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.neighbors.heading}`}>
-          Step 3 – Neighbors
-        </h2>
+      <AccordionSection
+        id="step-neighbors"
+        title="Step 3 – Neighbors"
+        defaultOpen={false}
+        colorTheme={STEP_ACCORDION_THEMES.neighbors}
+        headingLevel="h2"
+        headingClassName={`${STEP_HEADING_CLASS} ${STEP_STYLES.neighbors.heading}`}
+        previewImage={
+          neighborsPreviewSrc
+            ? {
+                src: neighborsPreviewSrc,
+                alt: "Humerus Neighbors",
+                description: "The humerus has neighboring bones at its two ends: the proximal end at the shoulder, and the distal end at the elbow.",
+              }
+            : undefined
+        }
+      >
         <p className="mt-3 text-stone-700">
           The{" "}
           <span className="popup-term" data-popup-id="popup-humerus">
@@ -428,6 +507,8 @@ export function HumerusContent({
                 <div className="mt-4 space-y-2">
                   {elements.map((child: Record<string, unknown>, i: number) => {
                     const accordionId = `neighbors-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(String(child.name))}`;
+                    const groupPrefix = `neighbors-detail-${slugify(String(bigPicture.big_picture_name))}`;
+                    const elementNames = elements.map((e: Record<string, unknown>) => String(e.name));
                     return (
                       <div
                         key={i}
@@ -440,10 +521,7 @@ export function HumerusContent({
                           defaultOpen={false}
                           open={openNeighbors[accordionId] ?? false}
                           onToggle={() =>
-                            setOpenNeighbors((prev) => ({
-                              ...prev,
-                              [accordionId]: !(prev[accordionId] ?? false),
-                            }))
+                            toggleAllInGroup(groupPrefix, elementNames, setOpenNeighbors)
                           }
                           previewImage={
                             child.views && child.base
@@ -503,13 +581,26 @@ export function HumerusContent({
               </div>
             );
           })}
-      </section>
+      </AccordionSection>
 
       {/* Step 4 – Anatomical Landmarks */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.landmarks.bg} ${STEP_STYLES.landmarks.border}`}>
-        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.landmarks.heading}`}>
-          Step 4 – Anatomical Landmarks
-        </h2>
+      <AccordionSection
+        id="step-landmarks"
+        title="Step 4 – Anatomical Landmarks"
+        defaultOpen={false}
+        colorTheme={STEP_ACCORDION_THEMES.landmarks}
+        headingLevel="h2"
+        headingClassName={`${STEP_HEADING_CLASS} ${STEP_STYLES.landmarks.heading}`}
+        previewImage={
+          landmarksPreviewSrc
+            ? {
+                src: landmarksPreviewSrc,
+                alt: "Anatomical Landmarks",
+                description: "Most of the named landmarks on the humerus are sites of muscle attachment. Some guide tendons, nerves, and blood vessels.",
+              }
+            : undefined
+        }
+      >
         <p className="mt-3 text-stone-700">
           Most of the named landmarks on the humerus are sites of muscle
           attachment. Some are grooves that guide tendons, nerves, and blood
@@ -592,6 +683,8 @@ export function HumerusContent({
                   {landmarkElements.map(
                     (child: Record<string, unknown>, i: number) => {
                       const detailAccordionId = `landmark-detail-${slugify(String(bigPicture.big_picture_name))}-${slugify(stripHtml(String(child.name)))}`;
+                      const groupPrefix = `landmark-detail-${slugify(String(bigPicture.big_picture_name))}`;
+                      const elementNames = landmarkElements.map((e: Record<string, unknown>) => stripHtml(String(e.name)));
                       return (
                         <div
                           key={i}
@@ -610,12 +703,7 @@ export function HumerusContent({
                               openLandmarkDetails[detailAccordionId] ?? false
                             }
                             onToggle={() =>
-                              setOpenLandmarkDetails((prev) => ({
-                                ...prev,
-                                [detailAccordionId]: !(
-                                  prev[detailAccordionId] ?? false
-                                ),
-                              }))
+                              toggleAllInGroup(groupPrefix, elementNames, setOpenLandmarkDetails)
                             }
                             previewImage={
                               child.views && child.base
@@ -667,13 +755,17 @@ export function HumerusContent({
               </div>
             );
           })}
-      </section>
+      </AccordionSection>
 
       {/* Step 5 – Blood Supply */}
-      <section className={`rounded-2xl border px-6 py-6 sm:px-8 sm:py-7 ${STEP_STYLES.blood.bg} ${STEP_STYLES.blood.border}`}>
-        <h2 className={`${STEP_HEADING_CLASS} ${STEP_STYLES.blood.heading}`}>
-          Step 5 – Blood Supply
-        </h2>
+      <AccordionSection
+        id="step-blood"
+        title="Step 5 – Blood Supply"
+        defaultOpen={false}
+        colorTheme={STEP_ACCORDION_THEMES.blood}
+        headingLevel="h2"
+        headingClassName={`${STEP_HEADING_CLASS} ${STEP_STYLES.blood.heading}`}
+      >
         <p className="mt-3 font-semibold text-stone-800">UNFINISHED</p>
         <p className="mt-2 text-stone-700">
           <span className="font-medium text-stone-800">Plan:</span> Write a
@@ -705,7 +797,7 @@ export function HumerusContent({
               </ul>
             </AccordionSection>
           ))}
-      </section>
+      </AccordionSection>
 
       {/* References */}
       <div className="relative overflow-hidden rounded-2xl border border-stone-200/90 bg-stone-50/80 px-6 py-6 sm:px-8 sm:py-7">
