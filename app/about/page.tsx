@@ -236,9 +236,9 @@ export default function AboutPage() {
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[
                 {
-                  name: "Dr. Emilia Savich",
+                  name: "Emilia Savich",
                   role: "Co-Founder & President",
-                  bio: "Medical educator with 8+ years teaching anatomy. PhD in Education.",
+                  bio: "Pre-Medical Student passionate about making improvements in Education.",
                   icon: "📚",
                   badgeColor: "bg-orange-100/80 text-orange-700",
                   borderColor: "#ea580c",
@@ -248,14 +248,14 @@ export default function AboutPage() {
                 },
                 {
                   name: "Favio Jasso",
-                  role: "Co-Founder & CTO",
-                  bio: "Full-stack engineer passionate about educational technology and open source.",
+                  role: "Co-Founder & Chief Technical Officer",
+                  bio: "Software Engineer passionate about building technology that improves education and supports open-source initiatives.",
                   icon: "💻",
                   badgeColor: "bg-blue-100/80 text-blue-700",
                   borderColor: "#0ea5e9",
                   gradient: "from-blue-50/60",
                   borderClass: "border-blue-200/80",
-                  title: "Co-Founder & CTO",
+                  title: "Co-Founder & Chief Technical Officer",
                 },
               ].map((member) => (
                 <div
