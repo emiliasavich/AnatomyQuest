@@ -249,7 +249,7 @@ export default function AboutPage() {
                 {
                   name: "Favio Jasso",
                   role: "Co-Founder & Chief Technical Officer",
-                  bio: "Software Engineer passionate about building technology that improves education and supports open-source initiatives.",
+                  bio: "Software Engineer passionate about building technology that supports open source initiatives.",
                   icon: "💻",
                   badgeColor: "bg-blue-100/80 text-blue-700",
                   borderColor: "#0ea5e9",
